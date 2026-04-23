@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청년의 성과 젠더 — 기말고사 개념 정리</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e0e;
+    --surface: #1a1818;
+    --surface2: #222020;
+    --border: #2e2b2b;
+    --accent: #c9a96e;
+    --accent2: #8fbeaa;
+    --accent3: #b87fa0;
+    --text: #e8e2d9;
+    --text-muted: #8a8278;
+    --text-dim: #5a5450;
+    --highlight: #c9a96e22;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    padding: 80px 48px 60px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, #c9a96e18 0%, transparent 70%);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, #8fbeaa10 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  header h1 span {
+    color: var(--accent);
+  }
+  .header-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0f0e0eee;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  nav a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 48px 120px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 80px;
+    animation: fadeUp 0.5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 60px; height: 2px;
+    background: var(--accent);
+  }
+
+  /* ── CONCEPT CARD ── */
+  .concept-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .concept-card:hover {
+    border-color: var(--accent);
+  }
+  .concept-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    border-radius: 4px 0 0 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .concept-card:hover::before {
+    opacity: 1;
+  }
+  .concept-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .concept-eng {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  .concept-body {
+    color: var(--text);
+    line-height: 1.9;
+  }
+  .concept-body p { margin-bottom: 10px; }
+  .concept-body p:last-child { margin-bottom: 0; }
+
+  /* ── KEY POINT ── */
+  .key-point {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .key-point strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── GREEN VARIANT ── */
+  .concept-card.green .concept-name { color: var(--accent2); }
+  .concept-card.green:hover { border-color: var(--accent2); }
+  .concept-card.green::before { background: var(--accent2); }
+  .key-point.green {
+    background: #8fbeaa15;
+    border-left-color: var(--accent2);
+  }
+  .key-point.green strong { color: var(--accent2); }
+
+  /* ── PINK VARIANT ── */
+  .concept-card.pink .concept-name { color: var(--accent3); }
+  .concept-card.pink:hover { border-color: var(--accent3); }
+  .concept-card.pink::before { background: var(--accent3); }
+  .key-point.pink {
+    background: #b87fa015;
+    border-left-color: var(--accent3);
+  }
+  .key-point.pink strong { color: var(--accent3); }
+
+  /* ── DATA TABLE ── */
+  .data-table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead tr {
+    background: var(--surface2);
+  }
+  th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+  .td-label {
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  /* ── COMPARISON GRID ── */
+  .cmp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  @media (max-width: 640px) {
+    .cmp-grid { grid-template-columns: 1fr; }
+    main { padding: 40px 24px 80px; }
+    nav { padding: 0 24px; }
+    header { padding: 60px 24px 48px; }
+  }
+  .cmp-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+  }
+  .cmp-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .cmp-box.b h4 { color: var(--accent2); }
+  .cmp-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .cmp-box ul li {
+    font-size: 13.5px;
+    color: var(--text);
+    padding: 4px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .cmp-box ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+    font-size: 11px;
+  }
+
+  /* ── CITE BOX ── */
+  .cite-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .cite-box strong {
+    display: block;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .stat-chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .stat-chip b {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .stat-chip.g b { color: var(--accent2); }
+  .stat-chip.p b { color: var(--accent3); }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin: 16px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 6px;
+    width: 1px;
+    height: calc(100% - 12px);
+    background: var(--border);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -22px; top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .tl-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .tl-item p {
+    font-size: 13.5px;
+    color: var(--text);
+  }
+
+  /* ── DIVIDER ── */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  /* ── LABEL BADGE ── */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .badge-gold { background: #c9a96e25; color: var(--accent); border: 1px solid #c9a96e40; }
+  .badge-green { background: #8fbeaa20; color: var(--accent2); border: 1px solid #8fbeaa40; }
+  .badge-pink  { background: #b87fa020; color: var(--accent3); border: 1px solid #b87fa040; }
+
+  /* ── SUB-SECTION ── */
+  .sub-section {
+    margin-top: 36px;
+  }
+  .sub-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">청년과 가족다양성 · 8-2주차 · 기말고사 대비</div>
+  <h1>청년의 <span>성</span>과 <span>젠더</span><br>개념 완전 정리</h1>
+  <div class="header-meta">이재림 교수 · 서울대학교 아동가족학과 · 2026.4.23.</div>
+</header>
+
+<nav>
+  <a href="#sec1">용어: 성별</a>
+  <a href="#sec2">Doing Gender</a>
+  <a href="#sec3">성 정체성 & 지향</a>
+  <a href="#sec4">퀴어 이론</a>
+  <a href="#sec5">젠더와 성인기</a>
+  <a href="#sec6">노동·임금 격차</a>
+  <a href="#sec7">청년 남성 젠더 인식</a>
+  <a href="#sec8">젠더 갈등 담론</a>
+  <a href="#sec9">서울가족서베이</a>
+  <a href="#sec10">유니버설 디자인</a>
+</nav>
+
+<main>
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec1">
+  <div class="section-number">01 · 핵심 개념</div>
+  <h2 class="section-title">용어: 성별(Sex) vs. 젠더(Gender) vs. 섹슈얼리티</h2>
+
+  <div class="concept-card">
+    <div class="concept-name">섹스 (Sex)</div>
+    <div class="concept-eng">Biological Sex</div>
+    <div class="concept-body">
+      <p><strong>유전적·생물학적·신체적 특징</strong>(염색체, 호르몬, 생식기 등)에 기반하여 구분되는 성별이다. 출생 시 지정되며 주로 남성(male)과 여성(female)으로 구분된다.</p>
+      <p>그러나 인터섹스(Intersex)처럼 이분법 범주에 정확히 맞지 않는 생물학적 변이도 존재한다는 점에서, '섹스'도 완전한 이분법이 아닐 수 있다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card green">
+    <div class="concept-name">젠더 (Gender)</div>
+    <div class="concept-eng">Social / Cultural / Psychological Gender</div>
+    <div class="concept-body">
+      <p><strong>사회적·문화적·심리적으로 구성된 성별</strong>이다. 사회가 '남성성(masculinity)'이나 '여성성(femininity)'이라고 규정하는 기대치, 역할, 정체성을 포괄한다.</p>
+      <p>생물학적으로 결정되는 것이 아니라 사회화 과정에서 학습되고 수행된다. 따라서 시대·문화마다 달라질 수 있다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card pink">
+    <div class="concept-name">성적 표현 (Gender Expression)</div>
+    <div class="concept-eng">External Expression of Gender Identity</div>
+    <div class="concept-body">
+      <p>개인이 자신의 성별 정체성을 <strong>외부로 드러내는 모든 외적 방식</strong>을 의미한다. 옷차림, 머리 스타일, 행동, 말투 등을 통해 나타나며, 이분법적 '남성적'·'여성적' 표현을 넘어 다양한 스펙트럼으로 존재한다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-name">섹슈얼리티 (Sexuality)</div>
+    <div class="concept-eng">Human Sexuality</div>
+    <div class="concept-body">
+      <p><strong>성적 지향, 성적 정체성, 성적 행위 및 욕망을 모두 포함</strong>하는 광범위한 개념이다. 단순히 '성관계'를 의미하는 것이 아니라, 인간이 성적으로 자신을 인식하고 표현하는 방식 전체를 가리킨다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card green">
+    <div class="concept-name">성별 이분법 (Gender Binary)</div>
+    <div class="concept-eng">The Binary System of Gender</div>
+    <div class="concept-body">
+      <p>성별을 <strong>'남성'과 '여성' 두 가지로만 나누고</strong>, 그 외의 존재를 배제하거나 비정상으로 간주하는 사회적 체계이다. 퀴어 이론은 바로 이 이분법에 도전하며, 논바이너리 등의 정체성은 이분법 밖에서 스스로를 규정한다.</p>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <strong>⚑ 시험 포인트</strong> — 섹스(생물학적)와 젠더(사회·문화적)의 차이를 명확히 구분할 것. 젠더는 고정된 것이 아니라 사회적으로 구성되고 수행된다는 점이 핵심이다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec2">
+  <div class="section-number">02 · 핵심 이론</div>
+  <h2 class="section-title">Doing Gender — 젠더는 동사다</h2>
+
+  <div class="concept-card">
+    <div class="concept-name">Doing Gender 이론</div>
+    <div class="concept-eng">West & Zimmerman (1987) · Gender & Society, 1(2), 125–151</div>
+    <div class="concept-body">
+      <p>캔디스 웨스트(Candace West)와 돈 짐머만(Don Zimmerman)이 1987년 제안한 이론으로, <strong>젠더는 명사가 아니라 동사</strong>라는 관점을 제시한다.</p>
+      <p>젠더는 타고난 고정된 속성이 아니라, <strong>타인과 함께하는 상황에서 실행(performance)하는 것</strong>이다. 특정 행동, 말투, 옷차림 같은 일상적 수행을 통해 젠더가 만들어지고 유지된다.</p>
+      <p>젠더 정체성은 남성성·여성성에 대한 <strong>사회적 기대, 문화적 규범</strong>의 영향을 받으며, 타인에 의해 끊임없이 평가되고 강화된다.</p>
+    </div>
+  </div>
+
+  <div class="key-point green">
+    <strong>핵심 명제</strong> — "젠더는 하는 것(doing)이지, 있는 것(being)이 아니다."<br>
+    규범에서 벗어날 경우 사회적 제재(비난, 조롱 등)가 가해지며, 이 제재 자체가 젠더 규범을 재생산한다.
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">▸ 연결 개념: Doing Family (가족 실천론)</div>
+    <div class="concept-card green">
+      <div class="concept-name">Family Practices / Doing Family</div>
+      <div class="concept-eng">Morgan (1996, 2011)</div>
+      <div class="concept-body">
+        <p>데이비드 모건(David H.J. Morgan)의 개념으로, <strong>가족도 명사가 아니라 동사</strong>다. 가족은 고정된 구조가 아니라, <strong>일상생활에서의 활동과 상호작용을 통해 가족임을 실천</strong>하는 과정이다.</p>
+        <p>예: 함께 식사하면서 '가족다움'을 경험하고 구성한다. 혈연이 아니더라도 구성원들이 가족이라고 느끼는 활동을 수행한다면 가족으로 인정될 수 있다.</p>
+        <p>이 개념은 가족다양성을 이해하는 중요한 틀이며, Doing Gender와 평행하는 논리 구조를 가진다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <strong>⚑ 비교 포인트</strong> — Doing Gender(West & Zimmerman, 1987)와 Doing Family(Morgan, 1996, 2011)를 함께 서술하면 '수행·실천으로서의 젠더/가족'이라는 일관된 패러다임을 보여줄 수 있다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec3">
+  <div class="section-number">03 · 핵심 용어</div>
+  <h2 class="section-title">성 정체성, 성적 지향, 시스젠더, 트랜스젠더, 논바이너리</h2>
+
+  <div class="data-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>용어</th>
+          <th>정의</th>
+          <th>주요 특징</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">성 정체성<br>(Gender Identity)</td>
+          <td>자신이 스스로 인식하는 성별</td>
+          <td>생물학적 성과 일치할 수도, 다를 수도 있음. 내면적 자기 인식</td>
+        </tr>
+        <tr>
+          <td class="td-label">성적 지향<br>(Sexual Orientation)</td>
+          <td>어떤 대상에게 정서적·로맨틱적·성적 끌림을 느끼는지</td>
+          <td>이성애, 동성애, 양성애, 무성애 등 다양한 형태</td>
+        </tr>
+        <tr>
+          <td class="td-label">시스젠더<br>(Cisgender)</td>
+          <td>태어날 때 지정된 생물학적 성과 스스로 느끼는 성 정체성이 일치하는 사람</td>
+          <td>다수(majority) 집단. '시스'는 라틴어로 '같은 쪽'의 의미</td>
+        </tr>
+        <tr>
+          <td class="td-label">트랜스젠더<br>(Transgender)</td>
+          <td>태어날 때 지정된 성과 스스로 느끼는 성 정체성이 일치하지 않는 사람</td>
+          <td>성별 불일치(gender incongruence). 젠더 정체성의 문제이며 성적 지향과 별개</td>
+        </tr>
+        <tr>
+          <td class="td-label">논바이너리<br>(Nonbinary)</td>
+          <td>남성이나 여성이라는 이분법적 성별 분류에 속하지 않는 정체성</td>
+          <td>젠더플루이드, 에이젠더 등 다양한 형태. 이분법에 도전하는 정체성</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="concept-card pink">
+    <div class="concept-name">Gender Pronoun (젠더 대명사)</div>
+    <div class="concept-eng">NYC Human Resources Administration 가이드</div>
+    <div class="concept-body">
+      <p>생물학적 성별과 자신이 받아들이는 젠더는 다를 수 있다. 따라서 상대방이 사용하는 대명사(he/him, she/her, they/them 등)를 존중하는 것이 젠더 포용적 의사소통의 기본이다.</p>
+      <p>타인의 젠더 대명사를 무시하거나 잘못 사용하는 것('미스젠더링')은 상대방의 정체성을 부정하는 행위로 간주된다.</p>
+    </div>
+  </div>
+
+  <div class="key-point pink">
+    <strong>⚑ 주의</strong> — 성 정체성(내가 누구인가)과 성적 지향(나는 누구에게 끌리는가)은 서로 독립적인 개념이다. 트랜스젠더도 이성애자, 동성애자, 양성애자 등 다양한 성적 지향을 가질 수 있다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec4">
+  <div class="section-number">04 · 이론</div>
+  <h2 class="section-title">퀴어(Queer)와 퀴어 이론</h2>
+
+  <div class="concept-card">
+    <div class="concept-name">퀴어 (Queer)</div>
+    <div class="concept-body">
+      <p>과거에는 성소수자를 비하·모욕하는 혐오 표현으로 사용되었으나, <strong>1980년대부터 성소수자 인권 운동가들이 스스로를 지칭하는 용어로 전용(reclaim)</strong>하기 시작했다.</p>
+      <p>현재는 레즈비언, 게이, 양성애자, 트랜스젠더, 논바이너리 등 모든 성소수자를 통칭하는 <strong>가장 포괄적인 단어</strong>로 사용된다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card green">
+    <div class="concept-name">퀴어 이론 (Queer Theory)</div>
+    <div class="concept-body">
+      <p>단순히 성소수자를 가리키는 것을 넘어, <strong>사회가 정해 놓은 '정상성(Normalcy)'에 도전</strong>하는 학문적·정치적 입장이다.</p>
+      <p>핵심 주장: "남자와 여자는 이래야 한다"거나 "이성애만이 정상이다"라는 기존의 <strong>이분법적 틀을 거부하고 흔드는</strong> 모든 행위와 사유를 지지한다.</p>
+      <p>경계의 모호함을 인정하고, 특정 카테고리에 가두지 않는다. '정상성에서 벗어난 사람들'이라는 공통점으로 연대의 기반을 마련한다.</p>
+    </div>
+  </div>
+
+  <div class="cmp-grid">
+    <div class="cmp-box">
+      <h4>퀴어링 (Queering)</h4>
+      <ul>
+        <li>기존 텍스트·문화를 성소수자 관점에서 재해석하는 행위</li>
+        <li>예: 전래동화의 주인공 관계를 젠더 관점에서 뒤집어 읽기</li>
+        <li>당연시되는 이성애 규범성(heteronormativity)을 드러내고 문제화함</li>
+      </ul>
+    </div>
+    <div class="cmp-box b">
+      <h4>LGBTQ+ 용어</h4>
+      <ul>
+        <li>L: Lesbian (레즈비언)</li>
+        <li>G: Gay (게이)</li>
+        <li>B: Bisexual (양성애자)</li>
+        <li>T: Transgender (트랜스젠더)</li>
+        <li>Q: Queer / Questioning</li>
+        <li>+: Asexual, Intersex, 모든 정체성 포함</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="key-point green">
+    <strong>용어의 중요성</strong> — "내가 그의 이름을 불러 주기 전에는 / 그는 다만 하나의 몸짓에 지나지 않았다" (김춘수, '꽃'). 이름을 부르는 행위 = 존재를 인정하는 행위. 용어를 갖는 것은 그 정체성·현실을 사회적으로 인정하는 첫걸음이다.
+  </div>
+
+  <div class="concept-card pink">
+    <div class="concept-name">이분법 vs. 스펙트럼</div>
+    <div class="concept-body">
+      <p>성별, 성적 지향, 성 정체성 등을 단순히 두 가지로 나누는 이분법이 과연 최선인가? 오늘날 학계와 실천 현장에서는 이분법 대신 <strong>연속적인 스펙트럼</strong>으로 이해하는 관점이 확장되고 있다.</p>
+      <p>구분 자체보다 더 중요한 것이 무엇인지를 묻는 것 자체가 퀴어 이론의 정신이다.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec5">
+  <div class="section-number">05 · 실증 연구</div>
+  <h2 class="section-title">젠더와 성인기 역할 구조의 변화</h2>
+
+  <div class="concept-card">
+    <div class="concept-name">한국 청년의 성인기 역할 구조 변화</div>
+    <div class="concept-eng">이상직 (2022) · 한국인구학, 45(1), 33–72</div>
+    <div class="concept-body">
+      <p>1998년과 2018년의 만 15~39세 인구집단을 비교하여, 언제·누구와 함께 살면서·무슨 일을 했는지를 분석한 연구다.</p>
+    </div>
+  </div>
+
+  <div class="cmp-grid">
+    <div class="cmp-box">
+      <h4>남성의 변화</h4>
+      <ul>
+        <li>학업·노동 지위: <strong>국지적</strong> 변화</li>
+        <li>가족 지위: <strong>전면적</strong> 변화 (결혼 지연 등)</li>
+        <li>20대 초반, 20대 후반~30대 초반의 시간표가 다소 바뀜</li>
+      </ul>
+    </div>
+    <div class="cmp-box b">
+      <h4>여성의 변화</h4>
+      <ul>
+        <li>학업·노동 지위: <strong>전면적</strong> 변화 (고학력화, 취업률 상승)</li>
+        <li>가족 지위: <strong>전면적</strong> 변화 (결혼 지연, 출산 감소)</li>
+        <li>20대 초반~30대 중반까지 시간표가 20년 전과 확연히 달라짐</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <strong>핵심 결론</strong> — <strong>남녀 라이프코스 구조가 유사해졌으며</strong>, 전환의 폭과 속도는 남성보다 여성에게서 훨씬 컸다. 생산 영역(노동)과 재생산 영역(가족)의 관계가 재편되고 있다.
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">▸ 젠더와 계층 관계</div>
+    <div class="concept-card green">
+      <div class="concept-name">젠더 vs. 계층: 수렴과 분기</div>
+      <div class="concept-eng">이상직 (2020), 이순미 (2017), 정성조 (2019)</div>
+      <div class="concept-body">
+        <p>변화 양상을 요약하면: <strong>젠더 차원에서는 수렴</strong>(남녀가 비슷해지는 현상), <strong>계층 차원에서는 지속·강화</strong>(계층 간 격차가 유지 또는 확대)로 요약된다 (이상직, 2020).</p>
+        <p>정성조(2019)의 비판: <strong>젠더가 마치 갈등의 원인인 양 둔갑하여 본질적인 문제(계층의 구조적 불평등)를 가린다.</strong> 즉, 청년 젠더 갈등 담론은 계층 문제를 젠더 문제로 치환하여 근본적 원인을 흐린다는 것이다.</p>
+        <p>이순미(2017): 노동경력과 가족경로 분석을 통해 청년기 연장(long youth)의 젠더 차이를 분석. 여성의 성인기 이행이 남성과 다르게 지연·변형되는 양상을 규명.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-point pink">
+    <strong>⚑ 논술 포인트</strong> — "젠더 갈등이 심화되고 있다"는 담론을 비판적으로 볼 것. 표면적인 젠더 대립 이면에 계층 구조적 불평등이 놓여 있으며, 젠더 담론이 이를 가릴 수 있다는 시각을 제시하면 논술의 깊이가 높아진다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec6">
+  <div class="section-number">06 · 실증 데이터</div>
+  <h2 class="section-title">여성 고용과 남녀 임금 격차</h2>
+
+  <div class="concept-card">
+    <div class="concept-name">연령별 여성 고용률 변화 (2014 → 2024)</div>
+    <div class="concept-eng">국가데이터처, 「경제활동인구조사」</div>
+    <div class="concept-body">
+      <p>2024년 기준 여성 고용률은 25~29세에 <strong>74.5%</strong>로 가장 높고, 30~34세는 <strong>73.5%</strong>로 여전히 높은 수준이다. 2014년과 비교하면 대부분의 연령대에서 여성 고용률이 상승하였다.</p>
+      <p>특히 <strong>30~34세 여성 고용률이 크게 상승</strong>(2014년 57.6% → 2024년 73.5%)한 것이 주목된다. 이는 과거 결혼·출산으로 경력이 단절되던 패턴이 완화되고 있음을 시사한다.</p>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-chip">25~29세 여성 고용률 <b>74.5%</b> (2024)</div>
+    <div class="stat-chip g">30~34세 <b>73.5%</b> (2024)</div>
+    <div class="stat-chip p">60세 이상 <b>37.9%</b> (2024)</div>
+  </div>
+
+  <div class="concept-card green">
+    <div class="concept-name">성별 취업자 종사상 지위 변화 (2014 → 2024)</div>
+    <div class="concept-eng">국가데이터처, 「경제활동인구조사」</div>
+    <div class="concept-body">
+      <p>여성 취업자 중 <strong>상용근로자 비율이 2014년 42.0% → 2024년 55.1%</strong>로 크게 증가했다. 남성도 51.6% → 58.9%로 증가했지만, 여성의 상용근로 비율 상승폭이 더 크다.</p>
+      <p>임시·일용 근로자 비중은 두 성별 모두 감소하는 추세이나, 여성의 비정규직 비중은 여전히 남성보다 높다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card pink">
+    <div class="concept-name">성별 취업자 직업 분포 (2024년)</div>
+    <div class="concept-body">
+      <p><strong>여성</strong>: 전문가 및 관련 종사자(24.3%), 사무 종사자(20.9%), 서비스 종사자(18.8%), 판매 종사자(10.6%) 등이 상위 직업군을 구성한다.</p>
+      <p><strong>남성</strong>: 전문가 및 관련 종사자(20.8%), 장치·기계 조작 및 조립 종사자(16.6%), 단순 노무 종사자(12.3%), 사무 종사자(15.1%) 등이 주요 직업군이다.</p>
+      <p>직업 분포에서 남녀 간 <strong>직종 분리(occupational segregation)</strong>가 여전히 나타나며, 이는 임금 격차의 주요 원인 중 하나이다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-name">남녀 임금 격차 — OECD 최하위권</div>
+    <div class="concept-eng">OECD Gender Wage Gap, 2024 기준</div>
+    <div class="concept-body">
+      <p>한국의 성별 임금 격차는 <strong>OECD 국가 중 최상위(가장 큰 격차)</strong>로, 2024년 기준 중앙값 기준 남성 임금 대비 여성 임금 격차가 <strong>약 29%</strong>에 달한다. OECD 평균(약 12%) 대비 두 배 이상이다.</p>
+      <p>정규직 시간당 임금 성비(여성/남성): 2014년 65.4% → 2024년 73.3%로 개선되고 있으나, 여전히 격차가 크다. 비정규직도 2024년 74.3%로 정규직과 유사한 수준의 격차가 존재한다.</p>
+      <p>임금 격차의 원인으로는 직종 분리, 경력 단절, 관리직 진입 장벽, 돌봄 부담의 불균등 분배 등이 지목된다.</p>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <strong>⚑ 데이터 활용</strong> — 여성 고용률 상승·임금 격차 지속이라는 '동시적 현상'을 함께 서술하면 젠더 불평등의 복합적 성격을 잘 보여줄 수 있다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec7">
+  <div class="section-number">07 · 실증 연구</div>
+  <h2 class="section-title">청년 남성들의 젠더 인식 다층성</h2>
+
+  <div class="concept-card">
+    <div class="concept-name">청년 남성들의 젠더 인식 4가지 유형</div>
+    <div class="concept-eng">추지현 (2021) · 한국여성학, 37(4), 155–193</div>
+    <div class="concept-body">
+      <p>청년 남성의 젠더 인식이 단일하지 않고 <strong>다층적</strong>임을 보여주는 연구다. 4가지 유형으로 분류된다:</p>
+    </div>
+  </div>
+
+  <div class="data-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>유형</th>
+          <th>비율</th>
+          <th>주요 특징</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">1. 평등 당위수용</td>
+          <td>17.2%</td>
+          <td>평등을 규범적으로 지지. 성역할 규범에 비판적이며 차별 시정 정책에 적극 동조</td>
+        </tr>
+        <tr>
+          <td class="td-label">2. 보수</td>
+          <td>20.8%</td>
+          <td>전통적 성역할 규범 유지 선호. 여성 차별 시정 정책에 소극적 또는 부정적</td>
+        </tr>
+        <tr>
+          <td class="td-label">3. 변혁 지향</td>
+          <td>14.2%</td>
+          <td>적극적 페미니즘 지향. 구조적 변화를 지지하며 남성도 젠더 규범에서 자유로워야 한다고 봄</td>
+        </tr>
+        <tr>
+          <td class="td-label">4. 같음 지향</td>
+          <td>47.7%</td>
+          <td>가장 큰 집단. '남녀 간 차이 없음'을 강조. 역차별 인식이 강하며 현실적 불평등을 과소평가하는 경향</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-point green">
+    <strong>핵심 발견</strong> — <strong>보수 집단(20.6%)을 제외하고는</strong>, 여성에 대한 차별 시정 및 지배적 남성성을 변화시키기 위한 남성들의 참여 확대 정책에 긍정적인 반응을 보였다. 즉 청년 남성이 모두 반페미니즘적이라는 것은 과잉 일반화이다.
+  </div>
+
+  <div class="key-point">
+    <strong>⚑ 논술 포인트</strong> — "청년 남성 = 반페미니즘"이라는 단순화된 이해를 비판하고, 젠더 인식의 <strong>다층성</strong>을 강조할 것. '같음 지향'(47.7%)이 가장 큰 집단이며, 이들이 역차별 담론에 가장 취약한 집단이기도 하다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec8">
+  <div class="section-number">08 · 비판적 시각</div>
+  <h2 class="section-title">젠더 갈등 담론 비판</h2>
+
+  <div class="concept-card pink">
+    <div class="concept-name">젠더 갈등 담론의 문제</div>
+    <div class="concept-eng">정성조 (2019) · 경제와사회, 12–39</div>
+    <div class="concept-body">
+      <p><strong>젠더가 마치 갈등의 원인인 양 둔갑하여 본질적인 문제를 가린다.</strong> 청년들이 경험하는 불평등의 실질적 원인 — 예: <strong>계층의 구조적 불평등</strong> — 이 젠더 대립 구도로 치환됨으로써 핵심 문제가 흐려진다.</p>
+      <p>청년 세대 담론에서 섹슈얼리티와 젠더를 중심으로 재구성하면, 단순한 세대 갈등이나 젠더 전쟁이 아닌, 더 복합적인 사회 구조적 문제임이 드러난다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-name">2025년 대선 출구조사: 성별·연령별 투표 패턴</div>
+    <div class="concept-eng">KBS·MBC·SBS 방송 3사 공동 출구조사 (2025.6.3.)</div>
+    <div class="concept-body">
+      <p>20대 이하 남성의 경우 이재명(더불어민주당) 24.0%, 김문수(국민의힘) 36.9%, 이준석(개혁신당) <strong>37.2%</strong>로 이준석 후보가 가장 높은 지지를 받았다.</p>
+      <p>반면 20대 이하 여성은 이재명 <strong>58.1%</strong>, 김문수 25.3%, 이준석 10.3%로 정반대의 투표 패턴을 보였다.</p>
+      <p>이른바 <strong>'젠더 투표 분열(gender voting divide)'</strong>이 20~30대에서 두드러졌으며, 40대 이상에서는 남녀 간 차이가 현저히 줄어든다. 이 현상은 구조적 불평등 경험의 차이, 미디어 소비 패턴, 페미니즘에 대한 태도 등과 연결된다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card green">
+    <div class="concept-name">2030세대 젠더 갈등의 심각성</div>
+    <div class="concept-eng">최재천 교수, MBC 손석희의 질문들 (2025.3.4.)</div>
+    <div class="concept-body">
+      <p>진화생물학자 최재천 교수는 2030세대를 중심으로 높아지는 젠더 갈등의 심각성을 지적하며, 한국 사회의 다양성 부재와 연결하여 진단했다. "자연은 순수를 혐오한다"는 명제처럼, 다양성이 없는 사회는 지속 가능하지 않다는 시각을 제시했다.</p>
+    </div>
+  </div>
+
+  <div class="key-point pink">
+    <strong>⚑ 비판적 분석틀</strong> — 젠더 갈등 담론을 다룰 때 ① 구조적 불평등(계층, 노동)이 젠더 갈등으로 전환되는 메커니즘, ② 미디어가 갈등을 증폭하는 방식, ③ 다양성과 포용의 관점에서 해결책을 논의하는 방향으로 서술하라.
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">▸ 청년의 삶 실태조사 — 갈등 인식</div>
+    <div class="concept-card">
+      <div class="concept-name">2024년 청년의 삶 실태조사 (국무총리비서실)</div>
+      <div class="concept-body">
+        <p>만 19~34세 청년 1.5만 가구 대상 조사 결과:</p>
+        <p>갈등 인식: 소득 갈등(75.7%), 세대 갈등(72.1%), <strong>성별 갈등(66.6%)</strong>, 지역 갈등(62.4%), 내·외국인 갈등(47.1%) 순으로 많다고 응답했다. 성별 갈등이 주요 사회갈등 중 하나로 인식되고 있음을 보여준다.</p>
+        <p>바라는 삶의 요소: 일자리(95.9%), 인간관계(94.7%), 소득·자산(93%), 연애(78.3%), 결혼(74.4%) 순. 남성이 여성보다 연애(82.2%>74.1%), 결혼(79.1%>69.3%), 출산·양육(74.2%>63.1%)을 더 중요하게 응답했다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec9">
+  <div class="section-number">09 · 데이터</div>
+  <h2 class="section-title">서울가족서베이 — 젠더와 결혼·출산 태도</h2>
+
+  <div class="concept-card green">
+    <div class="concept-name">결혼·출산 계획의 성별 차이 (청년의 삶 실태조사, 2024)</div>
+    <div class="concept-body">
+      <p>배우자가 없는 청년 중 결혼 계획이 있는 비율은 <strong>63.1%</strong> (2022년 75.0%에서 대폭 하락). 출산 의향이 있는 비율은 <strong>59.3%</strong>이다.</p>
+      <p>성별 차이: 남성이 여성보다 결혼 계획(67.8% > 57.5%), 출산 의향(65.1% > 52.8%)이 더 높게 나타났다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-name">비혼 및 비혼 동거에 대한 태도 (2025 서울가족서베이)</div>
+    <div class="concept-body">
+      <p>'결혼하지 않고 독신(비혼)으로 살아도 괜찮다'에 대한 동의 평균: <strong>3.6점</strong> (5점 만점). 여성(3.8점)이 남성(3.4점)보다 동의 수준이 높았다. 20·30대가 50대 이상보다 동의 수준이 높았다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card pink">
+    <div class="concept-name">평생 비혼 의향 (2025 서울가족서베이)</div>
+    <div class="concept-body">
+      <p>비혼 서울 시민의 평생 결혼하지 않을 의향 평균: <strong>3.0점</strong> (5점 만점). <strong>여성(3.2점)이 남성(2.9점)보다 높아</strong> 여성의 비혼 의향이 더 두드러진다.</p>
+      <p>주관적 계층이 중하 이하인 집단(3.1점)이 중상 이상인 집단(2.9점)보다 비혼 의향이 높아, 계층과의 연관성도 확인된다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card green">
+    <div class="concept-name">부모가 될 의향의 성별 차이 (2025 서울가족서베이)</div>
+    <div class="concept-body">
+      <p>자녀가 없는 20~40대 서울 시민의 '언젠가 부모가 될 의향' 평균: <strong>3.2점</strong>. 남성(3.5점)이 여성(2.9점)보다 통계적으로 유의하게 높다.</p>
+      <p>2025년에는 2024년(3.4점)에서 소폭 하락한 3.2점으로 나타났다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-name">부모가 될 의향이 없는 이유의 성별 차이</div>
+    <div class="concept-body">
+      <p>부모가 될 의향이 없거나 보통인 이유 중 성별 차이가 가장 큰 항목:</p>
+      <p>① <strong>'기대만큼 자녀를 잘 키울 자신이 없어서'</strong> — 여성 4.2점, 남성 3.8점으로 여성이 더 높음</p>
+      <p>② <strong>'아이를 좋아하지 않아서'</strong> — 여성 3.3점, 남성 2.9점으로 여성이 더 높음</p>
+      <p>전반적으로 높은 이유: 한국사회가 자녀 키우기에 적절하지 않아서(3.9점), 자녀 양육·교육비용 부담(3.9점), 경제적 상황(3.8점) 등 사회경제적 이유가 주를 이룬다.</p>
+    </div>
+  </div>
+
+  <div class="concept-card pink">
+    <div class="concept-name">부모역할 어려움의 성별 차이</div>
+    <div class="concept-body">
+      <p>18세 이하 자녀가 있는 부모의 부모역할 어려움 평균 3.5점. 영역별로는 재정적 어려움(3.7점)이 가장 높다.</p>
+      <p><strong>엄마(3.8점)가 아빠(3.4점)보다 '정신적 어려움' 수준이 통계적으로 유의하게 높다.</strong> 이는 돌봄 노동의 불균등한 분배, 모성 신화(motherhood mystique), 정서적 부담의 젠더화를 반영한다.</p>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-title">▸ 서울시 저출생 대응 정책에 대한 성별 인식 차이</div>
+    <div class="concept-card">
+      <div class="concept-name">저출생 정책 요구도 성별 차이 (2025 서울가족서베이)</div>
+      <div class="concept-body">
+        <p>전체 1위 정책 수요: 신혼부부 및 양육자 주거 지원(70.2%), 일-생활균형 지원(66.2%), 출산·육아 비용 지원(63.2%).</p>
+        <p>성별 인식 차이가 가장 두드러진 항목:</p>
+        <p>• <strong>평등하고 포용적인 사회 문화</strong>: 여성 40.8%, 남성 20.1% → <strong>20.7%p 격차</strong></p>
+        <p>• <strong>만남·결혼 지원</strong>: 남성 32.9%, 여성 13.9% → <strong>19.0%p 격차</strong></p>
+        <p>• 출산·육아 비용 지원: 남성 69.2%, 여성 57.5%</p>
+        <p>여성은 평등·포용적 사회 문화와 일-생활균형을 더 중요하게 보고, 남성은 만남·결혼 지원과 주거·육아비 지원을 더 강조하는 경향이 있다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-point green">
+    <strong>⚑ 논술 활용</strong> — 저출생 문제에 대한 해법 인식의 성별 차이는 젠더 불평등 경험의 차이에서 비롯된다. 여성은 구조적 성평등(노동·돌봄의 공평한 분배)이 전제되어야 출산·양육을 고려할 수 있다고 보는 반면, 남성은 재정·인프라 지원을 우선시하는 경향을 보인다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="sec10">
+  <div class="section-number">10 · 응용</div>
+  <h2 class="section-title">유니버설 디자인과 젠더 포용성</h2>
+
+  <div class="concept-card green">
+    <div class="concept-name">유니버설 디자인 (Universal Design)</div>
+    <div class="concept-body">
+      <p>유니버설 디자인이란 <strong>모든 사람이 나이, 성별, 장애 여부 등과 무관하게 이용할 수 있도록</strong> 설계하는 원칙이다. '모두를 위한 디자인'이라고도 한다.</p>
+      <p>젠더 관점에서의 유니버설 디자인 사례: <strong>가족 화장실</strong>과 <strong>모두를 위한 화장실(All-Gender Restroom)</strong>이 대표적이다.</p>
+      <p>가족 화장실은 자녀와 함께 외출할 때 엄마·아빠가 함께 이용할 수 있도록 설계된 공간이다. 그러나 '모두는 누구인가?'라는 물음 — 즉, 젠더 이분법 밖의 사람들, 장애인, 돌봄 필요자 모두를 포함하는 더 넓은 개념의 포용적 공간 설계가 필요하다.</p>
+    </div>
+  </div>
+
+  <div class="cmp-grid">
+    <div class="cmp-box">
+      <h4>가족 화장실 (한국)</h4>
+      <ul>
+        <li>자녀 동반 시 엄마·아빠 모두 이용 가능</li>
+        <li>돌봄 역할의 탈젠더화에 기여</li>
+        <li>한계: 여전히 '가족' 단위 중심</li>
+      </ul>
+    </div>
+    <div class="cmp-box b">
+      <h4>All-Gender Restroom (캐나다 등)</h4>
+      <ul>
+        <li>성별 이분법 없는 공용 화장실</li>
+        <li>논바이너리·트랜스젠더 등 포함</li>
+        <li>West Vancouver: 포용적 공간 설계 선도</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concept-card pink">
+    <div class="concept-name">3T 이론 (Richard Florida)</div>
+    <div class="concept-body">
+      <p>리처드 플로리다(Richard Florida)의 창조도시 이론. 도시와 지역이 번영하기 위해 필요한 세 가지 요소:</p>
+      <p><strong>Technology (기술)</strong> + <strong>Talent (인재)</strong> + <strong>Tolerance (관용·포용)</strong></p>
+      <p>세 번째 요소인 'Tolerance'는 다양성(성소수자 포함)에 대한 사회적 포용도를 의미한다. 관용적인 도시일수록 창의적 인재가 모이고, 경제적으로도 번영한다는 논리이다. 샌프란시스코는 성소수자의 상징적 도시이자 실리콘밸리와 인접한 창조도시로 이 이론의 대표 사례로 언급된다.</p>
+    </div>
+  </div>
+
+  <div class="key-point">
+    <strong>⚑ 논술 연결</strong> — 유니버설 디자인과 3T 이론을 통해 젠더 다양성이 단순히 도덕적 당위가 아니라 사회·경제적 가치와도 연결됨을 논증할 수 있다.
+  </div>
+</section>
+
+
+<!-- ────────────────────────────────────────────── -->
+<section class="section" id="summary">
+  <div class="section-number">∑ · 종합 정리</div>
+  <h2 class="section-title">핵심 개념 한눈에 보기</h2>
+
+  <div class="data-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>개념/이론</th>
+          <th>핵심 주장</th>
+          <th>출처</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">Doing Gender</td>
+          <td>젠더는 수행·실천이며, 타인과의 상호작용 속에서 반복적으로 만들어진다</td>
+          <td>West & Zimmerman (1987)</td>
+        </tr>
+        <tr>
+          <td class="td-label">Family Practices</td>
+          <td>가족도 수행·실천이며, 일상생활의 활동을 통해 가족임이 구성된다</td>
+          <td>Morgan (1996, 2011)</td>
+        </tr>
+        <tr>
+          <td class="td-label">퀴어 이론</td>
+          <td>이분법적 정상성에 도전. 경계의 모호함을 인정하고 다양성을 긍정</td>
+          <td>학문·운동 전반</td>
+        </tr>
+        <tr>
+          <td class="td-label">젠더와 성인기 역할 구조</td>
+          <td>남녀 라이프코스가 수렴하고 있으며, 변화의 폭은 여성이 더 컸다</td>
+          <td>이상직 (2022)</td>
+        </tr>
+        <tr>
+          <td class="td-label">젠더 갈등 담론 비판</td>
+          <td>젠더가 원인이 아니라 계층 불평등을 가리는 담론으로 기능할 수 있다</td>
+          <td>정성조 (2019)</td>
+        </tr>
+        <tr>
+          <td class="td-label">청년 남성 젠더 인식</td>
+          <td>단일하지 않고 다층적. 보수 집단 외에는 성평등 정책에 대체로 긍정적</td>
+          <td>추지현 (2021)</td>
+        </tr>
+        <tr>
+          <td class="td-label">임금 성별 격차</td>
+          <td>한국 OECD 최하위권(29%). 직종 분리·경력 단절 등이 원인</td>
+          <td>OECD, 고용노동부</td>
+        </tr>
+        <tr>
+          <td class="td-label">서울가족서베이</td>
+          <td>비혼 의향·부모 될 의향 등에서 여성이 남성보다 낮은 가족 형성 의향 보임</td>
+          <td>2025 서울가족서베이</td>
+        </tr>
+        <tr>
+          <td class="td-label">3T 이론</td>
+          <td>창조도시의 조건: Technology + Talent + Tolerance(다양성 포용)</td>
+          <td>Richard Florida</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-point pink">
+    <strong>논술 전략 메모</strong><br><br>
+    ① 개념 정의 → ② 이론(Doing Gender 등)으로 설명 → ③ 데이터(서베이·통계)로 뒷받침 → ④ 비판적 시각(젠더 담론 vs. 계층) 제시 → ⑤ 정책·실천적 함의로 마무리<br><br>
+    섹스·젠더·섹슈얼리티를 혼동하지 말 것. 시스젠더·트랜스젠더·논바이너리·퀴어 등의 용어를 정확하게 사용할 것. 데이터의 성별 차이 수치를 구체적으로 인용하면 논술의 설득력이 높아진다.
+  </div>
+</section>
+
+</main>
+
+<footer style="border-top: 1px solid var(--border); padding: 40px 48px; text-align: center; color: var(--text-dim); font-size: 12px; letter-spacing: 0.05em;">
+  청년과 가족다양성 · 8-2주차 · 청년의 성과 젠더 · 서울대학교 아동가족학과 이재림 교수 · 기말고사 대비 개념 정리
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Nav active state
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.style.color = '');
+        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (active) {
+          active.style.color = 'var(--accent)';
+          active.style.borderBottomColor = 'var(--accent)';
+        }
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
