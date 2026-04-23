@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청년과 가족다양성 | 기말고사 대비 포털</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0a0a;
+            --surface: #161515;
+            --border: #2a2828;
+            --accent: #c9a96e; /* 골드 포인트 */
+            --text: #e2ddd5;
+            --text-muted: #8e8881;
+            --card-hover: #1f1d1d;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 15px;
+        }
+
+        header h1 span { color: var(--accent); }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* --- Dashboard Grid --- */
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .week-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .week-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: var(--card-hover);
+        }
+
+        .week-card:hover::before { opacity: 1; }
+
+        .week-num {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .week-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .week-topics {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            list-style: none;
+        }
+
+        .week-topics li {
+            margin-bottom: 6px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .week-topics li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .status-badge {
+            margin-top: auto;
+            padding-top: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: right;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        /* --- Exam Resources Section --- */
+        .resources {
+            margin-top: 100px;
+            padding: 40px;
+            background: #1a1917;
+            border-radius: 12px;
+            border: 1px dashed var(--border);
+        }
+
+        .resources-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .resource-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .resource-item {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .resource-item:hover { color: var(--accent); }
+
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .week-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <p class="subtitle">Seoul National University</p>
+        <h1>청년과 <span>가족다양성</span> 포털</h1>
+        <p style="color: var(--text-muted)">2026학년도 1학기 기말고사 완벽 대비를 위한 학습 아카이브</p>
+    </header>
+
+    <div class="week-grid">
+        <a href="청년의_성과_젠더_개념정리.html" class="week-card">
+            <span class="week-num">WEEK 08-2</span>
+            <h3 class="week-title">청년의 성과 젠더</h3>
+            <ul class="week-topics">
+                <li>Sex vs Gender vs Sexuality</li>
+                <li>Doing Gender / Doing Family</li>
+                <li>젠더 인식의 다층성 (추지현, 2021)</li>
+                <li>서울가족서베이 실증 데이터</li>
+            </ul>
+            <div class="status-badge">정리 완료 ✓</div>
+        </a>
+
+        <a href="#" class="week-card" style="opacity: 0.6; cursor: not-allowed;">
+            <span class="week-num">WEEK 09</span>
+            <h3 class="week-title">청년과 1인 가구</h3>
+            <ul class="week-topics">
+                <li>혼삶의 미시적 동기</li>
+                <li>고립과 외로움의 사회학</li>
+                <li>1인 가구 주거 정책</li>
+            </ul>
+            <div class="status-badge">업데이트 예정</div>
+        </a>
+
+        <a href="#" class="week-card" style="opacity: 0.6; cursor: not-allowed;">
+            <span class="week-num">WEEK 10</span>
+            <h3 class="week-title">청년의 노동과 빈곤</h3>
+            <ul class="week-topics">
+                <li>이행기 노동의 불안정성</li>
+                <li>부모 찬스와 자산 불평등</li>
+                <li>청년 수당 논쟁</li>
+            </ul>
+            <div class="status-badge">업데이트 예정</div>
+        </a>
+    </div>
+
+    <section class="resources">
+        <h3 class="resources-title">Quick Resources</h3>
+        <div class="resource-links">
+            <a href="#" class="resource-item">📄 전체 강의계획서</a>
+            <a href="#" class="resource-item">✍️ 기말고사 예상 논제 리스트</a>
+            <a href="#" class="resource-item">📊 통계청·서울시 데이터 링크</a>
+            <a href="#" class="resource-item">💡 교수님 강조 키워드</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026. SNU Child Development and Family Studies. Prepared for Final Exams.
+    </footer>
+</div>
+
+</body>
+</html>
