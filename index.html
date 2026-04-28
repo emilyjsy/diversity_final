@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>청년과 가족다양성 기말 대비 포털</title>
+    <title>청년과 가족다양성 기말대비 포털</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -20,31 +20,38 @@
             background-color: var(--bg);
             color: var(--text);
             font-family: 'Noto Sans KR', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
         }
 
-        .lobby-container {
-            width: 100%;
-            max-width: 600px;
-            padding: 40px;
+        header {
             text-align: center;
+            margin-bottom: 60px;
         }
 
-        header { margin-bottom: 50px; }
         header h1 {
             font-family: 'Noto Serif KR', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
         }
-        header h1 span { color: var(--accent); }
-        .subtitle { color: var(--text-muted); letter-spacing: 0.1em; font-size: 0.9rem; }
 
-        /* 메인 링크 카드 */
-        .portal-link {
-            display: block;
+        header h1 span { color: var(--accent); }
+        .subtitle { color: var(--text-muted); letter-spacing: 0.15em; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+
+        /* 카드 그리드 레이아웃 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .portal-card {
             background: var(--surface);
             border: 1px solid var(--border);
             padding: 35px;
@@ -52,68 +59,85 @@
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .portal-link:hover {
+        .portal-card:hover {
             border-color: var(--accent);
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             background: #1f1d1d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .week-tag {
             font-size: 0.75rem;
             color: var(--accent);
             font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
         }
 
         .title {
             font-family: 'Noto Serif KR', serif;
-            font-size: 1.6rem;
-            margin-bottom: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            word-break: keep-all;
         }
 
         .desc {
             font-size: 0.9rem;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
         }
 
-        .click-hint {
-            display: block;
-            margin-top: 20px;
+        .go-btn {
             font-size: 0.8rem;
+            font-weight: 700;
             color: var(--accent);
-            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         footer {
-            margin-top: 60px;
+            margin-top: 80px;
             font-size: 0.8rem;
             color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="lobby-container">
-    <header>
-        <p class="subtitle">FINAL EXAM PORTAL</p>
-        <h1>청년과 <span>가족다양성</span></h1>
-    </header>
+<header>
+    <span class="subtitle">2026 SPRING FINAL ARCHIVE</span>
+    <h1>청년과 <span>가족다양성</span></h1>
+</header>
 
-    <a href="diversity01.html" class="portal-link">
+<div class="card-grid">
+    <a href="diversity01.html" class="portal-card">
         <span class="week-tag">WEEK 08-2</span>
         <div class="title">청년의 성과 젠더</div>
-        <p class="desc">개념 정의(Sex/Gender/Sexuality), <br>수행 이론 및 실증 데이터 분석</p>
-        <span class="click-hint">CLICK TO OPEN ARCHIVE →</span>
+        <p class="desc">Sex vs Gender 개념, Doing Gender 이론, 한국 청년의 젠더 인식 다층성 분석</p>
+        <span class="go-btn">Study Now →</span>
     </a>
 
-    <footer>
-        &copy; 2026 SNU 기말고사 대비 아카이브
-    </footer>
+    <a href="diversity02.html" class="portal-card">
+        <span class="week-tag">WEEK 09-1</span>
+        <div class="title">청년의 사랑</div>
+        <p class="desc">친밀성의 구조 변동, 낭만적 사랑 vs 합류적 사랑, 데이트 비용 및 연애율 데이터 정리</p>
+        <span class="go-btn">Study Now →</span>
+    </a>
 </div>
+
+<footer>
+    &copy; SNU Child Development and Family Studies.
+</footer>
 
 </body>
 </html>
