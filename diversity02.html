@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청년의 사랑 1 — 기말고사 개념 정리</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --bg2: #f3ede3;
+    --surface: #ffffff;
+    --border: #e2d9cc;
+    --border2: #d0c4b0;
+    --accent: #7c5c3a;
+    --accent2: #4a7c6f;
+    --accent3: #8c4a6e;
+    --accent-light: #c9a97820;
+    --text: #1e1a16;
+    --text-muted: #7a6e62;
+    --text-dim: #b0a494;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.85;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--text);
+    color: var(--bg);
+    padding: 72px 56px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '愛';
+    position: absolute;
+    right: -20px; top: -30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 280px;
+    color: #ffffff06;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    opacity: 0.9;
+  }
+  header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(26px, 4.5vw, 44px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: #faf8f4;
+    margin-bottom: 14px;
+  }
+  header h1 em {
+    color: #c9a978;
+    font-style: normal;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: #9a8f82;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--text);
+    border-bottom: 1px solid #2a2520;
+    padding: 0 56px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    display: block;
+    padding: 14px 18px;
+    font-size: 11.5px;
+    letter-spacing: 0.07em;
+    color: #7a6e62;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav a:hover, nav a.active {
+    color: #c9a978;
+    border-bottom-color: #c9a978;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 64px 56px 120px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 88px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: rise 0.5s ease forwards;
+  }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+  .section:nth-child(4) { animation-delay: 0.2s; }
+  .section:nth-child(5) { animation-delay: 0.25s; }
+  .section:nth-child(6) { animation-delay: 0.3s; }
+  .section:nth-child(7) { animation-delay: 0.35s; }
+  .section:nth-child(8) { animation-delay: 0.4s; }
+  .section:nth-child(9) { animation-delay: 0.45s; }
+  .section:nth-child(10) { animation-delay: 0.5s; }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .sec-num {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(19px, 2.8vw, 26px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .sec-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 48px; height: 2px;
+    background: var(--accent);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 26px 30px;
+    margin-bottom: 18px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(124,92,58,0.08);
+    border-color: var(--accent);
+  }
+  .card-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .card-eng {
+    font-size: 11.5px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .card-body {
+    color: var(--text);
+    line-height: 1.9;
+    font-size: 14.5px;
+  }
+  .card-body p { margin-bottom: 10px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .card.green .card-title { color: var(--accent2); }
+  .card.green:hover { border-color: var(--accent2); }
+
+  .card.pink .card-title { color: var(--accent3); }
+  .card.pink:hover { border-color: var(--accent3); }
+
+  /* ── HIGHLIGHT ── */
+  .hl {
+    background: var(--bg2);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin: 14px 0;
+    border-radius: 0 3px 3px 0;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .hl strong { color: var(--accent); font-weight: 700; }
+  .hl.green { border-left-color: var(--accent2); }
+  .hl.green strong { color: var(--accent2); }
+  .hl.pink { border-left-color: var(--accent3); }
+  .hl.pink strong { color: var(--accent3); }
+
+  /* ── TABLE ── */
+  .tbl-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    margin: 18px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--surface);
+  }
+  thead tr { background: var(--bg2); }
+  th {
+    padding: 11px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 11.5px;
+    letter-spacing: 0.07em;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 11px 15px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg); }
+  .tlabel { font-weight: 600; color: var(--accent); white-space: nowrap; }
+
+  /* ── GRID ── */
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  @media (max-width: 640px) {
+    .grid2 { grid-template-columns: 1fr; }
+    main { padding: 40px 24px 80px; }
+    nav { padding: 0 20px; }
+    header { padding: 56px 24px 48px; }
+  }
+  .gbox {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 18px 22px;
+  }
+  .gbox h4 {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+  }
+  .gbox.b h4 { color: var(--accent2); }
+  .gbox.c h4 { color: var(--accent3); }
+  .gbox ul { list-style: none; padding: 0; }
+  .gbox ul li {
+    font-size: 13.5px;
+    color: var(--text);
+    padding: 3px 0 3px 14px;
+    position: relative;
+    line-height: 1.7;
+  }
+  .gbox ul li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: var(--text-dim);
+  }
+
+  /* ── LOVE TRIANGLE VISUAL ── */
+  .triangle-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 28px;
+    margin: 18px 0;
+    text-align: center;
+  }
+  .tri-svg { max-width: 320px; margin: 0 auto 20px; display: block; }
+  .tri-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  @media (max-width: 540px) { .tri-grid { grid-template-columns: 1fr; } }
+  .tri-item {
+    background: var(--bg2);
+    border-radius: 3px;
+    padding: 14px;
+    text-align: left;
+  }
+  .tri-item h5 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .tri-item p { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+  .tri-item.i h5 { color: var(--accent2); }
+  .tri-item.p h5 { color: var(--accent3); }
+  .tri-item.c h5 { color: var(--accent); }
+
+  /* ── LOVE TYPES TABLE ── */
+  .love8-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 16px 0;
+  }
+  @media (max-width: 580px) { .love8-grid { grid-template-columns: 1fr; } }
+  .love8-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 14px 16px;
+  }
+  .love8-item h5 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .love8-item .formula {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .love8-item p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+  /* ── ATTACHMENT BOX ── */
+  .attach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 16px 0;
+    background: var(--surface);
+  }
+  .attach-header {
+    background: var(--bg2);
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.07em;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .attach-cell {
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .attach-cell h5 {
+    font-weight: 700;
+    font-size: 13.5px;
+    margin-bottom: 6px;
+  }
+  .attach-cell.secure h5 { color: var(--accent2); }
+  .attach-cell.preoc h5 { color: var(--accent3); }
+  .attach-cell.dismiss h5 { color: var(--accent); }
+  .attach-cell.fearful h5 { color: #8c6a2a; }
+  .attach-cell p { color: var(--text-muted); font-size: 13px; }
+
+  /* ── STAT CHIPS ── */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .chip {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .chip b { color: var(--accent); font-weight: 700; }
+  .chip.g b { color: var(--accent2); }
+  .chip.p b { color: var(--accent3); }
+
+  /* ── TIMELINE ── */
+  .tl { padding-left: 26px; position: relative; margin: 16px 0; }
+  .tl::before {
+    content: '';
+    position: absolute;
+    left: 5px; top: 6px;
+    width: 1px;
+    height: calc(100% - 12px);
+    background: var(--border2);
+  }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -21px; top: 7px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .tl-item h4 { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  .tl-item p { font-size: 13.5px; color: var(--text); line-height: 1.75; }
+
+  /* ── COMPARE BOX ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  @media (max-width: 540px) { .compare { grid-template-columns: 1fr; } }
+  .cmp-col { padding: 20px 22px; }
+  .cmp-col:first-child { border-right: 1px solid var(--border); background: var(--surface); }
+  .cmp-col:last-child { background: var(--bg2); }
+  .cmp-col h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+  .cmp-col:first-child h4 { color: var(--accent); }
+  .cmp-col:last-child h4 { color: var(--accent2); }
+  .cmp-col ul { list-style: none; padding: 0; }
+  .cmp-col ul li {
+    font-size: 13.5px;
+    color: var(--text);
+    padding: 4px 0 4px 14px;
+    position: relative;
+    line-height: 1.7;
+  }
+  .cmp-col ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+    font-size: 11px;
+  }
+
+  /* ── QUOTE ── */
+  .quote-box {
+    border: 1px solid var(--border2);
+    border-radius: 3px;
+    padding: 22px 26px;
+    margin: 16px 0;
+    background: var(--bg2);
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    font-style: italic;
+  }
+  .quote-box cite {
+    display: block;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">청년과 가족다양성 · 9-1주차 · 기말고사 대비</div>
+  <h1>청년의 <em>사랑</em> 1<br>주요 개념, 연애와 비연애</h1>
+  <div class="header-sub">이재림 교수 · 서울대학교 아동가족학과 · 완전 개념 정리</div>
+</header>
+
+<nav>
+  <a href="#s1">친밀감</a>
+  <a href="#s2">연애 역사</a>
+  <a href="#s3">한국 청년 연애</a>
+  <a href="#s4">비연애 이유</a>
+  <a href="#s5">Giddens 이론</a>
+  <a href="#s6">친밀성 구조변동?</a>
+  <a href="#s7">사랑의 삼각형</a>
+  <a href="#s8">8가지 사랑</a>
+  <a href="#s9">성인애착</a>
+  <a href="#s10">청년기 연애</a>
+  <a href="#s11">썸·비연애</a>
+  <a href="#s12">미디어·기사</a>
+  <a href="#s13">종합</a>
+</nav>
+
+<main>
+
+<!-- 01 -->
+<section class="section" id="s1">
+  <div class="sec-num">01 · 핵심 개념</div>
+  <h2 class="sec-title">친밀감 (Intimacy)</h2>
+
+  <div class="card">
+    <div class="card-title">친밀감 (Intimacy) — APA 정의</div>
+    <div class="card-eng">APA Dictionary of Psychology</div>
+    <div class="card-body">
+      <p>친밀감이란 <strong>개인적 공간에 상대방이 들어오더라도 불편함을 느끼지 않을 정도로 정서적으로 매우 가까운 상호적 상태</strong>를 의미한다. 가깝고 친숙하며, 대개 애정적인 혹은 사랑하는 개인적 관계를 특징짓는다.</p>
+      <p>친밀감은 <strong>서로에 대한 상세한 지식이나 깊은 이해</strong>를 필요로 한다. 단순히 물리적으로 가깝거나 오래 알고 지낸 것과는 다르다. 상호적(mutual)이어야 하며, 한쪽만 느끼는 상태는 진정한 친밀감이 아니다.</p>
+      <p>영어 원문: "interpersonal state of extreme emotional closeness such that each party's personal space can be entered by any of the other parties without causing discomfort to that person."</p>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">Giddens의 친밀성 — 관계를 조직하는 원리 (1992)</div>
+    <div class="card-body">
+      <p>기든스(Anthony Giddens)는 친밀성을 단순한 정서적 가까움을 넘어 <strong>개인의 정체성, 삶의 의미, 사회적 연결을 구성하는 핵심 메커니즘</strong>으로 파악한다. "우리가 서로를 어떻게 대하고, 어떻게 관계를 유지하는가"에 대한 구조적 틀이다.</p>
+      <p>전통사회: 가족, 종교, 공동체 같은 <strong>외부 구조</strong>가 관계를 규정했다.</p>
+      <p>현대사회: <strong>친밀성 자체가 관계의 운영 원리</strong>가 된다. 성적인 사랑에만 국한되지 않으며 부모-자녀, 친구 관계에도 적용된다.</p>
+      <p>사랑의 유형 변화(열정적 → 낭만적 → 합류적)에 따라 친밀성의 성격도 변화한다.</p>
+    </div>
+  </div>
+
+  <div class="hl">
+    <strong>⚑ 핵심 구분</strong> — APA 정의(심리학적·개인 간 차원)와 Giddens 정의(사회구조적 차원)를 함께 서술하면 친밀성의 다층적 의미를 보여줄 수 있다.
+  </div>
+</section>
+
+
+<!-- 02 -->
+<section class="section" id="s2">
+  <div class="sec-num">02 · 역사적 맥락</div>
+  <h2 class="sec-title">연애(Dating)의 역사</h2>
+
+  <div class="tl">
+    <div class="tl-item">
+      <h4>근대 — 산업혁명·도시화</h4>
+      <p>가족의 통제에서 벗어난 젊은이들이 만날 기회가 증가했다. "사랑해서 결혼한다"는 개념이 보편화되기 시작했으며, 배우자 선택에서 개인의 감정이 중요해졌다.</p>
+    </div>
+    <div class="tl-item">
+      <h4>현대 — 20세기 초·중반</h4>
+      <p>자동차의 보급으로 부모의 감시를 벗어난 '데이트' 공간이 확보되었다. 여성 인권 신장으로 연애에서의 주도권에 변화가 나타났다.</p>
+    </div>
+    <div class="tl-item">
+      <h4>오늘날</h4>
+      <p>데이팅 앱의 확산 등 효율성과 선택의 폭이 넓어졌으나 관계의 가벼움 문제가 대두되었다. 비혼·비연애 트렌드가 확산되고, 경제적 부담과 개인의 자유를 중시하는 가치관이 퍼졌다.</p>
+    </div>
+    <div class="tl-item">
+      <h4>미래 (전망)</h4>
+      <p>AI 파트너, VR 데이트 등의 확장이 전망된다. 기술이 친밀성의 형태를 어떻게 바꿀 것인가라는 질문이 제기된다.</p>
+    </div>
+  </div>
+
+  <div class="hl green">
+    <strong>논술 포인트</strong> — 연애의 역사는 친밀성의 사회적 구성을 보여주는 사례다. 연애의 형태가 고정된 것이 아니라 사회·경제적 조건의 변화에 따라 달라진다는 점에서, Doing Gender와 유사하게 '연애도 수행·실천이자 사회적 구성물'이라는 논지로 확장 가능하다.
+  </div>
+</section>
+
+
+<!-- 03 -->
+<section class="section" id="s3">
+  <div class="sec-num">03 · 실증 데이터</div>
+  <h2 class="sec-title">한국 청년의 연애 현황</h2>
+
+  <div class="card">
+    <div class="card-title">현재 연애 여부 (2024년 청년의 삶 실태조사)</div>
+    <div class="card-eng">n = 12,967 · 만 19~34세</div>
+    <div class="card-body">
+      <p>한국 청년의 <strong>63.8%가 연애 중이 아니다</strong>. 연애 중인 청년은 36.2%에 불과하다.</p>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>구분</th><th>연애 중</th><th>비연애</th><th>비고</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="tlabel">전체</td><td>36.2%</td><td>63.8%</td><td>—</td></tr>
+        <tr><td class="tlabel">남성</td><td>35.1%</td><td>64.9%</td><td>여성보다 낮음</td></tr>
+        <tr><td class="tlabel">여성</td><td>37.5%</td><td>62.5%</td><td>남성보다 높음</td></tr>
+        <tr><td class="tlabel">19~24세</td><td>28.7%</td><td>71.3%</td><td>가장 낮은 연애율</td></tr>
+        <tr><td class="tlabel">25~29세</td><td>40.2%</td><td>59.8%</td><td>—</td></tr>
+        <tr><td class="tlabel">30~34세</td><td>42.4%</td><td>57.6%</td><td>가장 높은 연애율</td></tr>
+        <tr><td class="tlabel">대학 재학·휴학</td><td>28.0%</td><td>72.0%</td><td>가장 낮은 학력별 연애율</td></tr>
+        <tr><td class="tlabel">대학 졸업 이상</td><td>40.2%</td><td>59.8%</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">2022 청년의 일과 사랑의 지형과 교차성 (이재림 연구책임)</div>
+    <div class="card-eng">N = 1,119 · 19~34세</div>
+    <div class="card-body">
+      <p>연인 유무: 있음 37.98%, 모호함(썸) 7.42%, 없음 54.60%</p>
+      <p>연인 선택 시 항목별 중요도(1~5점): <strong>성격(4.60)</strong> > 가치관(4.25) > 경제력 및 직업(3.77) > 외모(3.68)</p>
+      <p>연인이 있는 응답자(N=425): 평균 연애기간 33.47개월, 연인 연령 평균 28.23세. <strong>남성 연상</strong> 커플이 55.06%로 가장 많음. 데이트비용 본인 부담 비율: 남성 58.09%, 여성 43.76%.</p>
+      <p>연인관계 만족도 3.77점, 현재 연인과의 결혼 의향 3.77점.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">연애 유무와 관련된 요인 (이재림 연구팀)</div>
+    <div class="card-body">
+      <p>연인 유무와 정적(+) 관련 요인: <strong>여성, 교육연수, 경제활동, 부모됨 의향, 연애중요도</strong></p>
+      <p>연인 유무와 부적(-) 관련 요인: <strong>사회관계 중요도</strong> — 즉 친구 등 사회적 관계를 더 중시할수록 연애에 덜 집중하는 경향이 있다.</p>
+      <p>Shin & Lee(2025) 연구: 한국 청년의 연애 여부에는 <strong>구조적 요인(소득, 교육, 미래 SES 낙관)</strong>과 <strong>태도적 요인(연애 중요도, 커리어 결정 여부)</strong> 모두 유의한 관련이 있다. 연애가 사회경제적 층위에 따라 계층화(stratified)되고 있다는 점이 핵심 발견이다.</p>
+    </div>
+  </div>
+
+  <div class="hl pink">
+    <strong>⚑ 논술 포인트</strong> — 연애율 통계를 단순히 '비연애 증가'로 해석하지 말 것. 비연애의 이유가 다양하고(의도적 선택 vs. 구조적 제약), 연애 자체가 계층화되고 있다는 시각을 추가하면 분석력이 높아진다.
+  </div>
+</section>
+
+
+<!-- 04 -->
+<section class="section" id="s4">
+  <div class="sec-num">04 · 실증 데이터</div>
+  <h2 class="sec-title">비연애 이유와 유형화</h2>
+
+  <div class="card">
+    <div class="card-title">연애하지 않는 이유 (복수 응답, N=694)</div>
+    <div class="card-eng">2022 청년의 일과 사랑의 지형과 교차성</div>
+    <div class="card-body">
+      <p>연애 의향(1~5점) 평균: <strong>3.18점</strong> — 연애를 원하지 않는 것이 아니라 상황상 못 하는 경우가 많음을 시사한다.</p>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>비연애 이유</th><th>n</th><th>선택율</th><th>해석</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="tlabel">적당한 상대를 만나지 못함</td><td>418</td><td>60.23%</td><td>1위. 의지 있으나 기회 부재</td></tr>
+        <tr><td class="tlabel">바빠서 여유가 없음</td><td>280</td><td>40.35%</td><td>구조적·환경적 제약</td></tr>
+        <tr><td class="tlabel">경제적 여유가 없음</td><td>256</td><td>36.89%</td><td>경제적 구조 문제</td></tr>
+        <tr><td class="tlabel">연애에 가치를 두지 않음</td><td>248</td><td>35.73%</td><td>가치관·태도 변화</td></tr>
+        <tr><td class="tlabel">자유로운 삶을 위해</td><td>206</td><td>29.68%</td><td>의도적 선택</td></tr>
+        <tr><td class="tlabel">연인관계로 발전이 어려움</td><td>97</td><td>13.98%</td><td>관계 기술·심리적 요인</td></tr>
+        <tr><td class="tlabel">연인관계 유지가 어려움</td><td>74</td><td>10.66%</td><td>자기노출·갈등대처 어려움</td></tr>
+        <tr><td class="tlabel">일시적으로 연애하지 않음</td><td>50</td><td>7.20%</td><td>일시적 단절기</td></tr>
+        <tr><td class="tlabel">연애를 싫어함(비연애주의)</td><td>41</td><td>5.91%</td><td>적극적 비연애 지향</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">비연애 이유 유형화 (유혜민·이진영·신하은·이재림, 2025 NCFR)</div>
+    <div class="card-eng">잠재계층분석(LCA) · N = 663 · SSCI급 학술지 투고 예정</div>
+    <div class="card-body">
+      <p>비연애 이유를 잠재계층분석으로 유형화한 결과 <strong>3개 유형</strong>이 도출되었다:</p>
+      <p><strong>Class 1. It's intentional (50%)</strong> — 의도적 비연애. '자유로운 삶을 위해', '연애에 가치를 두지 않음' 등이 높음. 연애를 의식적으로 선택하지 않은 집단이다.</p>
+      <p><strong>Class 2. I'm seeking (43%)</strong> — 연애를 원하지만 상대를 못 만나거나 관계로 발전시키기 어려운 집단. '적당한 상대를 만나지 못함'이 압도적으로 높다.</p>
+      <p><strong>Class 3. It's challenging (7%)</strong> — 관계 자체가 어려운 집단. '연인관계 발전이 어려움', '유지가 어려움', '경제적 여유 없음'이 모두 높다. 구조적·심리적 복합 장벽을 경험하는 취약한 집단이다.</p>
+    </div>
+  </div>
+
+  <div class="hl">
+    <strong>⚑ 핵심 시각</strong> — '비연애'를 단일한 현상으로 보지 않고 <strong>이유와 의도에 따라 다층적</strong>임을 이해해야 한다. N포 세대 담론처럼 '포기'로 일반화하는 것은 실제 양상을 왜곡한다.
+  </div>
+</section>
+
+
+<!-- 05 -->
+<section class="section" id="s5">
+  <div class="sec-num">05 · 핵심 이론</div>
+  <h2 class="sec-title">친밀성의 구조변동 — Giddens (1992)</h2>
+
+  <div class="card">
+    <div class="card-title">열정적 사랑 (Passionate Love)</div>
+    <div class="card-body">
+      <p>근대 이전부터 존재한 <strong>보편적 감정</strong>이다. 근대적 합리성과 결합하기 이전의, 통제되지 않은 원초적 사랑이다.</p>
+      <p>일상적 질서를 파괴하는 <strong>위험하고 강렬한 감정</strong>으로, 사회적 의무나 미래에 대한 계산보다 현재의 강렬한 끌림에 투신한다. 주로 비극적 결말을 맞이한다.</p>
+      <p>예: 로미오와 줄리엣, 인어공주 등의 서사</p>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">낭만적 사랑 (Romantic Love)</div>
+    <div class="card-body">
+      <p>18세기 후반 초기 근대사회 유럽에서 등장한 <strong>사회적 구성물</strong>이다. 열정적 사랑과 달리 미래 지향적이고 이성적이다.</p>
+      <p>핵심 특징: <strong>세상에 하나뿐인 상대를 향한 영원하고 헌신적인 관계의 약속</strong>. 현대적 자아정체성을 형성하고 유지하는 핵심 기제로 작동한다:</p>
+      <p>① 상대방에게 특별한 존재가 됨으로써 자아 확인<br>
+      ② 삶이 어디로 흘러가는지 파악하는 자아의 서사 구축<br>
+      ③ 근대사회의 불확실성을 견뎌낼 수 있는 정서적 토대</p>
+      <p><strong>근대적 핵가족 제도를 유지하는 강력한 이데올로기</strong>로 작용했다. 결혼이라는 제도를 통해 낭만적 사랑의 복합체는 가정을 형성하고, "Happily ever after"라는 고정된 서사를 만들었다. 성별 분업(생계부양자 남성, 돌봄노동자 여성)을 기반으로 가부장적 구조를 강화했다.</p>
+      <p>예: 신데렐라 서사</p>
+    </div>
+  </div>
+
+  <div class="card pink">
+    <div class="card-title">합류적 사랑 (Confluent Love)</div>
+    <div class="card-body">
+      <p>후기 근대사회에서 낭만적 사랑의 환상에 대한 대안으로 등장했다. <strong>서로의 필요와 정서적 만족이 유지되는 동안만 지속되는 사랑</strong>이다.</p>
+      <p>핵심 특징:</p>
+      <p>① <strong>조건적이고 지속적으로 재협상</strong>되는 사랑<br>
+      ② 특별한 '대상'이 아니라 특별한 '관계' 형성이 중요 — 현재의 정서적 교감이 핵심<br>
+      ③ 성별 분업·위계에서 벗어나 <strong>협상, 평등, 의사소통</strong>이 중요해짐<br>
+      ④ 만족이 유지되지 않으면 언제든 종료 가능 (<strong>열린 서사</strong>)</p>
+      <p>합류적 사랑은 <strong>순수한 관계(Pure Relationship)</strong>의 원형에 가깝다.</p>
+      <p>예: 라라랜드 (La La Land) — 서로를 사랑하지만 각자의 삶을 선택하는 결말</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">순수한 관계 (Pure Relationship)</div>
+    <div class="card-body">
+      <p>외부적 조건(전통, 경제적 필요 등)이 아니라 <strong>관계 그 자체의 내재적 속성에 따라 유지·변화되는 평등한 관계</strong>이다. 합류적 사랑에서 가장 잘 실현된다.</p>
+      <p>양쪽 모두 관계에서 충분한 만족을 얻는 한 계속되며, 그렇지 않을 경우 언제든 떠날 수 있다. 이는 전통적 결혼 제도와 근본적으로 다른 논리다.</p>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">섹슈얼리티의 가소성 (Plastic Sexuality)</div>
+    <div class="card-body">
+      <p>'Plastic'은 <strong>모양을 자유롭게 바꿀 수 있다</strong>는 의미다. 사회 변화에 따라 섹슈얼리티의 의미가 재구성된다는 개념이다.</p>
+      <p>핵심 내용: 피임 기술의 발달 등으로 <strong>섹슈얼리티가 생식(재생산)에서 분리</strong>되었다. 이로써 섹슈얼리티가 쾌락과 정서적 교감을 위한 가소성을 갖게 되었고, 이성애(heterosexuality)가 누려왔던 독점적·우월한 지위가 해체되기 시작했다. 전통적 성역할에서 벗어나 자신의 욕망과 정체성에 따라 성적 행위와 관계 형태를 자유롭게 조형할 수 있게 되었다.</p>
+      <p>또한 섹슈얼리티는 <strong>자아정체성의 도구</strong>가 된다 — '나는 누구인가'를 결정하고 자신의 쾌락과 만족에 대한 성찰의 영역이 된다.</p>
+    </div>
+  </div>
+
+  <div class="hl">
+    <strong>⚑ 요약 흐름</strong> — 열정적 사랑(원초적·비극적) → 낭만적 사랑(이성적·제도적·가부장적) → 합류적 사랑(평등·재협상·열린 결말). 이 변화는 근대→현대→후기 근대의 사회변동과 일치한다.
+  </div>
+</section>
+
+
+<!-- 06 -->
+<section class="section" id="s6">
+  <div class="sec-num">06 · 비교 분석</div>
+  <h2 class="sec-title">친밀성의 구조변동 vs. 친밀성의 약화</h2>
+
+  <div class="compare">
+    <div class="cmp-col">
+      <h4>친밀성의 구조변동 (Giddens, 1992)</h4>
+      <ul>
+        <li>전통적 결혼제도 약화 <strong>WITH</strong> 다양한 파트너십의 확산</li>
+        <li>비혼동거, 비혼출산 등 새로운 관계 형태로 친밀성 표현</li>
+        <li>각국의 결혼제도 밖 파트너십 등록제 확산</li>
+        <li>합류적 사랑·순수한 관계로의 이행</li>
+        <li>친밀성은 사라지는 게 아니라 <strong>변환</strong>된다</li>
+      </ul>
+    </div>
+    <div class="cmp-col">
+      <h4>친밀성의 약화 (Ochiai, 2014)</h4>
+      <ul>
+        <li>전통적 결혼제도 약화 <strong>WITHOUT</strong> 다양한 파트너십 확산</li>
+        <li>동아시아(한국·일본)의 특수성: 3포 세대, 연애·결혼·출산을 모두 포기</li>
+        <li>친밀성 자체가 줄어드는 현상 — 관계 맺기를 회피</li>
+        <li>사랑·연애·결혼은 모두 친밀성의 차원이므로 이 모두의 포기는 친밀성의 약화를 의미</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">한국의 친밀성 구조변동 여부 — 복합적 양상</div>
+    <div class="card-body">
+      <p><strong>구조변동의 증거(Yes)</strong>: 결혼제도 밖 다양한 파트너십 확산(비혼동거, 비혼출산), 각국 파트너십 등록제, 동성결혼 법제화.</p>
+      <p><strong>구조변동이 아닌 증거(No)</strong>: 결혼의 상징적 의미 유지 + 계층 차이. 한국에서 경제적 여건과 결혼 이행의 관련성이 강화되어 결혼은 '사치재'화 되고 있다. 비혼동거가 결혼의 전 단계로 인식된다(진미정·성미애, 2021). 결혼 내부(부부 역할 분담)에서의 변화는 미약하다. 미국 저소득층 여성은 결혼을 선호하지만 비혼 출산을 하는 역설적 현상도 존재한다.</p>
+      <p>결론적으로 한국은 <strong>친밀성의 구조변동과 친밀성의 약화가 공존</strong>하는 복합적 양상을 보인다.</p>
+    </div>
+  </div>
+
+  <div class="hl green">
+    <strong>⚑ 논술 활용</strong> — '비혼 증가 = 친밀성의 구조변동'이라는 단순 해석을 비판하고, 동아시아적 맥락에서 '친밀성의 약화' 가능성을 함께 논의하면 더 깊은 분석이 된다.
+  </div>
+</section>
+
+
+<!-- 07 -->
+<section class="section" id="s7">
+  <div class="sec-num">07 · 핵심 이론</div>
+  <h2 class="sec-title">사랑의 삼각형 이론 (Sternberg, 1986)</h2>
+
+  <div class="triangle-wrap">
+    <svg class="tri-svg" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="150,20 280,240 20,240" fill="#f3ede3" stroke="#d0c4b0" stroke-width="1.5"/>
+      <polygon points="150,70 240,220 60,220" fill="#e8dfd0" stroke="#c9a978" stroke-width="1" opacity="0.6"/>
+      <!-- Labels -->
+      <text x="150" y="14" text-anchor="middle" font-family="Noto Serif KR,serif" font-size="12" fill="#4a7c6f" font-weight="bold">친밀감 Intimacy</text>
+      <text x="150" y="26" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#7a6e62">Liking</text>
+      <text x="292" y="248" text-anchor="middle" font-family="Noto Serif KR,serif" font-size="12" fill="#8c4a6e" font-weight="bold">열정</text>
+      <text x="8" y="248" text-anchor="middle" font-family="Noto Serif KR,serif" font-size="12" fill="#7c5c3a" font-weight="bold">헌신</text>
+      <!-- Center label -->
+      <text x="150" y="148" text-anchor="middle" font-family="Noto Serif KR,serif" font-size="11" fill="#7c5c3a" font-weight="bold">성숙한 사랑</text>
+      <text x="150" y="162" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#9a8f82">Consummate Love</text>
+      <!-- Edge labels -->
+      <text x="230" y="140" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#8c4a6e" transform="rotate(60 230 140)">낭만적 사랑</text>
+      <text x="70" y="140" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#7c5c3a" transform="rotate(-60 70 140)">우애적 사랑</text>
+      <text x="150" y="235" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#7a6e62">허구적 사랑</text>
+    </svg>
+    <div class="tri-grid">
+      <div class="tri-item i">
+        <h5>친밀감 (Intimacy)</h5>
+        <p>정서적 영역. 가깝고 연결된 느낌, 따뜻함, 유대감. 상대를 깊이 이해하고 지지하는 마음.</p>
+      </div>
+      <div class="tri-item p">
+        <h5>열정 (Passion)</h5>
+        <p>동기 유발적 영역. 신체적 매력, 성적 관심, 강렬한 끌림. 보고 싶고 가슴이 설레는 상태.</p>
+      </div>
+      <div class="tri-item c">
+        <h5>헌신 (Commitment)</h5>
+        <p>인지적 영역. 상대를 사랑하겠다는 결심, 관계를 유지하겠다는 약속과 책임감.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">삼각형 이론의 핵심 원리</div>
+    <div class="card-body">
+      <p>세 요소의 양에 따라 삼각형의 <strong>면적(사랑의 크기)</strong>과 <strong>모양(사랑의 균형 상태)</strong>이 달라진다. 세 요소가 모두 크고 균형을 이룰수록 더 완전한 사랑에 가깝다.</p>
+      <p><strong>시간에 따라 사랑의 형태가 변화</strong>할 수 있다. 초기에는 열정이 강하고 헌신은 약하지만, 장기 관계에서는 열정이 줄고 친밀감·헌신이 강해지는 경향이 있다.</p>
+      <p><strong>관계 갈등의 원인</strong>: 내가 생각하는 우리 관계의 삼각형과 상대방이 생각하는 삼각형이 다를 때 갈등이 발생한다. 예: 나는 헌신을 강조하는데 상대는 열정을 원할 때.</p>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">사랑의 삼각형 척도 (Sternberg, 1997)</div>
+    <div class="card-eng">각 요소 15문항씩, 총 45문항 / 1점~9점 척도</div>
+    <div class="card-body">
+      <p><strong>친밀감 문항 예시</strong>: "나는 파트너와 아주 가깝게 지낸다", "나는 파트너를 깊이 신뢰한다", "나는 파트너에게 개인적인 비밀을 털어놓는 편이다"</p>
+      <p><strong>열정 문항 예시</strong>: "파트너를 보는 것만으로도 가슴이 설렌다", "파트너에 대한 나의 감정은 매우 강렬하다"</p>
+      <p><strong>헌신 문항 예시</strong>: "나는 파트너와 평생 함께하고 싶다", "나는 파트너를 사랑하기로 결심했다", "나는 파트너와의 관계를 유지하기 위해 노력한다"</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 08 -->
+<section class="section" id="s8">
+  <div class="sec-num">08 · 핵심 이론</div>
+  <h2 class="sec-title">사랑의 8가지 형태 (Sternberg)</h2>
+
+  <div class="love8-grid">
+    <div class="love8-item">
+      <h5>① 사랑이 없는 상태</h5>
+      <div class="formula">친밀감 ✕ · 열정 ✕ · 헌신 ✕</div>
+      <p>세 요소가 모두 없는 상태. 단순한 지인 관계.</p>
+    </div>
+    <div class="love8-item">
+      <h5>② 좋아함 (Liking)</h5>
+      <div class="formula">친밀감 ○ · 열정 ✕ · 헌신 ✕</div>
+      <p>정서적 유대와 가까움은 있지만 열정과 헌신 없음. 우정에 가까운 상태.</p>
+    </div>
+    <div class="love8-item">
+      <h5>③ 도취적 사랑 (Infatuation)</h5>
+      <div class="formula">친밀감 ✕ · 열정 ○ · 헌신 ✕</div>
+      <p>첫눈에 반한 사랑. 열정만 있고 깊은 앎이나 헌신 없음. 일방적 짝사랑에 가깝다.</p>
+    </div>
+    <div class="love8-item">
+      <h5>④ 공허한 사랑 (Empty Love)</h5>
+      <div class="formula">친밀감 ✕ · 열정 ✕ · 헌신 ○</div>
+      <p>헌신만 남은 상태. 정서적 교감·열정 없이 의무감으로만 유지되는 관계.</p>
+    </div>
+    <div class="love8-item">
+      <h5>⑤ 낭만적 사랑 (Romantic Love)</h5>
+      <div class="formula">친밀감 ○ · 열정 ○ · 헌신 ✕</div>
+      <p>친밀감과 열정이 있지만 미래에 대한 헌신이 없음. 설레고 가깝지만 약속 없는 관계.</p>
+    </div>
+    <div class="love8-item">
+      <h5>⑥ 우애적 사랑 (Companionate Love)</h5>
+      <div class="formula">친밀감 ○ · 열정 ✕ · 헌신 ○</div>
+      <p>깊은 신뢰와 헌신이 있지만 열정이 식은 상태. 오랜 부부 또는 깊은 우정.</p>
+    </div>
+    <div class="love8-item">
+      <h5>⑦ 허구적 사랑 (Fatuous Love)</h5>
+      <div class="formula">친밀감 ✕ · 열정 ○ · 헌신 ○</div>
+      <p>열정과 헌신만 있고 친밀감 없음. 충분한 이해 없이 서둘러 결혼하는 경우.</p>
+    </div>
+    <div class="love8-item" style="border-color: #c9a978;">
+      <h5>⑧ 성숙한 사랑 (Consummate Love)</h5>
+      <div class="formula">친밀감 ○ · 열정 ○ · 헌신 ○</div>
+      <p>세 요소가 모두 충족된 이상적인 사랑. 달성하기 어렵고 유지하기는 더 어렵다.</p>
+    </div>
+  </div>
+
+  <div class="hl">
+    <strong>⚑ 논술 활용</strong> — 8가지 유형을 단순 나열하지 말고, 현대 한국 청년의 연애 현황(비연애율 63.8%, 썸 문화)과 연결하여 해석할 것. 예: 썸 상태는 '도취적 사랑'에 가까울 수 있으며, 비연애는 사랑 자체의 부재가 아닐 수 있다.
+  </div>
+</section>
+
+
+<!-- 09 -->
+<section class="section" id="s9">
+  <div class="sec-num">09 · 핵심 이론</div>
+  <h2 class="sec-title">성인애착이론 (Adult Attachment)</h2>
+
+  <div class="card">
+    <div class="card-title">이론적 배경 — Bowlby, Ainsworth, Hazan & Shaver</div>
+    <div class="card-body">
+      <p>보울비(Bowlby, 1907~1990)와 에인스워스(Ainsworth, 1913~1999)가 발전시킨 애착이론을 하잔(Hazan)과 쉐이버(Shaver, 1987)가 <strong>성인 연인관계에 적용</strong>했다.</p>
+      <p>영아-양육자 관계와 성인 연인관계의 공통점:</p>
+      <p>① 서로 가까이 있고 반응적일 때 안전감을 느낌<br>
+      ② 가깝고 친밀한 신체적 접촉<br>
+      ③ 상대가 없으면 불안을 느낌<br>
+      ④ 발견(새로운 것)을 공유하려는 욕구<br>
+      ⑤ 서로에게 강한 관심<br>
+      ⑥ "베이비 토크" 사용 — 높은 음조, 부드러운 목소리, 애칭, 과장된 감정 표현</p>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">성인 애착 유형 — Bartholomew & Horowitz (1991) 범주 모형</div>
+    <div class="card-body">
+      <p>자신(MODEL OF SELF)과 타인(MODEL OF OTHER)에 대한 두 축의 정신적 표상 조합(2×2)에 따라 4가지 유형이 나타난다.</p>
+    </div>
+  </div>
+
+  <div class="attach-grid">
+    <div class="attach-header" style="grid-column: 1/-1;">
+      자아 모델(긍정/부정) × 타인 모델(긍정/부정) = 4가지 애착 유형
+    </div>
+    <div class="attach-cell secure">
+      <h5>안정형 (Secure)</h5>
+      <p>자아 모델 긍정 × 타인 모델 긍정. 친밀감과 자율성 모두에 편안함. 가장 건강한 유형. 관계 만족도·신뢰·헌신이 높다.</p>
+    </div>
+    <div class="attach-cell preoc">
+      <h5>집착형 (Preoccupied)</h5>
+      <p>자아 모델 부정 × 타인 모델 긍정. 관계에 과도하게 집착. 상대의 반응에 민감하고 불안이 높다.</p>
+    </div>
+    <div class="attach-cell dismiss">
+      <h5>무시형 (Dismissing)</h5>
+      <p>자아 모델 긍정 × 타인 모델 부정. 애착을 부인하고 대항-의존적. 겉으로는 무관심해 보이지만 내면에서 스트레스를 경험할 수 있다.</p>
+    </div>
+    <div class="attach-cell fearful">
+      <h5>두려움형 (Fearful)</h5>
+      <p>자아 모델 부정 × 타인 모델 부정. 친밀감에 대한 두려움과 사회적 회피. 가장 취약한 유형.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">성인애착의 주요 원리 (Fraley, 2018)</div>
+    <div class="card-body">
+      <p>성인관계에서도 영아와 유사한 <strong>애착 유형의 개인차</strong>가 나타난다. 안정형 성인은 관계 만족도·신뢰·헌신이 높고 파트너를 안전기지로 활용한다.</p>
+      <p>회피형 성인은 겉으로는 무관심해 보이지만 스트레스를 경험할 수 있다. 성인애착은 <strong>어린 시절 주 양육자와의 경험을 부분적으로 반영</strong>하지만, 성인기 관계 경험에 의해 수정될 수 있다.</p>
+      <p>중요한 점: 애착인물에 따라 양상이 다를 수 있다. 즉 한 사람이 어떤 관계에서는 안정적이고 다른 관계에서는 불안할 수 있다.</p>
+      <p>성인애착 2차원 모형(Fraley et al., 2015): <strong>불안(Anxiety) 축</strong>과 <strong>회피(Avoidance) 축</strong>으로 표현되며, 안정형·집착형·무시-회피형·두려움-회피형으로 나뉜다.</p>
+    </div>
+  </div>
+
+  <div class="hl pink">
+    <strong>⚑ 논술 연결</strong> — 성인애착 유형은 비연애 이유와도 연결된다. '연인관계 발전이 어렵다', '관계 유지가 어렵다'(Class 3 - It's challenging)는 회피형·두려움형 애착과 관련될 수 있다. 비연애를 개인의 의지나 경제 문제로만 보지 않고 심리적 차원을 함께 고려해야 한다.
+  </div>
+</section>
+
+
+<!-- 10 -->
+<section class="section" id="s10">
+  <div class="sec-num">10 · 발달적 맥락</div>
+  <h2 class="sec-title">청년시기의 (비)연애 — 성인진입기와의 연결</h2>
+
+  <div class="card">
+    <div class="card-title">성인진입기(Emerging Adulthood)의 특성과 연애 (Beckmeyer & Jamison, 2023)</div>
+    <div class="card-body">
+      <p>청년기는 다양한 발달과업에 동시에 직면하는 시기다: 학업 및 졸업, 진로·취업 준비, 경제적 자립, 연애 등. 모든 것을 동시에 이룰 수 없기에 특정 영역을 우선시하게 된다.</p>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>성인진입기 특성</th><th>연애와의 연결</th><th>비연애와의 연결</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tlabel">정체성 탐색</td>
+          <td>연애를 통해 자아를 발견하고 정체성 형성</td>
+          <td>자기 탐색에 집중하기 위해 의도적 비연애 선택</td>
+        </tr>
+        <tr>
+          <td class="tlabel">불안정성</td>
+          <td>불안정한 시기이기에 안정적 관계를 원함</td>
+          <td>삶 변화에 유연하게 대처하기 위한 의도적 선택이거나 자연스러운 결과</td>
+        </tr>
+        <tr>
+          <td class="tlabel">자기중심성</td>
+          <td>자기 성장을 공유할 파트너 원함</td>
+          <td>타인에 대한 책임보다 자기 탐색·정체성 형성에 집중</td>
+        </tr>
+        <tr>
+          <td class="tlabel">'낀 시기'</td>
+          <td>어른도 아이도 아닌 과도기 → 진지한 관계 모색</td>
+          <td>준비되지 않은 느낌 → 연애·결혼을 유예</td>
+        </tr>
+        <tr>
+          <td class="tlabel">가능성·낙관성</td>
+          <td>미래에 대한 기대가 높아 이상적 파트너 기준 높음</td>
+          <td>더 좋은 상대를 기다리며 현재는 비연애</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hl green">
+    <strong>핵심 시각</strong> — 청년기 비연애를 단순히 '포기'나 '문제'로 볼 것이 아니라, 성인진입기의 발달적 특성(자기중심성, 불안정성)과 맞닿아 있는 <strong>맥락화된 선택</strong>으로 이해해야 한다.
+  </div>
+</section>
+
+
+<!-- 11 -->
+<section class="section" id="s11">
+  <div class="sec-num">11 · 새로운 관계 형태</div>
+  <h2 class="sec-title">연애, 비연애, '썸' — 관계의 유동성</h2>
+
+  <div class="card">
+    <div class="card-title">연애와 비연애의 이분법을 넘어</div>
+    <div class="card-body">
+      <p>한 개인의 낭만적 파트너십 상태는 고정된 속성이 아니라 <strong>시간의 흐름에 따라 변화</strong>한다. 연애 중이다/아니다의 이분법보다 다양한 상태가 가능하다.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="gbox">
+      <h4>썸 (Some) / Just Talking</h4>
+      <ul>
+        <li>공식적 연인 관계는 아니지만 서로에게 관심이 있는 상태</li>
+        <li>관계의 정의가 모호하고 불확실함</li>
+        <li>2022년 연구에서 7.42%가 '연인인지 아닌지 모호하다'고 응답</li>
+        <li>Sternberg 이론으로 보면: 도취적 사랑(열정만 있는 상태)에 가깝기도 함</li>
+      </ul>
+    </div>
+    <div class="gbox b">
+      <h4>Situationship</h4>
+      <ul>
+        <li>연인도 아니고 완전한 이별도 아닌 중간 상태</li>
+        <li>서로에 대한 감정은 있지만 명확한 관계 정의 없음</li>
+        <li>불확실성 속에서 최소한의 비용과 상처로 관계를 탐색하는 방식</li>
+        <li>후기 근대의 합류적 사랑 맥락에서 이해 가능</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">연애의 유동성, 불확실성, 새로운 관계 형태 (이영호, 2022)</div>
+    <div class="card-body">
+      <p><strong>단절 및 대체 가능성이 커진 새로운 친밀성 구조</strong>에 대한 청년 세대의 적응 양식으로 해석할 수 있다. 불확실성 속에서 최소한의 비용과 상처로 관계를 탐색하는 전략적 행동이다.</p>
+      <p>이는 Giddens의 합류적 사랑 개념과 연결된다 — 특별한 '대상'보다 특별한 '관계'를 탐색하는 과정이며, 관계가 언제든 종료될 수 있다는 것을 전제로 유연하게 움직이는 것이다.</p>
+    </div>
+  </div>
+
+  <div class="card pink">
+    <div class="card-title">N포 세대와 친밀성</div>
+    <div class="card-body">
+      <p>'N포 세대'란 연애, 결혼, 출산(부모됨)을 포기하는 세대를 말한다. 왜 가장 먼저 포기하는 것이 친밀성(연애)인가?</p>
+      <p>연애·결혼·출산은 모두 친밀성의 차원이다. 이 모두의 포기는 Ochiai(2014)의 <strong>'친밀성의 약화'</strong> 개념으로 해석 가능하다. 경제적 부담, 관계의 어려움, 젠더 갈등 등 복합적 요인이 청년의 친밀성 형성을 어렵게 만들고 있다.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 12 -->
+<section class="section" id="s12">
+  <div class="sec-num">12 · 비판적 분석</div>
+  <h2 class="sec-title">미디어와 결혼 가정 분석 — 기사 헤드라인 비교</h2>
+
+  <div class="card pink">
+    <div class="card-title">10-1주차 과제: 암 발생 관련 기사 비교 분석</div>
+    <div class="card-body">
+      <p>동일한 연구 결과를 보도한 서로 다른 기사들의 헤드라인을 비교하면 <strong>미디어가 어떤 가정을 내포하는지</strong>가 드러난다.</p>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>기사 헤드라인</th><th>내포된 결혼 관련 가정</th><th>문제점</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"결혼해서 속썩고 사는게 낫다?"…미혼녀, 암 발생 위험 '유부녀의 85%' – 파이낸셜뉴스</td>
+          <td>결혼이 건강에 유익하다. 결혼 = 정상 상태.</td>
+          <td>'속썩는' 결혼도 비혼보다 낫다는 암묵적 전제. 비혼을 '위험 상태'로 프레이밍.</td>
+        </tr>
+        <tr>
+          <td>"'결혼해라' 괜한 잔소리 아니었다"…미혼, 암 위험 최대 85% 증가</td>
+          <td>비혼은 잘못된 선택이며 결혼을 해야 한다.</td>
+          <td>결혼을 의무·압박으로 프레이밍. 비혼 선택을 부정적으로 평가.</td>
+        </tr>
+        <tr>
+          <td>결혼 한 번도 안 한 사람, 암 위험 크다 – 헬스조선</td>
+          <td>결혼 여부와 건강의 연관성 정보 제공.</td>
+          <td>상대적으로 중립적. 인과관계 vs. 상관관계 구분 필요성 있음.</td>
+        </tr>
+        <tr>
+          <td>"결혼하면 암 덜 걸린다?"…미혼여성이 암 위험 83% 높아 – 헤럴드경제</td>
+          <td>결혼의 건강 효과를 의문형으로 제시.</td>
+          <td>물음표를 사용하여 독자 스스로 판단하게 함. 상대적으로 가장 균형적.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hl">
+    <strong>⚑ 분석 관점</strong> — ① 상관관계와 인과관계의 혼동: 결혼이 건강을 좋게 만드는 것인지, 건강한 사람이 결혼을 더 많이 하는 것인지 불분명. ② 결혼 규범성(marriageism): 결혼을 정상 상태로 보고 비혼을 일탈로 보는 시각이 기사에 내포됨. ③ 미디어가 가족다양성을 어떻게 재현하는지를 비판적으로 읽는 능력이 필요하다.
+  </div>
+
+  <div class="card green">
+    <div class="card-title">연애 리얼리티 프로그램 — "내 연애를 타인의 연애로 대신하는 시대"</div>
+    <div class="card-body">
+      <p>솔로지옥, 하트시그널, 환승연애, 나는 솔로, 돌싱글즈 등 다수의 연애 리얼리티 프로그램이 존재한다. 이는 실제 연애율이 낮아진 시대에 역설적으로 연애 콘텐츠 소비가 증가하는 현상을 보여준다.</p>
+      <p>해석: 비연애 상태의 청년들이 타인의 연애를 통해 친밀성 욕구를 간접적으로 충족하는 것일 수 있다. 연애 리얼리티가 낭만적 사랑의 서사를 재생산하면서 동시에 합류적 사랑의 요소(재협상, 열린 결말)도 담는 방식으로 변화하고 있다.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 13 종합 -->
+<section class="section" id="s13">
+  <div class="sec-num">∑ · 종합</div>
+  <h2 class="sec-title">핵심 개념 한눈에 보기</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>개념·이론</th><th>핵심 내용</th><th>출처·키워드</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tlabel">Intimacy (친밀감)</td>
+          <td>극도의 정서적 가까움, 상호적, 서로에 대한 깊은 이해</td>
+          <td>APA; Giddens (1992)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">열정적 사랑</td>
+          <td>원초적·통제 불능·비극적 결말. 근대 이전의 사랑.</td>
+          <td>Giddens (1992)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">낭만적 사랑</td>
+          <td>18세기 이후 등장. 핵가족 이데올로기. 가부장적 구조 강화. Happily ever after.</td>
+          <td>Giddens (1992)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">합류적 사랑</td>
+          <td>조건부·재협상·평등·열린 결말. 순수한 관계의 원형.</td>
+          <td>Giddens (1992)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">섹슈얼리티의 가소성</td>
+          <td>생식에서 분리. 자아정체성 도구. 이성애 독점 해체.</td>
+          <td>Giddens (1992)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">친밀성의 구조변동</td>
+          <td>전통 결혼 약화 + 다양한 파트너십 확산 (서구)</td>
+          <td>Giddens vs. Ochiai</td>
+        </tr>
+        <tr>
+          <td class="tlabel">친밀성의 약화</td>
+          <td>전통 결혼 약화 + 파트너십 확산도 없음 (동아시아, N포 세대)</td>
+          <td>Ochiai (2014)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">사랑의 삼각형</td>
+          <td>친밀감 + 열정 + 헌신. 조합에 따라 8가지 사랑 유형.</td>
+          <td>Sternberg (1986, 1997)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">성인애착이론</td>
+          <td>안정·집착·무시·두려움 4유형. 어린 시절 경험 반영. 성인 관계에도 유사 패턴.</td>
+          <td>Bowlby; Hazan & Shaver (1987); Bartholomew & Horowitz (1991)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">비연애 이유 유형화</td>
+          <td>의도적(50%) · 상대 탐색 중(43%) · 어려움(7%)</td>
+          <td>유혜민 외, 2025 NCFR</td>
+        </tr>
+        <tr>
+          <td class="tlabel">청년기 비연애</td>
+          <td>성인진입기 특성(자기중심성, 불안정성)과 맞닿은 맥락화된 선택</td>
+          <td>Beckmeyer & Jamison (2023)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">썸·Situationship</td>
+          <td>연애와 비연애 사이의 유동적 상태. 불확실성 속 최소 비용 관계 탐색.</td>
+          <td>이영호 (2022)</td>
+        </tr>
+        <tr>
+          <td class="tlabel">연애의 계층화</td>
+          <td>소득·교육·미래 SES 낙관도가 연애 여부와 관련. 연애도 계층화됨.</td>
+          <td>Shin & Lee (2025)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hl pink">
+    <strong>논술 전략</strong><br><br>
+    ① <strong>개념 정의</strong> (친밀감, 낭만적/합류적 사랑 등)<br>
+    ② <strong>이론으로 설명</strong> (Giddens, Sternberg, 애착이론)<br>
+    ③ <strong>데이터로 뒷받침</strong> (연애율, 비연애 이유, 이재림 연구팀 결과)<br>
+    ④ <strong>비판적 시각</strong> (친밀성 구조변동 vs. 약화, 계층화, 미디어 비판)<br>
+    ⑤ <strong>현실 사례</strong> (썸 문화, 연애 리얼리티, N포 세대)<br><br>
+    낭만적 사랑과 합류적 사랑을 혼동하지 말 것. 데이트 비용 부담 비율(남성 58% vs 여성 43.76%)처럼 구체적 수치를 인용하면 논술의 신뢰도가 높아진다.
+  </div>
+</section>
+
+</main>
+
+<footer style="border-top: 1px solid var(--border); padding: 36px 56px; text-align: center; color: var(--text-dim); font-size: 12px; letter-spacing: 0.05em; background: var(--bg2);">
+  청년과 가족다양성 · 9-1주차 · 청년의 사랑 1 · 서울대학교 아동가족학과 이재림 교수 · 기말고사 대비 개념 정리
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => { l.style.color = ''; l.style.borderBottomColor = ''; });
+        const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (active) { active.style.color = '#c9a978'; active.style.borderBottomColor = '#c9a978'; }
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
