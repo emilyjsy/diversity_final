@@ -24,8 +24,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         header {
@@ -45,10 +44,10 @@
         /* 카드 그리드 레이아웃 */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         .portal-card {
@@ -58,16 +57,17 @@
             border-radius: 12px;
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .portal-card:hover {
             border-color: var(--accent);
             transform: translateY(-8px);
             background: #1f1d1d;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
 
         .week-tag {
@@ -83,6 +83,7 @@
             font-size: 1.5rem;
             margin-bottom: 15px;
             word-break: keep-all;
+            line-height: 1.3;
         }
 
         .desc {
@@ -98,45 +99,58 @@
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         footer {
-            margin-top: 80px;
-            font-size: 0.8rem;
+            margin-top: 100px;
+            font-size: 0.85rem;
             color: var(--text-muted);
             opacity: 0.6;
+            text-align: center;
         }
 
         @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
+            header h1 { font-size: 2.2rem; }
+            .card-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <span class="subtitle">2026 SPRING FINAL ARCHIVE</span>
+    <span class="subtitle">SNU CHILD & FAMILY STUDIES</span>
     <h1>청년과 <span>가족다양성</span></h1>
+    <p style="margin-top: 10px; color: var(--text-muted);">기말고사 완벽 대비를 위한 학습 아카이브</p>
 </header>
 
 <div class="card-grid">
     <a href="diversity01.html" class="portal-card">
         <span class="week-tag">WEEK 08-2</span>
         <div class="title">청년의 성과 젠더</div>
-        <p class="desc">Sex vs Gender 개념, Doing Gender 이론, 한국 청년의 젠더 인식 다층성 분석</p>
-        <span class="go-btn">Study Now →</span>
+        <p class="desc">Sex/Gender/Sexuality 개념 구분, Doing Gender 이론 및 한국 청년의 실증 데이터 분석</p>
+        <span class="go-btn">Review Archive →</span>
     </a>
 
     <a href="diversity02.html" class="portal-card">
         <span class="week-tag">WEEK 09-1</span>
-        <div class="title">청년의 사랑</div>
-        <p class="desc">친밀성의 구조 변동, 낭만적 사랑 vs 합류적 사랑, 데이트 비용 및 연애율 데이터 정리</p>
-        <span class="go-btn">Study Now →</span>
+        <div class="title">청년의 사랑 1: 친밀성</div>
+        <p class="desc">낭만적 사랑과 합류적 사랑, 친밀성의 구조적 변동, 데이트 비용 및 연애율 데이터 정리</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+
+    <a href="diversity03.html" class="portal-card">
+        <span class="week-tag">WEEK 09-2</span>
+        <div class="title">청년의 사랑 2: 결혼/비혼</div>
+        <p class="desc">미혼·비혼 용어 쟁점, 결혼 의향 데이터 분석, 미디어의 결혼/비혼 프레이밍 비판적 이해</p>
+        <span class="go-btn">Review Archive →</span>
     </a>
 </div>
 
 <footer>
-    &copy; SNU Child Development and Family Studies.
+    &copy; 2026. Prepared for the Final Examination.
 </footer>
 
 </body>
