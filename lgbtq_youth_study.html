@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성소수자(LGBTQ) 청년 — 기말고사 대비</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf8f5;
+    --warm-white: #fffefb;
+    --ink: #1c1a18;
+    --ink-light: #3d3a34;
+    --muted: #7c7870;
+    --rule: #e6e0d8;
+
+    --violet: #6d28d9;
+    --indigo: #3730a3;
+    --teal: #0f766e;
+    --rose: #be185d;
+    --amber: #b45309;
+    --sky: #0369a1;
+    --emerald: #047857;
+    --red: #b91c1c;
+
+    --tag-v: #ede9fe; --tag-vb: #4c1d95;
+    --tag-i: #e0e7ff; --tag-ib: #312e81;
+    --tag-t: #ccfbf1; --tag-tb: #134e4a;
+    --tag-r: #fce7f3; --tag-rb: #831843;
+    --tag-a: #fef3c7; --tag-ab: #78350f;
+    --tag-s: #e0f2fe; --tag-sb: #0c4a6e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, #1c1a18 0%, #2d1b4e 50%, #1a2744 100%);
+    color: #f5f0ff;
+    padding: 52px 5vw 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      60deg,
+      transparent, transparent 20px,
+      rgba(255,255,255,.02) 20px, rgba(255,255,255,.02) 21px
+    );
+  }
+  .rainbow-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+      #e40303 0%, #ff8c00 16.6%, #ffed00 33.2%,
+      #008026 50%, #004dff 66.6%, #750787 83.3%, #e40303 100%);
+  }
+  .header-inner { position: relative; max-width: 960px; margin: 0 auto; }
+  .header-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: #c4b5fd; margin-bottom: 14px;
+  }
+  .header-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(26px, 5vw, 46px);
+    font-weight: 700; line-height: 1.2; letter-spacing: -.02em;
+  }
+  .header-title span { color: #a78bfa; }
+  .header-sub { margin-top: 14px; font-size: 14px; color: #9d9090; font-weight: 300; }
+  .header-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .chip {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    color: #e2deff; font-size: 12px; padding: 4px 12px; border-radius: 100px;
+    font-family: 'DM Mono', monospace; letter-spacing: .04em;
+  }
+
+  /* TOC */
+  .toc-wrap {
+    background: var(--warm-white); border-bottom: 1px solid var(--rule);
+    padding: 22px 5vw; position: sticky; top: 0; z-index: 50;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .toc-inner {
+    max-width: 960px; margin: 0 auto;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .toc-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-right: 6px;
+  }
+  .toc-inner a {
+    font-size: 12px; color: var(--ink-light); text-decoration: none;
+    padding: 3px 10px; border-radius: 100px; border: 1px solid var(--rule);
+    transition: all .15s; white-space: nowrap;
+  }
+  .toc-inner a:hover { background: var(--ink); color: #f5f0ff; border-color: var(--ink); }
+
+  /* MAIN */
+  main { max-width: 960px; margin: 0 auto; padding: 56px 5vw 100px; }
+
+  /* SECTION */
+  .section { margin-bottom: 76px; }
+  .section-head {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 32px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: .14em; color: var(--muted); padding-top: 6px; min-width: 40px;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(19px, 3.5vw, 27px); font-weight: 700;
+    line-height: 1.25; letter-spacing: -.02em;
+  }
+  .section-desc { margin-top: 6px; font-size: 13px; color: var(--muted); }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--warm-white); border: 1px solid var(--rule);
+    border-radius: 12px; padding: 22px 24px; position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .card.violet::before { background: var(--violet); }
+  .card.indigo::before { background: var(--indigo); }
+  .card.teal::before { background: var(--teal); }
+  .card.rose::before { background: var(--rose); }
+  .card.amber::before { background: var(--amber); }
+  .card.sky::before { background: var(--sky); }
+  .card.emerald::before { background: var(--emerald); }
+  .card.red::before { background: var(--red); }
+
+  .card-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  .card-term {
+    font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 700;
+    margin-bottom: 10px; color: var(--ink);
+  }
+  .card-body { font-size: 13.5px; color: var(--ink-light); line-height: 1.75; }
+  .card-body strong { color: var(--ink); font-weight: 600; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin: 0 -4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead tr { background: var(--ink); color: #f5f0ff; }
+  thead th {
+    font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 12px;
+    padding: 12px 16px; text-align: left; letter-spacing: .02em;
+  }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:nth-child(even) { background: rgba(0,0,0,.022); }
+  tbody td {
+    padding: 12px 16px; vertical-align: top;
+    color: var(--ink-light); line-height: 1.65;
+  }
+  tbody td:first-child { font-weight: 600; color: var(--ink); font-family: 'Noto Serif KR', serif; }
+  .badge {
+    display: inline-block; font-size: 10px; font-family: 'DM Mono', monospace;
+    padding: 2px 8px; border-radius: 100px; font-weight: 500; white-space: nowrap;
+  }
+
+  /* CALLOUT */
+  .callout {
+    border-left: 4px solid var(--violet);
+    background: #f5f3ff;
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px; margin: 20px 0;
+    font-size: 14px; color: var(--ink-light); line-height: 1.75;
+  }
+  .callout strong { color: var(--ink); font-weight: 700; }
+  .callout.teal { border-color: var(--teal); background: #f0fdfa; }
+  .callout.rose { border-color: var(--rose); background: #fdf2f8; }
+  .callout.sky { border-color: var(--sky); background: #f0f9ff; }
+  .callout.amber { border-color: var(--amber); background: #fffbeb; }
+  .callout.red { border-color: var(--red); background: #fef2f2; }
+  .callout.emerald { border-color: var(--emerald); background: #f0fdf4; }
+
+  /* TYPE CARDS */
+  .type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .type-card { border-radius: 12px; padding: 20px 22px; border: 1px solid transparent; }
+  .tv { background: var(--tag-v); border-color: #c4b5fd; color: var(--tag-vb); }
+  .ti { background: var(--tag-i); border-color: #a5b4fc; color: var(--tag-ib); }
+  .tt { background: var(--tag-t); border-color: #6ee7b7; color: var(--tag-tb); }
+  .tr { background: var(--tag-r); border-color: #f9a8d4; color: var(--tag-rb); }
+  .ta { background: var(--tag-a); border-color: #fde68a; color: var(--tag-ab); }
+  .ts { background: var(--tag-s); border-color: #7dd3fc; color: var(--tag-sb); }
+
+  .type-name { font-family: 'Noto Serif KR', serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .type-desc { font-size: 13px; line-height: 1.7; }
+  .type-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; opacity: .7; margin-bottom: 6px; }
+
+  /* STAT ROW */
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .stat-box {
+    background: var(--warm-white); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 18px 20px; text-align: center;
+  }
+  .stat-num { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 700; color: var(--violet); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+  /* FLOW */
+  .flow-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin: 16px 0; }
+  .flow-step {
+    background: var(--warm-white); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 10px 16px;
+    font-size: 13px; font-weight: 500; text-align: center; min-width: 80px;
+  }
+  .flow-arrow { color: var(--muted); font-size: 18px; padding: 0 6px; flex-shrink: 0; }
+
+  /* COMPARE */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 580px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-block { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 12px; padding: 20px 22px; }
+  .compare-head {
+    font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    font-family: 'DM Mono', monospace; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+  }
+  .compare-item { display: flex; gap: 8px; font-size: 13.5px; line-height: 1.65; margin-bottom: 7px; color: var(--ink-light); }
+  .compare-item::before { content: '›'; font-weight: 700; flex-shrink: 0; color: var(--muted); margin-top: 2px; }
+
+  /* VERDICT TIMELINE */
+  .timeline { position: relative; padding-left: 28px; margin: 16px 0; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+    width: 2px; background: var(--rule);
+  }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-dot {
+    position: absolute; left: -24px; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--violet); border: 2px solid var(--cream);
+  }
+  .tl-year {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: .1em; color: var(--violet); font-weight: 500;
+  }
+  .tl-text { font-size: 13.5px; color: var(--ink-light); line-height: 1.65; }
+  .tl-text strong { color: var(--ink); }
+
+  /* POLICY BLOCK */
+  .policy-block {
+    background: var(--warm-white); border: 1px solid var(--rule);
+    border-radius: 12px; margin-bottom: 16px; overflow: hidden;
+  }
+  .policy-head {
+    background: var(--ink); color: #f5f0ff;
+    padding: 14px 22px; font-family: 'Noto Serif KR', serif;
+    font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px;
+  }
+  .policy-tag {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    background: rgba(255,255,255,.15); padding: 2px 8px; border-radius: 100px;
+  }
+  .policy-body { padding: 20px 22px; }
+  .policy-body p { font-size: 13.5px; color: var(--ink-light); line-height: 1.75; margin-bottom: 10px; }
+  .policy-body p:last-child { margin-bottom: 0; }
+  .policy-list { list-style: none; padding: 0; }
+  .policy-list li {
+    font-size: 13.5px; color: var(--ink-light); line-height: 1.7;
+    padding: 5px 0 5px 18px; position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+  .policy-list li:last-child { border-bottom: none; }
+  .policy-list li::before { content: '▸'; position: absolute; left: 0; color: var(--violet); font-size: 11px; top: 8px; }
+  .policy-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* HR */
+  hr.sec-div { border: none; border-top: 1px solid var(--rule); margin: 28px 0; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); color: #5a5650;
+    padding: 28px 5vw; font-size: 12px;
+    font-family: 'DM Mono', monospace; text-align: center; letter-spacing: .04em;
+  }
+  footer span { color: #9d9090; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="rainbow-bar"></div>
+  <div class="header-inner">
+    <p class="header-kicker">청년과 가족다양성 · 2026 기말고사 대비</p>
+    <h1 class="header-title">성소수자 <span>(LGBTQ) 청년</span><br>완전정복 스터디가이드</h1>
+    <p class="header-sub">2026.06.02 스페셜이슈 4조 발표 기반 · 개념·통계·연구·법제도 전범위 수록</p>
+    <div class="header-chips">
+      <span class="chip">용어 정의</span>
+      <span class="chip">SGM / Genderbread</span>
+      <span class="chip">커밍아웃 유형화</span>
+      <span class="chip">성소수자 현황·통계</span>
+      <span class="chip">연구 동향</span>
+      <span class="chip">성인진입기 발달</span>
+      <span class="chip">가족관계</span>
+      <span class="chip">군형법 92조의6</span>
+      <span class="chip">혼인평등</span>
+      <span class="chip">성별정정</span>
+    </div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc-wrap">
+  <div class="toc-inner">
+    <span class="toc-label">목차</span>
+    <a href="#s1">①용어정의</a>
+    <a href="#s2">②SGM개념</a>
+    <a href="#s3">③현황통계</a>
+    <a href="#s4">④연구동향</a>
+    <a href="#s5">⑤커밍아웃</a>
+    <a href="#s6">⑥가족관계</a>
+    <a href="#s7">⑦법·제도</a>
+    <a href="#s8">⑧논술포인트</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 : 용어 정의
+══════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-head">
+    <span class="section-num">01 —</span>
+    <div>
+      <h2 class="section-title">용어 정의</h2>
+      <p class="section-desc">Genderbread Person 4가지 스펙트럼 + 커밍아웃 관련 핵심 개념</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Genderbread Person</strong> — 귀여운 인형 그림을 활용해 성소수자와 젠더 다양성 개념을 시각화한 교육 도구.
+    미국·유럽 공교육 및 성평등 교육에서 활용됩니다.
+    핵심 전제: 성을 구성하는 4가지 차원은 <em>서로 독립된 스펙트럼</em>입니다 — 어느 하나가 다른 것을 결정하지 않습니다.
+  </div>
+
+  <div class="card-grid" style="margin-bottom:24px;">
+    <div class="card violet">
+      <div class="card-label">💛 Heart — 성적 지향</div>
+      <div class="card-term">Sexual Orientation</div>
+      <div class="card-body">
+        어떤 성별의 사람에게 성적·정서적으로 끌리는가.<br>
+        <strong>레즈비언</strong>(여성→여성), <strong>게이</strong>(남성→남성), <strong>양성애자</strong>(bisexual),
+        <strong>범성애자</strong>(pansexual), <strong>무성애자</strong>(asexual) 등 스펙트럼으로 존재.
+      </div>
+    </div>
+    <div class="card indigo">
+      <div class="card-label">🧠 Brain — 성별 정체성</div>
+      <div class="card-term">Gender Identity</div>
+      <div class="card-body">
+        자신이 내면적으로 느끼는 젠더.<br>
+        <strong>트랜스젠더</strong>(transgender), <strong>논바이너리</strong>(non-binary),
+        <strong>젠더퀴어</strong>(gender queer), <strong>젠더 비순응</strong>(gender nonconforming) 등.
+      </div>
+    </div>
+    <div class="card teal">
+      <div class="card-label">🩺 Body — 생물학적 성별</div>
+      <div class="card-term">Biological Sex</div>
+      <div class="card-body">
+        염색체, 호르몬, 생식기 등 신체적 특징으로 정의되는 성.<br>
+        <strong>인터섹스(간성)</strong>: 전형적 남성·여성의 이분법 범주에 맞지 않는 신체적 성 특징.
+        세계 인구의 약 <strong>1.7%</strong> (UN 추정).
+        핵심 인권 쟁점: 당사자 동의 없는 영유아기 '정상화' 수술 → UN·WHO는 비응급 개입 연기 권고.
+      </div>
+    </div>
+    <div class="card rose">
+      <div class="card-label">👗 Expression — 성별 표현</div>
+      <div class="card-term">Gender Expression</div>
+      <div class="card-body">
+        옷차림, 말투, 태도 등 외적으로 표현하는 젠더.<br>
+        성별 정체성과 반드시 일치하지 않을 수 있음. 사회적 규범과 긴장 관계.
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">커밍아웃 관련 핵심 용어</h3>
+
+  <div class="card-grid">
+    <div class="card violet">
+      <div class="card-label">Coming Out</div>
+      <div class="card-term">커밍아웃</div>
+      <div class="card-body">
+        "Coming out of the closet"의 줄임말.<br>
+        자신의 성적 지향·성별 정체성을 <strong>인지하고 수용한 뒤 타인에게 드러내는 과정</strong>.<br>
+        <strong>일회적 사건이 아니라 평생에 걸쳐 반복</strong>될 수 있는 과정임.
+        성 정체성 발달 모델들이 공통적으로 강조하는 핵심 과업.
+      </div>
+    </div>
+    <div class="card red">
+      <div class="card-label">Outing</div>
+      <div class="card-term">아웃팅</div>
+      <div class="card-body">
+        <strong>본인 동의 없이</strong> 제3자가 타인의 성적 지향·성별 정체성을 폭로하는 행위.<br>
+        한국에서는 군대·직장 등에서 심각한 인권 문제로 논의됨.
+        커밍아웃(자발)과 아웃팅(타발)은 근본적으로 다름 — 자기결정권 침해.
+      </div>
+    </div>
+    <div class="card amber">
+      <div class="card-label">Closet / 벽장</div>
+      <div class="card-term">벽장 상태</div>
+      <div class="card-body">
+        자신의 성적 지향·성별 정체성을 <strong>숨기고 있는 상태</strong>.<br>
+        정성조·이희영(2023)은 청년 성소수자의 벽장 유형을
+        <strong>개방형 / 은둔형 / 억압형</strong>으로 구분.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 2 : SGM 개념
+══════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-head">
+    <span class="section-num">02 —</span>
+    <div>
+      <h2 class="section-title">Sexual and Gender Minority (SGM)</h2>
+      <p class="section-desc">LGBT를 넘어 더 넓은 범주의 성·젠더 다양성을 포괄하는 개념</p>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--violet);">Sexual Minority (성적 소수자)</div>
+      <div class="compare-item">이성애 규범(Heterosexuality)과 다른 성적 지향, 끌림, 행동을 가진 사람들 (Reczek, 2020)</div>
+      <div class="compare-item">레즈비언, 게이, 양성애자, 범성애자, 무성애자 등</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--teal);">Gender Minority (젠더 소수자)</div>
+      <div class="compare-item">사회가 기대하는 전통적 성별 규범과 자신의 성 정체성이 일치하지 않는 사람들 (Reczek, 2020)</div>
+      <div class="compare-item">트랜스젠더, 논바이너리, 젠더퀴어, 젠더 비순응 등</div>
+    </div>
+  </div>
+
+  <div class="callout teal" style="margin-top:16px;">
+    <strong>SGM 개념의 의의:</strong>
+    단순히 숫자가 적다는 의미를 넘어, <strong>사회적 권력과 자원 접근에서 불이익을 경험하는 집단</strong>이라는 점을 강조합니다.
+    LGBT보다 더 넓은 범주의 성·젠더 다양성을 포괄하는 학술 용어입니다.
+  </div>
+
+  <div class="callout sky" style="margin-top:12px;">
+    <strong>정체성 연구의 방법론적 주의:</strong>
+    최근에는 LGBT 이외에도 로맨틱(정서적 끌림)과 섹슈얼(성애적 끌림)을 분리하는 등
+    다양한 범주로 자신을 표현하는 성소수자가 증가하고 있습니다.
+    따라서 <strong>정체성 연구 결과를 제시할 경우, 범주 설정이 중요</strong>합니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 3 : 현황 및 통계
+══════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-head">
+    <span class="section-num">03 —</span>
+    <div>
+      <h2 class="section-title">현황 및 통계</h2>
+      <p class="section-desc">2021 청년 성소수자 실태조사 + 서울가족서베이 + 통계 측정 과제</p>
+    </div>
+  </div>
+
+  <div class="callout violet">
+    <strong>2021 청년 성소수자 사회적 욕구 및 실태조사</strong> (다양성을 향한 지속가능한 움직임, '다움')<br>
+    서울시 「2021 청년 프로젝트 지원사업」의 일환. 대상: 최근 10년간 한국에 거주한 만 19~34세 성소수자.
+    <strong>설문 3,911명 + 면접 50명</strong>.<br>
+    주제: 정체성과 커뮤니티 / 혐오와 차별 경험 / 구직과 직장 / 가구형태와 주거독립 / 건강 / 사회정치적 욕구 / 코로나19
+  </div>
+
+  <div class="callout red" style="margin-top:12px;">
+    <strong>⚠ 통계 공백의 심각성:</strong>
+    국가인권위원회의 2014년·2020년 조사를 제외하면, <strong>정부 기관에 의해 실시된 성소수자 대상 조사는 전무</strong>합니다 (2021년 기준).
+    민간단체 주도의 조사에 의존하고 있다는 구조적 한계가 있습니다.
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">국가 통계 측정의 과제 (이호림 외, 2022)</h3>
+
+  <div class="card-grid">
+    <div class="card sky">
+      <div class="card-label">① 배경 및 필요성</div>
+      <div class="card-term">보이지 않는 인구 문제</div>
+      <div class="card-body">
+        성소수자는 공식 통계에서 '보이지 않는 인구'로, 이로 인한 <strong>정책적 배제</strong> 발생.
+        기존 조사는 편의표집·눈덩이 추출법에 의존해 <strong>편향성 한계</strong>가 있음.
+      </div>
+    </div>
+    <div class="card teal">
+      <div class="card-label">② 국내외 현황</div>
+      <div class="card-term">해외 vs. 한국</div>
+      <div class="card-body">
+        <strong>해외:</strong> 미국(CDC), 영국(ONS) 등은 인구주택총조사 및 공공건강조사에
+        SOGI(성적지향·성별정체성) 표준 문항 이미 도입.<br>
+        <strong>한국:</strong> 통계청 표준 분류 체계에 미반영.
+      </div>
+    </div>
+    <div class="card emerald">
+      <div class="card-label">③ 기대효과</div>
+      <div class="card-term">통계 도입의 가치</div>
+      <div class="card-body">
+        실제에 기반한 <strong>정책 수립</strong> 가능.<br>
+        사회적 소수자 편견 약화.<br>
+        국제 기구 표준에 부합 → 국제 비교 연구 가능.
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">2025 서울가족서베이 — 동성연애·결혼에 대한 태도</h3>
+
+  <div class="callout sky">
+    서울시 가족서베이는 동성연애 및 동성결혼에 대한 시민 태도를 측정한 대표적 국내 조사입니다.
+    연령대별·세대별 인식 차이가 뚜렷하게 나타나며, 젊은 세대일수록 수용도가 높은 경향을 보입니다.
+    <strong>논술에서 태도 변화 근거 데이터로 활용</strong>할 수 있습니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 4 : 연구 동향
+══════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-head">
+    <span class="section-num">04 —</span>
+    <div>
+      <h2 class="section-title">연구 동향</h2>
+      <p class="section-desc">Arnett의 성인진입기 이론 + 한국 성소수자 연구 변천사 + 청년 연구 필요성</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">① Arnett의 성인진입기와 성 정체성 발달 (King et al., 2015)</h3>
+
+  <div class="callout violet">
+    <strong>성인진입기(Emerging Adulthood)</strong>에서 성 정체성 발달은 <em>복잡성</em>과 <em>다차원성</em>이 특징입니다.
+    청소년기에 이미 통합된 정체성을 형성하는 경우도 있고, 성인진입기에 새롭게 성에 대한 관심을 탐색하기 시작하는 경우도 있습니다.
+  </div>
+
+  <div class="card-grid" style="margin-bottom:20px;">
+    <div class="card violet">
+      <div class="card-label">#1</div>
+      <div class="card-term">발달 경로의 다양성</div>
+      <div class="card-body">
+        성 정체성 형성에는 단일한 경로가 없습니다.<br>
+        ① 청소년기에 이미 통합된 정체성 형성<br>
+        ② 성인진입기에 새로운 성에 대한 관심 탐색 시작<br>
+        두 경로 모두 정상적 발달 과정임.
+      </div>
+    </div>
+    <div class="card indigo">
+      <div class="card-label">#2</div>
+      <div class="card-term">비독점적 패턴</div>
+      <div class="card-body">
+        주로 동성에게 끌리지만 이성에게도 끌림을 느끼는 경우 등 <strong>복합적 끌림 패턴</strong> 존재.
+        이러한 불안정성을 '반드시 해결해야 한다'는 사회적 압박은
+        개인의 보편적 경험을 억압할 수 있음 → 오히려 정체성 발달을 방해.
+      </div>
+    </div>
+    <div class="card rose">
+      <div class="card-label">#3</div>
+      <div class="card-term">젠더에 따른 차이</div>
+      <div class="card-body">
+        성 정체성의 불일치·변화는 <strong>여성 > 남성</strong>.<br>
+        여성은 관계 중심적 성향으로 인해 관계 속에서 정체성이 형성·유지되는 경우가 많아
+        <strong>성적 유동성(sexual fluidity)이 더 높음</strong>.
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">② 한국 성소수자 연구 동향과 과제 (이혜민 외, 2024)</h3>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">1,979편</div>
+      <div class="stat-label">국내 성소수자 관련<br>학술+학위논문 총계</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">1,322편</div>
+      <div class="stat-label">학술논문</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">657편</div>
+      <div class="stat-label">학위논문</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>시대</th><th>주요 연구 주제</th><th>비고</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1990년대</td>
+          <td>HIV/AIDS 공포 → 보건·역학 연구 중심</td>
+          <td>동성애 = 병리적 현상으로 접근</td>
+        </tr>
+        <tr>
+          <td>2000년대</td>
+          <td>문화·미디어 속 재현 (퀴어비평, 문학 분석)</td>
+          <td>인권운동 성장으로 학술적 관심 증가</td>
+        </tr>
+        <tr>
+          <td>2020년대</td>
+          <td>당사자 경험 중심 연구 + 차별금지법·정책 제안</td>
+          <td>성소수자 = 지식과 권리의 주체로 전환</td>
+        </tr>
+        <tr>
+          <td>2010년대 후반~</td>
+          <td>종교학 분야의 반(反)성소수자 연구 등장</td>
+          <td>학술적 권위를 빌린 반성소수자 운동 — 비판적 독해 필요</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">③ 한국 성소수자 청년 연구가 특히 필요한 이유 (유예원·연규진, 2025)</h3>
+
+  <div class="compare-grid">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--violet);">일반론: 청년기의 발달적 특수성</div>
+      <div class="compare-item">성정체성 형성에 영향을 미치는 다양한 요인이 활성화되는 전환기</div>
+      <div class="compare-item">Arnett의 성인진입기 발달과제 + 성정체성 형성이 동시에 진행</div>
+      <div class="compare-item">정체성 탐색·수용·사회적 지지 형성 과정에서 큰 심리적 부담</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--rose);">한국적 특수성</div>
+      <div class="compare-item">입시 중심 제도 → 성 정체성 탐색·표현 시점이 지연됨</div>
+      <div class="compare-item">청년기에 정체성 수용·사회적 지지 형성에서 복합적 심리적 어려움</div>
+      <div class="compare-item">대표적 외현적 정체성 표현 방식 = 커밍아웃 → 한국 사회의 이중적 인식과 충돌</div>
+    </div>
+  </div>
+
+  <div class="callout rose" style="margin-top:16px;">
+    <strong>한국 사회의 이중적 인식:</strong>
+    "존재는 이해하되, <em>내 가족이나 이웃으로는 원치 않는다</em>" — 이 이중성이 커밍아웃의 어려움과 벽장의 구조적 원인입니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 5 : 커밍아웃 유형화
+══════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-head">
+    <span class="section-num">05 —</span>
+    <div>
+      <h2 class="section-title">성소수자 청년의 커밍아웃</h2>
+      <p class="section-desc">방해 요인 2가지 + 개방형·은둔형·억압형 유형화 + 핵심 연구 결과</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">커밍아웃을 방해하는 두 요인</h3>
+
+  <div class="compare-grid" style="margin-bottom:20px;">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--red);">내면화된 동성애 혐오</div>
+      <div class="compare-item">성소수자에 대한 부정적 사회적 인식을 스스로 내면화해 자기혐오로 발전</div>
+      <div class="compare-item">성적 지향의 수용 자체를 방해</div>
+      <div class="compare-item">건강한 커밍아웃 과정을 저해하는 심리적 장벽</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--sky);">낮은 공동체 연결감</div>
+      <div class="compare-item">특정 집단과 정서적으로 연결되어 있다고 느끼는 정도가 낮음</div>
+      <div class="compare-item">성소수자 커뮤니티 내 지지 기반 부족</div>
+      <div class="compare-item">사회적 고립 → 커밍아웃 결정 어려움</div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">커밍아웃 양상 유형화 (정성조·이희영, 2023 / 유예원·연규진, 2025)</h3>
+
+  <div class="type-grid" style="margin-bottom:20px;">
+    <div class="type-card tv">
+      <div class="type-label">TYPE 01</div>
+      <div class="type-name">개방형 (Open)</div>
+      <div class="type-desc">다양한 관계와 상황에서 비교적 높은 커밍아웃을 보이는 유형. 공적·사적 영역 모두에서 정체성 노출에 상대적으로 개방적.</div>
+    </div>
+    <div class="type-card ti">
+      <div class="type-label">TYPE 02</div>
+      <div class="type-name">은둔형 (Hidden)</div>
+      <div class="type-desc">실제 커밍아웃은 적지만, 공적 영역에서 정체성 노출 부담이 낮은 유형. 소수의 신뢰하는 사람에게만 공개. <strong>우울 수준이 세 유형 중 가장 낮음</strong> — 방어적 선택으로서의 심리적 안정.</div>
+    </div>
+    <div class="type-card tr">
+      <div class="type-label">TYPE 03</div>
+      <div class="type-name">억압형 (Suppressed)</div>
+      <div class="type-desc">대부분의 관계와 상황에서 커밍아웃이 거의 나타나지 않는 유형. 내면화된 동성애 혐오 및 사회적 낙인이 강하게 작용하는 상태.</div>
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <strong>핵심 연구 결과 1:</strong>
+    한국 사회의 차별과 낙인, 미흡한 제도적 보호 환경에서 <strong>은둔형은 심리적 안정성을 위한 방어적 선택</strong>입니다.
+    흥미롭게도 은둔형의 우울 수준이 가장 낮습니다.
+  </div>
+  <div class="callout teal" style="margin-top:12px;">
+    <strong>핵심 연구 결과 2 (논술 필수):</strong>
+    "<strong>커밍아웃이 곧 정서적 안정으로 이어지는 것은 아닙니다.</strong>"
+    커밍아웃 대상의 수보다 <em>관계의 질</em>이 더 중요합니다.
+    즉, 많이 커밍아웃하는 것보다 누구에게 커밍아웃하는지, 그 관계에서 어떤 반응을 받는지가 심리적 적응을 결정합니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 6 : 가족관계
+══════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-head">
+    <span class="section-num">06 —</span>
+    <div>
+      <h2 class="section-title">성소수자 청년과 가족</h2>
+      <p class="section-desc">커밍아웃의 어려움 · 한국적 가족규범 · 교차하는 경험 · 보호요인</p>
+    </div>
+  </div>
+
+  <div class="callout violet">
+    <strong>성인진입기 가족관계의 특수성:</strong>
+    정체성 탐색과 독립의 시기에 부모는 핵심 안전망이자 비계(scaffold) 역할을 합니다.
+    특히 한국과 같은 생존주의 사회에서 가족의 지원 기능은 더욱 중요합니다.
+    그러나 성소수자 청년은 부모의 지원과 통제 사이에서 <strong>일반 청년과 다른 양가성</strong>을 경험합니다.
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin:20px 0 16px;">① 가족 내 커밍아웃의 어려움</h3>
+
+  <div class="compare-grid">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--rose);">커밍아웃 순서와 어려움</div>
+      <div class="compare-item">가족은 커밍아웃의 <strong>마지막 대상</strong> (유예원·연규진, 2025)</div>
+      <div class="compare-item">부모 중 특히 <strong>아버지</strong>에게 말하기 어려움</div>
+      <div class="compare-item">남성 청년은 아버지 커밍아웃에 더 큰 부담 (Lee &amp; Jeong, 2025)</div>
+      <div class="compare-item">형제자매: 부모 커밍아웃 前 심리적 지지자 역할 BUT 형제자매에게만 말하는 것도 또 다른 부담</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--amber);">한국적 가족규범이 방해하는 이유</div>
+      <div class="compare-item"><strong>가족주의·혈통주의:</strong> 가문의 대를 이어야 한다는 부담감 (Lee &amp; Jeong, 2025)</div>
+      <div class="compare-item"><strong>권위주의적 양육태도:</strong> 전통적 가치·규범 중시 + 소수집단 편견</div>
+      <div class="compare-item"><strong>동성애에 대한 지식 부족:</strong> 동성애 남성 = AIDS/HIV 환자 인식 (김진이, 2017)</div>
+      <div class="compare-item">가족의 부정적 태도 → 사회적 차별보다 더 큰 상처 (김진이, 2017)</div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">② 교차하는 가족경험</h3>
+
+  <div class="card-grid">
+    <div class="card rose">
+      <div class="card-label">성별 교차</div>
+      <div class="card-term">남성 vs. 여성의 차이</div>
+      <div class="card-body">
+        남성이 여성보다 가족 커밍아웃을 어려워하며, 특히 아버지 커밍아웃에 부담.<br>
+        <strong>동성사회성(homosociality)</strong>: 낭만적·성적이지 않은 동성 간 우정·멘토링 관계.
+        한국의 남성의무복무제 등 동성사회성 강조 규범에서 동성애는 '질서를 해치는 행위'로 규정됨.
+        예: '종복게이' 담론 (Lee &amp; Jeong, 2025).
+      </div>
+    </div>
+    <div class="card amber">
+      <div class="card-label">부모 변인 교차</div>
+      <div class="card-term">종교·성향의 영향</div>
+      <div class="card-body">
+        종교적 신념이 강한 부모일수록 더 큰 갈등 경험 (이은지, 2021).<br>
+        부모 성향: 권위적·통제적 ↔ 자율적 차이 + 동성애 혐오 수준 차이 (강현선, 2014).
+      </div>
+    </div>
+    <div class="card sky">
+      <div class="card-label">문화권 교차</div>
+      <div class="card-term">유교권 내 차이</div>
+      <div class="card-body">
+        유교권 내에서도 차이 존재 — 중국에서는 '가족에게만 커밍아웃'하는 유형이 존재 (Liu et al., 2024).
+        한국적 특수성을 과잉 일반화하지 말 것.
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">③ 가족의 수용과 지원 — 보호요인</h3>
+
+  <div class="card-grid">
+    <div class="card emerald">
+      <div class="card-label">보호요인 ①</div>
+      <div class="card-term">부모의 지지</div>
+      <div class="card-body">
+        부모의 지지는 <strong>강력한 보호요인</strong> (Diamond &amp; Shpigel, 2014).<br>
+        좋은 부모-자녀 관계 → 커밍아웃 수용 가능성 증가 (Heatherington &amp; Lavner, 2008).<br>
+        부모의 수용 여부가 자녀의 <strong>정신건강과 직결</strong> (이은지, 2021).
+      </div>
+    </div>
+    <div class="card emerald">
+      <div class="card-label">보호요인 ②</div>
+      <div class="card-term">가족 응집성</div>
+      <div class="card-body">
+        가족 응집성이 높을수록 <strong>더 빠른 커밍아웃</strong> (Heatherington &amp; Lavner, 2008).<br>
+        <strong>성소수자 가족모임 참여</strong> → 부모의 수용도 증진 (김진이, 2017; 유예원·연규진, 2025).
+      </div>
+    </div>
+  </div>
+
+  <div class="callout red" style="margin-top:16px;">
+    <strong>⚠ 연구 한계:</strong>
+    한국 성소수자 가족 보호요인 연구는 아직 제한적입니다.
+    서구 연구(미국·유럽)를 한국에 적용할 때는 <strong>한국적 특수성(가족주의, 유교 규범, 남성의무복무제 등)을 반드시 고려</strong>해야 합니다 (이혜민 외, 2024).
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">성소수자 청년에게 가족이란 — 3가지 차원</h3>
+
+  <div class="type-grid">
+    <div class="type-card tv">
+      <div class="type-label">차원 01</div>
+      <div class="type-name">이중부담</div>
+      <div class="type-desc">자신의 존재를 증명해야 하는 가족 — 가장 친밀해야 할 공간이 동시에 가장 큰 심리적 부담의 원천이 될 수 있음.</div>
+    </div>
+    <div class="type-card tt">
+      <div class="type-label">차원 02</div>
+      <div class="type-name">심리적 안정감</div>
+      <div class="type-desc">가족에게 인정받으면 정서적 안정 증가. 부모의 수용은 다른 어떤 요인보다 강력한 정신건강 보호요인.</div>
+    </div>
+    <div class="type-card ta">
+      <div class="type-label">차원 03</div>
+      <div class="type-name">또 다른 양가성</div>
+      <div class="type-desc">일반 청년과 다른 양가성을 경험하는 시기 — 독립(정체성)과 의존(경제·정서)이 동시에 요구되는 복합적 상황.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 7 : 관련 법·제도·정책
+══════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-head">
+    <span class="section-num">07 —</span>
+    <div>
+      <h2 class="section-title">관련 법·제도·정책</h2>
+      <p class="section-desc">군형법 제92조의6 · 혼인평등 · 성별정정 — 청년과 가족다양성 수업 연결</p>
+    </div>
+  </div>
+
+  <!-- 군형법 -->
+  <div class="policy-block">
+    <div class="policy-head">
+      군형법 제92조의6 (추행) <span class="policy-tag">한국 남성 청년 군 복무 = 성인이행기 핵심 사건</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>조항 원문:</strong> "제1조제1항부터 제3항까지에 규정된 사람에 대하여 항문성교나 그 밖의 추행을 한 사람은 2년 이하의 징역에 처한다."</p>
+      <p><strong>핵심 문제:</strong> 강간·강제추행과 <em>별개로</em>, <strong>합의된 동성 간 성행위 자체를 처벌</strong>합니다.</p>
+
+      <h4 style="font-size:13px;font-weight:700;margin:12px 0 8px;color:var(--ink);">헌법재판소 판결 타임라인 — 4차례 모두 합헌</h4>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2002 · 2011 · 2016</div>
+          <div class="tl-text">헌법재판소 합헌 결정 (3회 반복)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2022</div>
+          <div class="tl-text">대법원 — <strong>'사적 공간에서 자발적 의사 합치'의 경우 적용 제외</strong> 판결. 조항 자체는 유지.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2023.10.26</div>
+          <div class="tl-text"><strong>5:4 합헌 결정</strong>. 위헌 정족수(6명)에 단 1명 부족. 가장 박빙의 결정.</div>
+        </div>
+      </div>
+
+      <ul class="policy-list">
+        <li><strong>2017년 육군 성소수자 색출 사건:</strong> 표적 수사 도구로 악용 — 조항의 남용 가능성 현실화</li>
+        <li><strong>청년과 가족다양성 연결:</strong> 한국 남성 청년 약 2년의 군 복무는 성인이행기의 핵심 사건. 게이·양성애자 청년에게 군 복무는 정체성을 숨겨야 하는 '강제된 벽장기'를 의미함.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 혼인평등 -->
+  <div class="policy-block">
+    <div class="policy-head">
+      혼인평등 <span class="policy-tag">청년기 친밀관계·가족 형성 발달과업과 연결</span>
+    </div>
+    <div class="policy-body">
+      <p>전 세계 <strong>40개국</strong> 동성혼 합법화 (2026.5 기준). OECD 국가의 70% 이상 동성결혼 합법화.</p>
+      <p><strong>한국:</strong> OECD 중 동성 결합을 <em>어떤 형태로도</em> 인정하지 않는 소수 국가.</p>
+      <p><strong>민법 제812조:</strong> 혼인을 "남녀 간 결합"으로 해석 → 동성 혼인신고 불수리. 주거·의료·상속·사회보장에서 배제.</p>
+
+      <h4 style="font-size:13px;font-weight:700;margin:12px 0 8px;color:var(--ink);">제도의 균열 — 2024~2025년 변화</h4>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--teal);"></div>
+          <div class="tl-year">2024.7</div>
+          <div class="tl-text"><strong>대법원</strong> — 동성 동반자의 건강보험 피부양자 인정</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--teal);"></div>
+          <div class="tl-year">2024.10</div>
+          <div class="tl-text">11쌍 동성부부 혼인평등 소송 제기</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--teal);"></div>
+          <div class="tl-year">2025.2</div>
+          <div class="tl-text">2쌍 동성부부 헌법소원 청구</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--teal);"></div>
+          <div class="tl-year">2025.10</div>
+          <div class="tl-text">인구주택총조사 — <strong>동성 배우자 입력 허용</strong> (제도적 인정의 첫 신호)</div>
+        </div>
+      </div>
+
+      <ul class="policy-list" style="margin-top:10px;">
+        <li><strong>청년과 가족다양성 연결:</strong> 청년기의 핵심 발달과업인 '친밀관계 형성·가족 구성'이 동성 청년에게는 제도적으로 차단됨 → 성인이행 경로의 구조적 불평등</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 성별정정 -->
+  <div class="policy-block">
+    <div class="policy-head">
+      성별정정 <span class="policy-tag">트랜스 청년의 정체성 확립 = 입법 부재로 사법부 재량에 의존</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>현행 제도의 특수성:</strong> 성별정정에 관한 독립 법률이 없음. 2006년 대법원 전원합의체 결정 이후 <strong>대법원 예규로만 운영</strong>.</p>
+      <p><strong>기존 예규 요건:</strong> 생식능력 없을 것 + 외부성기가 반대 성으로 바뀌었을 것 (수술 요건). 인권위·대법원 모두 특별법 제정 필요성에 공감.</p>
+
+      <h4 style="font-size:13px;font-weight:700;margin:12px 0 8px;color:var(--ink);">사법부 주도의 요건 완화 흐름</h4>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--sky);"></div>
+          <div class="tl-year">2022</div>
+          <div class="tl-text"><strong>대법원 전원합의체</strong> — 미성년 자녀가 있어도 성별정정 가능 (11년 만의 판례 변경)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--sky);"></div>
+          <div class="tl-year">2024</div>
+          <div class="tl-text"><strong>청주지법 영동지원</strong> — 수술 없이도 성별정정 허가 (국내 첫 판결)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--sky);"></div>
+          <div class="tl-year">2025</div>
+          <div class="tl-text"><strong>서울남부지법</strong> — 수술 없이 성별정정 허가</div>
+        </div>
+      </div>
+
+      <ul class="policy-list" style="margin-top:10px;">
+        <li><strong>국제 비교:</strong> 일본 최고재판소(2023) 수술 요건 위헌 / 독일·아르헨티나·아일랜드·노르웨이 — 자기결정에 의한 성별정정</li>
+        <li><strong>청년과 가족다양성 연결:</strong> 청년기는 트랜지션 결정·실행의 핵심 시기. 신분증 불일치 = 취업·의료·금융·주거 모든 영역에서 일상적 차별에 반복 노출. 트랜스 청년의 정체성 확립이 입법 부재로 사법부 재량에 의존하는 구조.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 8 : 논술 포인트 종합
+══════════════════════════════════════ -->
+<section class="section" id="s8">
+  <div class="section-head">
+    <span class="section-num">08 —</span>
+    <div>
+      <h2 class="section-title">논술 포인트 종합 정리</h2>
+      <p class="section-desc">시험에서 바로 쓸 수 있는 핵심 논지 · 연결고리 · 사례</p>
+    </div>
+  </div>
+
+  <div class="callout violet">
+    <strong>🎯 논지 1 — 성인진입기 + 성 정체성 발달의 이중 과업:</strong><br>
+    성소수자 청년은 Arnett의 성인진입기 발달과제(자아정체성 탐색, 진로 탐색, 독립)에 더해
+    <em>성 정체성 형성이라는 추가 과업</em>을 동시에 수행합니다. 한국에서는 입시 제도로 인해
+    이 탐색 시점이 지연되며, 청년기에 복합적 심리 부담이 집중됩니다.
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">
+    <strong>🎯 논지 2 — 커밍아웃 ≠ 무조건적 심리 안정:</strong><br>
+    커밍아웃 자체가 정서적 안정을 보장하지 않습니다. <strong>커밍아웃 대상의 수보다 관계의 질</strong>이 중요합니다.
+    은둔형(제한적 커밍아웃)이 억압형보다 우울이 낮을 수 있다는 연구 결과는
+    "커밍아웃을 많이 할수록 좋다"는 단순 가정을 반박하며, 개인의 사회적 맥락과 안전을 고려한 접근을 지지합니다.
+  </div>
+
+  <div class="callout rose" style="margin-top:12px;">
+    <strong>🎯 논지 3 — 가족은 양가적 공간:</strong><br>
+    성소수자 청년에게 가족은 가장 강력한 보호요인이면서 동시에 가장 큰 심리적 위협이 될 수 있는 양가적 공간입니다.
+    특히 한국의 가족주의·혈통주의·권위주의적 양육태도는 커밍아웃을 더 어렵게 만드는 구조적 요인입니다.
+  </div>
+
+  <div class="callout sky" style="margin-top:12px;">
+    <strong>🎯 논지 4 — 제도적 배제와 성인이행:</strong><br>
+    혼인평등 미인정 → 청년기 핵심 발달과업인 친밀관계·가족 형성이 동성 청년에게 제도적으로 차단.
+    성별정정 법률 부재 → 트랜스 청년의 일상적 차별.
+    군형법 제92조의6 → 남성 청년의 군 복무가 게이·양성애자에게 '강제된 벽장기'가 됨.
+    세 가지 법·제도 모두 <strong>성소수자 청년의 성인이행을 구조적으로 방해</strong>하는 사례입니다.
+  </div>
+
+  <div class="callout amber" style="margin-top:12px;">
+    <strong>🎯 논지 5 — 통계·연구의 공백 자체가 문제:</strong><br>
+    국가 주도 성소수자 통계가 없다는 것 자체가 정책적 배제를 낳습니다.
+    SOGI 측정 문항의 공식 통계 도입은 "보이지 않는 인구"를 가시화하는 첫 단계입니다.
+    연구 주제 변화(1990년대 병리 → 2020년대 당사자 경험·정책)는 성소수자를 '지식과 권리의 주체'로 인식하는 패러다임 전환을 보여줍니다.
+  </div>
+
+  <div class="callout emerald" style="margin-top:12px;">
+    <strong>🎯 토론 연계 — 《소녀가 되어가는 시간》:</strong><br>
+    미국 트랜스젠더 아동 니콜과 가족의 실화. 아버지 웨인의 변화 과정 + 쌍둥이 동생 조너스의 지지 역할.
+    한국 맥락 적용 시: 아버지 커밍아웃 비율(16.2%) vs. 어머니(30.7%), 형제자매의 이중적 역할(지지자 vs. 또 다른 부담).
+    "가족이 운동의 주체가 되는 것" vs. "당사자가 홀로 맞서는 것"의 차이 — 부모의 지지가 강력한 보호요인이자 사회 변화의 동력임.
+  </div>
+
+  <hr class="sec-div">
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>개념</th><th>핵심 키워드</th><th>연결 가능한 논점</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SGM</td>
+          <td>사회적 불이익, 자원 접근 배제</td>
+          <td>소수자 = 숫자 아닌 권력 불평등 구조</td>
+        </tr>
+        <tr>
+          <td>성인진입기</td>
+          <td>이중 발달 과업, 복합적 심리 부담</td>
+          <td>한국 입시제도에 의한 탐색 지연</td>
+        </tr>
+        <tr>
+          <td>커밍아웃 유형</td>
+          <td>은둔형 우울 최저, 관계의 질</td>
+          <td>커밍아웃 ≠ 무조건 긍정, 안전 맥락 중요</td>
+        </tr>
+        <tr>
+          <td>내면화된 혐오</td>
+          <td>자기혐오, 정체성 수용 방해</td>
+          <td>사회적 낙인의 개인화 메커니즘</td>
+        </tr>
+        <tr>
+          <td>가족주의·혈통주의</td>
+          <td>대 잇기, 권위주의 양육, 종교</td>
+          <td>한국적 특수성 — 서구 이론 직접 적용 한계</td>
+        </tr>
+        <tr>
+          <td>군형법 92조의6</td>
+          <td>강제된 벽장기, 표적 수사</td>
+          <td>성인이행기 남성 청년에게 제도적 억압</td>
+        </tr>
+        <tr>
+          <td>혼인평등 미인정</td>
+          <td>가족 형성 차단, 사회보장 배제</td>
+          <td>발달과업의 구조적 방해</td>
+        </tr>
+        <tr>
+          <td>성별정정 법 부재</td>
+          <td>일상적 차별, 사법부 재량 의존</td>
+          <td>입법 공백 = 트랜스 청년 정체성 불안정화</td>
+        </tr>
+        <tr>
+          <td>SOGI 통계 공백</td>
+          <td>보이지 않는 인구, 정책 배제</td>
+          <td>가시화 자체가 정책의 시작</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>청년과 가족다양성 · 2026 기말고사 대비 자료</span> &nbsp;·&nbsp;
+  2026.06.02 스페셜이슈 4조 발표 기반 &nbsp;·&nbsp;
+  <span>누락 없이 전 개념 수록</span>
+</footer>
+
+</body>
+</html>

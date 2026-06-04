@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이주배경 청년의 가족 이슈 | 청년과 가족다양성 기말고사</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #161b27;
+    --bg3: #1e2535;
+    --bg4: #252d3f;
+    --border: #2e3a52;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --accent: #60a5fa;
+    --accent2: #3b82f6;
+    --green: #34d399;
+    --green-bg: rgba(52,211,153,0.1);
+    --yellow: #fbbf24;
+    --yellow-bg: rgba(251,191,36,0.1);
+    --red: #f87171;
+    --red-bg: rgba(248,113,113,0.1);
+    --purple: #a78bfa;
+    --purple-bg: rgba(167,139,250,0.1);
+    --cyan: #67e8f9;
+    --cyan-bg: rgba(103,232,249,0.1);
+    --orange: #fb923c;
+    --orange-bg: rgba(251,146,60,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0f1117 0%, #1a2540 50%, #0f1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px 36px;
+    text-align: center;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent2);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    color: var(--text2);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,17,23,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    color: var(--text2);
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav a:hover, nav a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: rgba(96,165,250,0.05);
+  }
+  /* MAIN */
+  main { max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; }
+  /* SECTION */
+  section { margin-bottom: 60px; scroll-margin-top: 60px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--accent2);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  /* CARDS */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-yellow { background: var(--yellow-bg); color: var(--yellow); }
+  .tag-red { background: var(--red-bg); color: var(--red); }
+  .tag-purple { background: var(--purple-bg); color: var(--purple); }
+  .tag-cyan { background: var(--cyan-bg); color: var(--cyan); }
+  .tag-orange { background: var(--orange-bg); color: var(--orange); }
+  /* KV ROW */
+  .kv { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .kv-key {
+    min-width: 160px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text2);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .kv-val { color: var(--text); font-size: 14px; }
+  /* GRID */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+  /* HIGHLIGHT BOX */
+  .hl-box {
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    border-left: 3px solid;
+  }
+  .hl-box.blue { background: rgba(96,165,250,0.08); border-color: var(--accent); }
+  .hl-box.green { background: var(--green-bg); border-color: var(--green); }
+  .hl-box.yellow { background: var(--yellow-bg); border-color: var(--yellow); }
+  .hl-box.red { background: var(--red-bg); border-color: var(--red); }
+  .hl-box.purple { background: var(--purple-bg); border-color: var(--purple); }
+  .hl-box.orange { background: var(--orange-bg); border-color: var(--orange); }
+  .hl-box strong { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hl-box.blue strong { color: var(--accent); }
+  .hl-box.green strong { color: var(--green); }
+  .hl-box.yellow strong { color: var(--yellow); }
+  .hl-box.red strong { color: var(--red); }
+  .hl-box.purple strong { color: var(--purple); }
+  .hl-box.orange strong { color: var(--orange); }
+  /* TABLE */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th {
+    background: var(--bg3);
+    color: var(--text2);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(96,165,250,0.03); }
+  /* PILL */
+  .pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin: 2px;
+  }
+  /* LIST */
+  ul.dot { list-style: none; padding: 0; }
+  ul.dot li {
+    padding: 5px 0 5px 18px;
+    position: relative;
+    color: var(--text);
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  ul.dot li:last-child { border-bottom: none; }
+  ul.dot li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 11px;
+    top: 7px;
+  }
+  ul.dot li.sub { padding-left: 32px; }
+  ul.dot li.sub::before { content: '◦'; color: var(--text3); }
+  /* CONCEPT CARD */
+  .concept-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .concept-card .c-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .concept-card .c-en {
+    font-size: 11px;
+    color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 10px;
+  }
+  .concept-card .c-body {
+    font-size: 13.5px;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+  /* ISSUE BOX */
+  .issue-block {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .issue-block .issue-head {
+    background: var(--bg4);
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--yellow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .issue-block .issue-body {
+    padding: 16px 18px;
+    font-size: 13.5px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+  /* QUIZ */
+  .quiz-wrap { margin-top: 8px; }
+  .q-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .q-front {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .q-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .q-num.ox { background: var(--yellow-bg); color: var(--yellow); }
+  .q-num.sa { background: var(--green-bg); color: var(--green); }
+  .q-num.es { background: var(--purple-bg); color: var(--purple); }
+  .q-text { font-size: 14px; color: var(--text); flex: 1; line-height: 1.6; }
+  .q-toggle {
+    font-size: 18px;
+    color: var(--text3);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .q-answer {
+    display: none;
+    padding: 0 20px 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .q-answer.open { display: block; }
+  .q-answer-inner {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .q-answer-inner.correct { background: var(--green-bg); color: var(--green); }
+  .q-answer-inner.info { background: rgba(96,165,250,0.08); color: var(--text); }
+  /* STAT CHIP */
+  .stat { display: inline-block; }
+  .stat-num { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+  .stat-label { font-size: 11px; color: var(--text3); display: block; }
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  /* FLOW */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .flow-step {
+    background: var(--bg4);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .flow-arrow { color: var(--text3); font-size: 16px; }
+  /* WARN */
+  .warn {
+    background: rgba(251,191,36,0.08);
+    border: 1px solid rgba(251,191,36,0.3);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    color: var(--yellow);
+    margin: 12px 0;
+  }
+  .warn::before { content: '⚠ '; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">청년과 가족다양성 · 기말고사 대비</div>
+  <h1>이주배경 청년의 <span>가족 이슈</span></h1>
+  <p>이민정책연구원 장주영 박사 특강 · 개념·현황·이슈 완전 정리</p>
+</div>
+
+<nav>
+  <a href="#s1">1. 이주배경 아동·청소년 개념</a>
+  <a href="#s2">2. 이주배경 청년 개념·현황</a>
+  <a href="#s3">3. 이주 유형별 특성</a>
+  <a href="#s4">4. 가족 관련 이슈</a>
+  <a href="#s5">5. 정책 쟁점</a>
+  <a href="#s6">6. 퀴즈</a>
+</nav>
+
+<main>
+
+<!-- ===== SECTION 1 ===== -->
+<section id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>이주배경 아동·청소년 — 개념과 현황</h2>
+  </div>
+
+  <div class="hl-box blue">
+    <strong>핵심 개념</strong>
+    '이주배경'이란 단일한 법적 용어가 아니라, 본인 또는 부모 중 적어도 한 명이 이주 경험을 가진 경우를 포괄하는 개념이다. 부처별로 상이한 용어를 사용하고 있어, 통계·정책 범위가 달라진다.
+  </div>
+
+  <div class="card">
+    <h3>📋 부처별 용어 비교표 <span class="tag tag-yellow">시험 출제 가능성 높음</span></h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr>
+          <th>용어</th>
+          <th>부처</th>
+          <th>법적 근거</th>
+          <th>정의·범위</th>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent)">외국인주민자녀</strong></td>
+          <td>행정안전부</td>
+          <td>지방자치단체 외국인주민 현황</td>
+          <td>귀화자의 자녀 및 한국인과 결혼한 외국인의 <strong>만 18세 이하</strong> 자녀</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--green)">외국인주민자녀(출생)</strong></td>
+          <td>행정안전부</td>
+          <td>지방자치단체 외국인주민 현황</td>
+          <td>외국인 또는 귀화자의 자녀로서 <strong>출생과 동시에 한국국적을 취득한 자</strong></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--yellow)">다문화가족 구성원인 아동청소년</strong></td>
+          <td>여성가족부</td>
+          <td>다문화가족지원법</td>
+          <td>다문화가족(결혼이민자·귀화자와 한국국적자) 구성원인 <strong>24세 이하</strong> 자녀</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--purple)">이주배경학생(다문화학생)</strong></td>
+          <td>교육부</td>
+          <td>이주배경학생 인재양성 지원방안</td>
+          <td>내국인: 국내출생 / 중도입국(외국출생, 한국체류)<br>외국인 가정 자녀</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--cyan)">이주배경청소년</strong></td>
+          <td>여성가족부</td>
+          <td>청소년복지지원법</td>
+          <td>다문화가족청소년(다문화가족지원법) + 국내로 이주하여 사회문화 적응·학업수행에 어려움을 겪는 청소년 <strong>(9세~24세)</strong></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--red)">이주배경 아동·청소년</strong></td>
+          <td>국가데이터처</td>
+          <td>이주배경인구 통계</td>
+          <td>만 24세 이하의 본인 또는 부모 중 적어도 한 명이 이주배경을 가진 사람</td>
+        </tr>
+      </table>
+    </div>
+    <div class="warn">부처마다 연령 기준(18세 vs 24세)과 포함 범위(국적 취득 여부, 외국인 포함 여부)가 달라 통계 수치가 일치하지 않는다.</div>
+  </div>
+
+  <div class="card">
+    <h3>👤 이주배경 아동·청소년의 두 가지 유형 <span class="tag tag-green">개념 구분 필수</span></h3>
+    <div class="grid2">
+      <div class="concept-card">
+        <div class="c-title">① 본인이 이주를 경험한 경우</div>
+        <div class="c-en">직접 이주</div>
+        <div class="c-body">한국으로 이주한 24세 이하 외국인 또는 후천적 한국인<br><br>→ <strong>"내가 이주를 함"</strong></div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">② 부모가 이주를 경험한 경우</div>
+        <div class="c-en">세대 간 이주배경</div>
+        <div class="c-body">부모 세대가 한국으로 이주한 경험이 있는 24세 이하 외국인 또는 한국인<br><br>→ <strong>"나는 이주한 적 없는데 부모님이 이주를 함"</strong></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="hl-box yellow">
+      <strong>논점: 세대 범위</strong>
+      이주배경을 2세대 이상, 몇 세대까지 확장할 것인지는 현재 논의 중인 사항이다. 국제적으로는 이민 2세(이민 1세의 자녀)까지를 통상적으로 포함한다.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📊 이주배경 청소년 중 19~24세의 구분</h3>
+    <div class="grid2">
+      <div class="hl-box green">
+        <strong>성년이 되기 전 한국에서 성장</strong>
+        한국에서 아동·청소년기를 보낸 후 19세 이상이 된 경우 → 사실상 한국 사회의 맥락 안에서 성장했으나, 외국국적이면 체류자격 문제 발생
+      </div>
+      <div class="hl-box orange">
+        <strong>성년이 된 후 한국에 입국</strong>
+        성인이 된 이후 처음 한국에 들어온 경우 → 가족결합, 유학, 노동 등의 목적으로 입국
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📈 현황 통계 (행정안전부 2024 외국인주민 현황)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr>
+          <th>구분</th>
+          <th>외국인주민 자녀 (0~18세)</th>
+          <th>귀화인지·외국국적 출생</th>
+          <th>계</th>
+          <th>비고</th>
+        </tr>
+        <tr>
+          <td><strong>전체</strong></td>
+          <td>20,094</td>
+          <td>295,304</td>
+          <td><strong style="color:var(--accent)">315,398</strong></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>0~4세</td>
+          <td>1,427</td>
+          <td>67,578</td>
+          <td>69,005</td>
+          <td rowspan="2" style="color:var(--text3)">0~9세 합: 62,811</td>
+        </tr>
+        <tr>
+          <td>5~9세</td>
+          <td>5,609</td>
+          <td>79,972</td>
+          <td>85,581</td>
+        </tr>
+        <tr>
+          <td>10~14세</td>
+          <td>7,010</td>
+          <td>88,845</td>
+          <td>95,855</td>
+          <td rowspan="2" style="color:var(--text3)">10~19세 합: 79,430</td>
+        </tr>
+        <tr>
+          <td>15~18세</td>
+          <td>6,048</td>
+          <td>58,909</td>
+          <td>64,957</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔄 이주의 두 가지 성격 <span class="tag tag-cyan">개념 정리</span></h3>
+    <div class="grid2">
+      <div class="concept-card">
+        <div class="c-title">자발적 이주</div>
+        <div class="c-body">본인의 의사로 이주를 결정한 경우<br>예: 취업, 유학, 결혼</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">비자발적 이주</div>
+        <div class="c-body">본인의 의사와 관계없이 나라를 떠난 경우<br>예: 난민 등<br><br><span style="color:var(--yellow)">⚠ 이주배경청소년은 '비자발적 이주'라고 하지 않는다. 그러나 부모를 따라간 경우, 과연 그것이 자발적 이주인가? → 정책적 관심 영역</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2 ===== -->
+<section id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>이주배경 청년 — 개념과 현황</h2>
+  </div>
+
+  <div class="card">
+    <h3>📌 이주배경 청년의 정의</h3>
+    <div class="hl-box blue">
+      <strong>정의</strong>
+      <div class="grid2">
+        <div>
+          <span style="color:var(--green);font-weight:700">① 본인 이주 유형</span><br>
+          한국으로 이주한 <strong>19세 이상 34세 이하</strong> 외국인 또는 후천적 한국인
+        </div>
+        <div>
+          <span style="color:var(--yellow);font-weight:700">② 부모 이주 유형</span><br>
+          부모 세대가 한국으로 이주한 경험이 있는 <strong>19세 이상 34세 이하</strong> 외국인 또는 한국인
+        </div>
+      </div>
+    </div>
+    <div class="warn">이주배경 청소년(9~24세)과 이주배경 청년(19~34세)은 연령 기준이 다르다. 19~24세 구간은 두 범주에 모두 해당 가능.</div>
+  </div>
+
+  <div class="card">
+    <h3>📊 이주배경인구 현황 (국가데이터처 2024)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr>
+          <th>연령</th>
+          <th>이주배경인구 전체</th>
+          <th>내국인 계</th>
+          <th>귀화인지</th>
+          <th>이민자 2세</th>
+          <th>기타</th>
+          <th>외국인 계</th>
+        </tr>
+        <tr><td>계</td><td><strong>2,715,074</strong></td><td>672,330</td><td>245,372</td><td>380,928</td><td>46,030</td><td>2,042,744</td></tr>
+        <tr><td>0~9세</td><td>221,903</td><td>158,557</td><td>6,501</td><td style="color:var(--accent)"><strong>146,674</strong></td><td>5,382</td><td>63,346</td></tr>
+        <tr><td>10~19세</td><td>253,459</td><td>172,225</td><td>11,248</td><td style="color:var(--accent)"><strong>155,119</strong></td><td>5,858</td><td>81,234</td></tr>
+        <tr style="background:rgba(96,165,250,0.05)"><td><strong style="color:var(--yellow)">20~29세</strong></td><td><strong>570,268</strong></td><td>62,466</td><td>13,581</td><td>44,620</td><td>4,265</td><td style="color:var(--yellow)"><strong>507,802</strong></td></tr>
+        <tr style="background:rgba(96,165,250,0.05)"><td><strong style="color:var(--yellow)">30~39세</strong></td><td><strong>660,123</strong></td><td>94,078</td><td>66,652</td><td>19,960</td><td>7,466</td><td style="color:var(--yellow)"><strong>566,045</strong></td></tr>
+        <tr><td>40~49세</td><td>418,826</td><td>82,331</td><td>61,980</td><td>12,102</td><td>8,249</td><td>336,495</td></tr>
+        <tr><td>50~59세</td><td>316,209</td><td>56,869</td><td>45,434</td><td>2,234</td><td>9,201</td><td>259,340</td></tr>
+        <tr><td>60~69세</td><td>203,796</td><td>31,761</td><td>28,086</td><td>204</td><td>3,471</td><td>172,035</td></tr>
+        <tr><td>70세 이상</td><td>70,490</td><td>14,043</td><td>11,890</td><td>15</td><td>2,138</td><td>56,447</td></tr>
+      </table>
+    </div>
+    <div class="hl-box purple">
+      <strong>주목할 점: 이민자 2세</strong>
+      이민자 2세 = 외국인 부부의 자녀 (한국에서 출생). 0~9세(146,674명), 10~19세(155,119명)에서 특히 많다. 20~29세에서는 급격히 줄어든다 → 아직 성인기에 진입하지 않은 세대가 많다는 의미.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📊 외국인주민 연령·유형별 현황 (행안부 2024)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr>
+          <th>연령</th>
+          <th>소계</th>
+          <th>외국인근로자</th>
+          <th>결혼이민자</th>
+          <th>유학생</th>
+          <th>외국국적동포</th>
+          <th>기타외국인</th>
+        </tr>
+        <tr><td>전국 전체</td><td><strong>2,042,744</strong></td><td>502,634</td><td>191,839</td><td>233,237</td><td>415,695</td><td>699,339</td></tr>
+        <tr><td>0~9세</td><td>63,346</td><td>*</td><td>*</td><td>*</td><td>4,410</td><td>58,935</td></tr>
+        <tr><td>10~19세</td><td>81,234</td><td>2,254</td><td>364</td><td>31,503</td><td>14,231</td><td>32,882</td></tr>
+        <tr style="background:rgba(96,165,250,0.05)"><td><strong style="color:var(--yellow)">20~29세</strong></td><td><strong>507,802</strong></td><td>176,859</td><td>22,047</td><td style="color:var(--cyan)"><strong>180,446</strong></td><td>25,995</td><td>102,455</td></tr>
+        <tr style="background:rgba(96,165,250,0.05)"><td><strong style="color:var(--yellow)">30~39세</strong></td><td><strong>566,045</strong></td><td style="color:var(--cyan)"><strong>206,562</strong></td><td>68,028</td><td>19,457</td><td>69,676</td><td>202,322</td></tr>
+        <tr><td>40~49세</td><td>336,495</td><td>67,026</td><td>51,247</td><td>1,650</td><td>65,746</td><td>150,826</td></tr>
+        <tr><td>50~59세</td><td>259,340</td><td>43,828</td><td>31,985</td><td>154</td><td>82,248</td><td>101,125</td></tr>
+        <tr><td>60~69세</td><td>172,035</td><td>5,693</td><td>15,391</td><td>23</td><td>108,255</td><td>42,673</td></tr>
+        <tr><td>70세 이상</td><td>56,447</td><td>411</td><td>2,777</td><td>*</td><td>45,134</td><td>8,121</td></tr>
+      </table>
+    </div>
+    <div class="hl-box green">
+      <strong>20~29세 유학생 비중</strong>
+      20~29세 이주배경 청년 중 유학생이 180,446명으로 가장 큰 비중 차지. 반면 30~39세는 외국인근로자(206,562명)가 압도적으로 많음 → 청년 이주의 주요 경로: 유학 → 취업으로 이행하는 패턴.
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3 ===== -->
+<section id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>이주배경 청년의 이주 유형별 특성</h2>
+  </div>
+
+  <div class="hl-box blue">
+    <strong>이주배경의 의미</strong>
+    이주배경 = 이주민으로서 입국을 허가받은 목적 (비자 유형). 단, 비자 유형과 이주의 실제 목표가 항상 일치하지는 않으며, 이주 후 체류자격 유형이 변경되기도 한다 → 비자는 '공식적인 출발점' 정도로 볼 수 있다.
+  </div>
+
+  <div class="card">
+    <h3>🗂️ 이주 유형 4가지</h3>
+    <div class="grid2">
+      <div class="concept-card">
+        <div class="c-title">① 노동 이주</div>
+        <div class="c-en">취업, 고용허가</div>
+        <div class="c-body">비전문 취업(E-9), 숙련전문 취업, 계절근로 등<br>비자 예: E-9(비전문취업), E-7(특정활동)</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">② 유학 이주</div>
+        <div class="c-en">유학, 연수</div>
+        <div class="c-body">D-2(유학), D-4(어학연수) 등<br>2025년 기준 약 25만 3,434명</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">③ 가족 이주</div>
+        <div class="c-en">결혼이주, 가족결합, 국제입양</div>
+        <div class="c-body">F-6(결혼이민) 등<br><span style="color:var(--yellow)">결혼이주(한국인 배우자)</span> vs <span style="color:var(--orange)">가족결합(외국인이 외국인 배우자 초청)</span> 구별 필요</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">④ 인도적 이주</div>
+        <div class="c-en">난민, 인도적 체류 등</div>
+        <div class="c-body">난민인정자, 인도적 체류자, 난민신청자, 특별기여자<br>G-1-5 등<br>난민인정자 외에는 체류 불안정</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 혼인이주 -->
+  <div class="card">
+    <h3>💍 가족 이주 ① — 혼인이주 <span class="tag tag-yellow">통계 출제 가능</span></h3>
+    <div class="hl-box yellow">
+      <strong>한국의 혼인이주 통계 = '다문화 결혼' 통계</strong>
+      한국에서 '혼인이주'는 한국인과 외국인의 결혼(다문화 결혼)을 의미한다. 반면, 외국인이 외국인 배우자와 혼인하여 초청하는 것은 <strong>'가족결합'</strong>으로 별도 분류.
+    </div>
+    <div class="kv"><div class="kv-key">국제결혼 초혼 평균연령</div><div class="kv-val">남편 <strong>37.1세</strong>, 아내 <strong>29.7세</strong> → 약 7.4세 차이</div></div>
+    <div class="kv"><div class="kv-key">연령 차이 10세 이상</div><div class="kv-val"><strong>37.3%</strong> — 일반 한국인 혼인보다 연령 차이가 현저히 큰 비율이 높음</div></div>
+    <hr class="divider">
+    <div class="card" style="background:var(--bg3); margin-bottom:0">
+      <h3 style="font-size:0.9rem">📊 2024 다문화 인구동태 통계: 남편의 혼인연령별 기준</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>연령대</th><th>전체 비중(%)</th><th>다문화 혼인(%)</th><th>외국인·귀화자(%)</th><th>출생기준 한국인(%)</th><th>한국인 간 혼인(%)</th></tr>
+          <tr><td>19세 이하</td><td>0.1</td><td>0.1</td><td>0.2</td><td>0.1</td><td>0.1</td></tr>
+          <tr><td>20~24세</td><td>1.6</td><td>2.4</td><td>4.3</td><td>1.8</td><td>1.5</td></tr>
+          <tr><td>25~29세</td><td>17.9</td><td>12.4</td><td>18.8</td><td>10.1</td><td>18.5</td></tr>
+          <tr><td>30~34세</td><td>39.1</td><td>19.6</td><td style="color:var(--yellow)"><strong>28.6</strong></td><td>16.4</td><td>41.2</td></tr>
+          <tr><td>35~39세</td><td>19.4</td><td>17.0</td><td>21.2</td><td>15.5</td><td>19.7</td></tr>
+          <tr><td>40~44세</td><td>8.4</td><td>15.7</td><td>10.2</td><td>17.7</td><td>7.7</td></tr>
+          <tr><td style="color:var(--red)"><strong>45세 이상</strong></td><td>13.4</td><td style="color:var(--red)"><strong>32.7</strong></td><td>16.7</td><td style="color:var(--red)"><strong>38.4</strong></td><td>11.3</td></tr>
+        </table>
+      </div>
+      <div class="hl-box red">
+        <strong>주목: 출생기준 한국인 남편</strong>
+        출생기준 한국인 남편의 경우 45세 이상 비율이 38.4%로 가장 높다 → 고령 한국인 남성이 외국인 여성과 결혼하는 비율이 높음을 시사. '연령 불균형' 문제와 연결.
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="card" style="background:var(--bg3); margin-bottom:0">
+      <h3 style="font-size:0.9rem">📊 2024 다문화 인구동태 통계: 아내의 혼인연령별 기준</h3>
+      <p style="font-size:12px;color:var(--text3);margin-bottom:10px">※ 그 해의 신규 혼인 건수 기준</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>연령대</th><th>전체 비중(%)</th><th>다문화 혼인(%)</th><th>외국인·귀화자(%)</th><th>출생기준 한국인(%)</th><th>한국인 간 혼인(%)</th></tr>
+          <tr><td style="color:var(--red)"><strong>19세 이하</strong></td><td>0.6</td><td style="color:var(--red)"><strong>4.5</strong></td><td>5.4</td><td>0.4</td><td>0.2</td></tr>
+          <tr><td style="color:var(--red)"><strong>20~24세</strong></td><td>4.4</td><td style="color:var(--red)"><strong>14.5</strong></td><td>16.5</td><td>5.3</td><td>3.3</td></tr>
+          <tr><td>25~29세</td><td>28.9</td><td>23.4</td><td style="color:var(--yellow)">23.2</td><td>24.2</td><td>29.5</td></tr>
+          <tr><td>30~34세</td><td>37.9</td><td>23.0</td><td>20.6</td><td style="color:var(--yellow)"><strong>33.5</strong></td><td>39.4</td></tr>
+          <tr><td>35~39세</td><td>13.2</td><td>15.5</td><td>15.1</td><td>17.4</td><td>12.9</td></tr>
+          <tr><td>40~44세</td><td>5.4</td><td>8.0</td><td>8.0</td><td>8.4</td><td>5.1</td></tr>
+          <tr><td>45세 이상</td><td>9.7</td><td>11.1</td><td>11.1</td><td>10.8</td><td>9.6</td></tr>
+        </table>
+      </div>
+      <div class="hl-box red">
+        <strong>핵심: 다문화 혼인에서 아내의 저연령 비율 높음</strong>
+        다문화 혼인에서 아내가 19세 이하(4.5%), 20~24세(14.5%)인 비율이 한국인 간 혼인(각 0.2%, 3.3%)에 비해 현저히 높다 → 이주배경 아내의 조혼(早婚) 문제, 연령 불균형 문제 부각.
+      </div>
+    </div>
+  </div>
+
+  <!-- 국제결혼 자녀 -->
+  <div class="card">
+    <h3>👨‍👩‍👧 가족 이주 ② — 국제결혼 가정의 자녀 <span class="tag tag-red">비자 문제 핵심</span></h3>
+    <div class="grid3">
+      <div class="hl-box green">
+        <strong>출생 한국인</strong>
+        한국에서 출생하여 자동으로 한국 국적을 취득한 자녀
+      </div>
+      <div class="hl-box yellow">
+        <strong>귀화·인지 한국인</strong>
+        귀화 절차 또는 부모 인지를 통해 한국 국적을 취득한 자녀
+      </div>
+      <div class="hl-box red">
+        <strong>외국국적</strong>
+        한국 국적을 취득하지 않은 자녀 → 성인이 되면 비자 문제 발생 가능
+      </div>
+    </div>
+    <div class="warn">형제·자매 간에도 국적 유형이 다양한 경우가 발생한다. 예: 첫째는 출생 한국인, 둘째는 외국국적.</div>
+
+    <hr class="divider">
+    <h3 style="color:var(--red);font-size:0.95rem;margin-bottom:12px">⚠ 성인기 진입한 국제결혼 가정 자녀 — 비자 문제</h3>
+    <ul class="dot">
+      <li>성인기에 접어든 국제결혼 가정 자녀 <strong>증가 추세</strong></li>
+      <li>한국국적 부모 사망 시: 영주권 미취득 외국국적 부모의 <strong>비자 갱신 절차가 까다로움</strong></li>
+      <li>성인자녀 '양육' 비자 종료 시: <strong>선천적 국민은 부모를 초청할 수 있는 장기체류 비자가 없음</strong></li>
+      <li class="sub">예외: 결혼이민자·귀화자는 자녀 돌봄 위한 초청이라도 가능</li>
+      <li class="sub">예외: 부모가 동포인 경우만 동포관련 비자(H-2, F-4)로 가능</li>
+    </ul>
+
+    <hr class="divider">
+    <h3 style="color:var(--purple);font-size:0.95rem;margin-bottom:12px">🔄 귀화자·결혼이민자의 노부모 돌봄 의무</h3>
+    <ul class="dot">
+      <li>귀화자, 결혼이민자에게 <strong>노부모 돌봄 의무 발생</strong></li>
+      <li>중국 출신의 경우: <strong>한자녀 정책 세대</strong>는 부모부양 가능한 형제자매 없음</li>
+      <li>모든 형제자매가 혼인이주 또는 노동이주한 경우, 본인만이 부모를 부양해야 함</li>
+      <li><strong>부모-성인 자녀의 상호돌봄 규범</strong>이 한국인보다 강한 경우 많음 (문화적 차이)</li>
+      <li>현재 제도: <strong>'한국 가족'(배우자, 미성년 자녀)의 돌봄을 위한 부모의 지원만 가능</strong> → 이주민이 자신의 노부모를 한국으로 초청하는 것은 사실상 불가능에 가까움</li>
+    </ul>
+  </div>
+
+  <!-- 유학 -->
+  <div class="card">
+    <h3>🎓 유학 이주 <span class="tag tag-cyan">가족 이슈 연결</span></h3>
+    <div class="kv"><div class="kv-key">기본 원칙</div><div class="kv-val">한국은 원칙적으로 <strong>의무교육 단계(초·중학교) 유학생 허가 안 함</strong></div></div>
+    <div class="kv"><div class="kv-key">2025년 유학생 수</div><div class="kv-val"><strong>약 25만 3,434명</strong></div></div>
+    <div class="tbl-wrap" style="margin-top:12px">
+      <table>
+        <tr><th>과정</th><th>인원</th><th>비율</th></tr>
+        <tr><td>대학(전문대학)</td><td>120,150</td><td>47.4%</td></tr>
+        <tr><td>어학연수</td><td>58,764</td><td>23.2%</td></tr>
+        <tr><td>석사과정</td><td>41,278</td><td>16.3%</td></tr>
+        <tr><td>박사과정</td><td>17,762</td><td>7.0%</td></tr>
+        <tr><td>기타 연수</td><td>15,480</td><td>6.1%</td></tr>
+        <tr><td><strong>계</strong></td><td><strong>253,434</strong></td><td>100%</td></tr>
+      </table>
+    </div>
+
+    <hr class="divider">
+    <h3 style="color:var(--cyan);font-size:0.9rem;margin-bottom:10px">유학과 가족 관련 이슈</h3>
+    <ul class="dot">
+      <li><strong>법적 배우자, 미성년 자녀</strong>는 가족동반 허용</li>
+      <li><strong>가족동반 외의 독자적 체류자격 있는 경우의 부부</strong> (예: 유학생 간 혼인) → 각자 독립적 체류자격 유지 필요</li>
+      <li><strong>자녀 출산·양육에 따른 휴학</strong> 시 체류자격 유지 어려움 → 체류자격 변경 필요</li>
+      <li><strong>석·박사 유학생</strong>은 부모동반 허용</li>
+      <li>취업 후 가족동반은 법적 배우자, 미성년 자녀 가능</li>
+      <li>한국에서 청소년기를 보낸 유학 체류자격자: <strong>학위 취득 후 타 체류자격으로 변경 필요</strong></li>
+    </ul>
+  </div>
+
+  <!-- 노동 -->
+  <div class="card">
+    <h3>🏭 노동 이주 <span class="tag tag-orange">체류자격 제한 이슈</span></h3>
+    <ul class="dot">
+      <li>비전문 취업, 숙련전문 취업, 계절근로</li>
+      <li><strong>고용허가제 E-9: 가족동반 불가</strong>, 최장 9년 8개월 체류</li>
+      <li>독립된 체류자격 가진 경우의 가족 형성 (예: E-9 비자 간 혼인)</li>
+      <li>한국에서 성장한 이주배경 청년이 <strong>고교 졸업 후 취업 관련 비자 취득 매우 어려움</strong></li>
+    </ul>
+
+    <hr class="divider">
+    <h3 style="color:var(--orange);font-size:0.9rem;margin-bottom:10px">🇰🇷 국내 성장 기반 외국인 성인 체류자격</h3>
+    <div class="hl-box orange">
+      <strong>E-7-Y 비자 (청년 이주배경 외국인 특화 체류자격)</strong>
+      <ul class="dot" style="margin-top:8px">
+        <li><strong>조건 ①</strong>: 18세 전 7년 이상 국내 체류 (91일 이상 출국 기간 산정 제외)</li>
+        <li><strong>조건 ②</strong>: 한국에서 ① 초·중·고 모두 졸업 OR ② 둘 이상 졸업 + 사회통합프로그램 5단계 이수</li>
+        <li>신청일 기준 <strong>18세~24세</strong></li>
+        <li>결과: <strong>직종 제한 없는 취업(E-7-Y)</strong> 부여, 미취업 시 최대 3년 구직(D-10)</li>
+        <li>인구감소지역에서 D-10·E-7-Y 4년 이상 거주 시 <strong>지역특화비자(F-2-R)</strong> 부여</li>
+      </ul>
+    </div>
+    <div class="warn">고교 졸업생이 취득할 수 있는 취업 관련 체류자격은 사실상 없다. 동포는 H-2, F-4 가능. 진로 선택이 희망이 아닌 체류자격 허용 기준에 따라 결정되는 구조적 문제 존재.</div>
+    <div class="hl-box red">
+      <strong>점수제 취업 자격의 연령 불이익</strong>
+      점수제 취업 자격은 나이에 따른 배점 차이가 매우 크다 (예: 33세 60점 → 34세 30점). 따라서 장기적 체류 계획 수립이 필수적이며, 이는 청년 이주배경 당사자에게 큰 불확실성을 만든다.
+    </div>
+  </div>
+
+  <!-- 인도적 이주 -->
+  <div class="card">
+    <h3>🕊️ 인도적 이주 <span class="tag tag-red">체류 불안정</span></h3>
+    <div class="grid2">
+      <div>
+        <div class="kv"><div class="kv-key">난민인정자</div><div class="kv-val">가족초청 가능, 상대적으로 안정적 체류</div></div>
+        <div class="kv"><div class="kv-key">인도적 체류자</div><div class="kv-val">입국하면 가족 비자는 허용, 단 체류 불안정</div></div>
+        <div class="kv"><div class="kv-key">난민신청자</div><div class="kv-val">체류 불안정, 결정 대기 중</div></div>
+        <div class="kv"><div class="kv-key">특별기여자</div><div class="kv-val">예: 아프가니스탄 협력자 등 특별 케이스</div></div>
+      </div>
+      <div>
+        <div class="hl-box red">
+          <strong>가족관계 증명 문제</strong>
+          가족관계를 증명하기 어렵고, 출생 등록이 매우 어렵다. 전쟁·분쟁 지역 출신의 경우 공문서 자체가 없거나 훼손된 경우 많음.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4 ===== -->
+<section id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>이주배경 청년의 가족 관련 이슈</h2>
+  </div>
+
+  <!-- 출생등록 -->
+  <div class="card">
+    <h3>📄 이슈 ① — 출생등록 문제 <span class="tag tag-red">정책 공백 핵심</span></h3>
+
+    <div class="hl-box red">
+      <strong>현행 출생통보제의 한계</strong>
+      2023년 도입된 출생통보제는 의료기관이 출생 사실을 지방자치단체에 통보하는 제도이나, <strong>가족관계등록법 기반으로 외국인은 포함되지 않는다</strong>. 이주배경 아동이 출생해도 자동 등록 불가.
+    </div>
+
+    <div class="kv"><div class="kv-key">감사원 발표 (2023)</div><div class="kv-val">2015~2022년 출생등록 되지 않은 이주배경 아동: <strong>4,025명</strong></div></div>
+    <div class="kv"><div class="kv-key">입법 현황</div><div class="kv-val">국회 이주아동 출생등록 법안 <strong>계류 중</strong></div></div>
+    <div class="kv"><div class="kv-key">국가 계획</div><div class="kv-val">제4차 외국인정책 기본계획에 <strong>보편적 출생등록제 도입 과제</strong> 포함</div></div>
+
+    <hr class="divider">
+    <div class="hl-box green">
+      <strong>경기도 출생 미등록 외국인 아동 발굴 및 지원 조례 (선도적 지자체 사례)</strong>
+      <ul class="dot" style="margin-top:8px">
+        <li>경기도 모든 아동의 <strong>출생 등록권</strong>과 인도적 사회서비스 지원 보장</li>
+        <li>대상: 국내 출생하였으나 출생 확인이 되지 않은 경기도 내 <strong>18세 미만</strong> 외국인</li>
+        <li>지원 내용: 보건의료서비스, 긴급 복지·생계 지원, 보육료 등 지원, 사회문화 지원</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 장기체류 아동 데이터 -->
+  <div class="card">
+    <h3>📊 0~18세 장기체류 외국인 연도·연령별 현황 (2024년 6월 말 기준)</h3>
+    <p style="color:var(--text2);font-size:13px;margin-bottom:12px">출처: 장주영 외 (2024). 이주배경아동 지역사회 정착을 위한 체계 구축.</p>
+    <div class="hl-box blue">
+      <strong>이 표의 의미</strong>
+      행은 '입국 연도', 열은 '현재 나이'. 즉, 언제 입국해서 현재 몇 살인지를 보여준다. 2020년 이후 입국자 중 영유아(0~5세) 비율이 급격히 증가 → <strong>최근 이주배경 영유아의 한국 입국이 크게 늘어나는 추세</strong>.
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>입국연도</th><th>0세</th><th>1세</th><th>2세</th><th>3세</th><th>4세</th><th>5세</th><th>6~10세 합산</th><th>13~18세 합산</th></tr>
+        <tr><td>2019이전</td><td colspan="3" style="color:var(--text3)">대부분 0</td><td></td><td></td><td>4,815</td><td colspan="2"></td></tr>
+        <tr><td>2020</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4,672</td><td>240</td><td colspan="2"></td></tr>
+        <tr><td>2021</td><td>0</td><td>0</td><td>0</td><td>4,540</td><td>511</td><td>551</td><td colspan="2"></td></tr>
+        <tr><td>2022</td><td>0</td><td>0</td><td>4,976</td><td>687</td><td>791</td><td>900</td><td colspan="2"></td></tr>
+        <tr style="background:rgba(96,165,250,0.05)"><td><strong>2023</strong></td><td>0</td><td style="color:var(--accent)"><strong>6,387</strong></td><td>980</td><td>948</td><td>1,170</td><td>1,165</td><td style="color:var(--accent)">높음</td><td>높음</td></tr>
+        <tr style="background:rgba(96,165,250,0.05)"><td><strong>2024</strong></td><td style="color:var(--yellow)"><strong>1,806</strong></td><td>479</td><td>456</td><td>380</td><td>404</td><td>477</td><td colspan="2"></td></tr>
+      </table>
+    </div>
+    <div class="hl-box yellow">
+      <strong>주목할 패턴</strong>
+      매 연도별 대각선 방향으로 '최대값'이 나타난다 → 입국 당시 연령이 특정 연령에 집중되어 있음을 의미. 예: 2016년 입국자는 현재 8세(3,551명)에서 가장 많음. 최근 2023년에는 1세(6,387명)가 가장 많아, 영아 이주가 급격히 늘어났음을 알 수 있다.
+    </div>
+  </div>
+
+  <!-- 가족 형성 문제 -->
+  <div class="card">
+    <h3>💑 이슈 ② — 성인기 진입 후 가족 형성 <span class="tag tag-purple">법적 공백</span></h3>
+    <ul class="dot">
+      <li>이주배경 청소년이 성인기에 진입하여 가족을 형성할 때 <strong>한국에서 혼인신고 절차가 없음</strong> → 본국 대사관 등 통해 처리해야 함</li>
+      <li>외국국적 청소년 간 국적이 다를 경우, <strong>국적국 간 혼인 법제 차이</strong>가 존재 → 복잡한 법적 문제 발생</li>
+      <li><strong>사실혼 관계 증가 가능</strong> — 법적 혼인 절차의 어려움으로 인해</li>
+      <li>자녀 출생 시 <strong>출생신고 절차가 없음</strong> → 무국적 아동 발생 위험</li>
+    </ul>
+  </div>
+
+  <!-- 건강보험 -->
+  <div class="card">
+    <h3>🏥 이슈 ③ — 국민건강보험 접근 문제 <span class="tag tag-orange">실질적 장벽</span></h3>
+    <ul class="dot">
+      <li>지역가입자: <strong>가족관계 증명 가능한 배우자, 미성년자 외에는 가족원 세대합가 불가</strong></li>
+      <li>지역가입자 보험료: 전년도 건강보험가입자 전체 평균보험료 이상 부과 (2026년 기준 <strong>158,630원/월</strong>)</li>
+      <li>난민인정자, 미성년 세대주: 내국인 동일기준 산정 보험료와 지역가입자 월별보험료 하한 중 더 큰 금액 적용</li>
+      <li><strong>조손가족, 형제자매 가족</strong>: 각자 지역건강보험 세대주로 가입해야 함 → 보험료 부담 중복</li>
+      <li>중도입국 자녀: 부모가 이미 지역가입자여도 <strong>6개월 전 가입 불가</strong></li>
+      <li>부모가 지역가입자인 경우, <strong>자녀가 성인이 되면 세대주로 국민건강보험 신규 가입 필요</strong></li>
+    </ul>
+    <div class="kv" style="margin-top:12px"><div class="kv-key">보건복지부 사업</div><div class="kv-val">외국인 근로자 등 의료지원 사업 — 미성년 자녀는 질병이 국내에서 발병한 경우에 한해 지원</div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5 ===== -->
+<section id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>구조적 쟁점과 정책적 함의</h2>
+  </div>
+
+  <div class="card">
+    <h3>🔍 한국 이민정책의 구조적 문제 <span class="tag tag-red">논술 핵심 논점</span></h3>
+
+    <div class="hl-box red">
+      <strong>외국 "인력"으로서의 이주민 관점</strong>
+      한국 이민정책의 근본적 한계는 이주민을 <strong>생산 가능 연령의 '인력'</strong>으로만 바라본다는 점이다. 생애주기 전체에 대한 고려가 매우 부족하며, "청년" 이후의 삶(노화, 돌봄, 가족 형성, 자녀 양육)에 대한 정책 설계가 거의 없다.
+    </div>
+
+    <div class="grid2">
+      <div class="issue-block">
+        <div class="issue-head">① 체류자격 경로의 비현실성</div>
+        <div class="issue-body">
+          이주배경 청년의 미래 설계: 체류자격 경로가 현실적인가? 진로가 <strong>본인의 희망이 아닌, 체류자격 허용 기준에 따라 결정</strong>되는 구조. 취업 비자 취득 조건이 고학력·전문직에 치우쳐 있어, 일반 직종으로의 취업 경로가 막혀 있다.
+        </div>
+      </div>
+      <div class="issue-block">
+        <div class="issue-head">② 가족 단위 체류의 어려움</div>
+        <div class="issue-body">
+          <strong>한국은 외국인이 가족과 살아가기에 좋은 환경인가?</strong> E-9 비자는 가족동반 불가, 유학생의 자녀 출산 시 체류자격 위협, 성인자녀가 외국인 부모를 초청할 방법 부재 등 → 이주민의 정상적인 가족생활이 제도적으로 제약받는다.
+        </div>
+      </div>
+      <div class="issue-block">
+        <div class="issue-head">③ 한국인 자녀의 외국인 부모</div>
+        <div class="issue-body">
+          <strong>"한국인의 부모가 외국인일 수 있다"는 정책적 상상력 부족.</strong> 한국의 성인-부모자녀 관계 특성(효도 규범, 상호돌봄)이 부모가 외국인인 경우에는 제도적으로 배제된다. 자녀가 한국인이라도 외국인 부모를 위한 비자나 복지 혜택이 없다.
+        </div>
+      </div>
+      <div class="issue-block">
+        <div class="issue-head">④ 가족 형성 증빙 문제</div>
+        <div class="issue-body">
+          <strong>혼인 신고, 출생이 "국민"에게만 확인 가능한가?</strong> 현행 제도에서 외국인 간의 혼인 또는 자녀 출생을 한국 내에서 공식적으로 등록·증명하는 방법이 극히 제한적 → 법적 공백 속의 가족들이 다수 존재한다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🌐 논술에 활용할 수 있는 핵심 논점 정리</h3>
+    <div class="hl-box blue">
+      <strong>논점 1: 이주배경 청년은 단일한 집단이 아니다</strong>
+      노동·유학·결혼·인도적 이주 등 이주 경로에 따라 직면하는 가족 이슈가 완전히 다르다. 정책이 획일적으로 설계될 경우 각 집단의 필요를 충족하지 못한다.
+    </div>
+    <div class="hl-box green">
+      <strong>논점 2: 이주배경 자체가 세대를 넘어 이어진다</strong>
+      1세대 이민자의 자녀(2세대), 그 자녀(3세대)로 이어지면서 이주배경의 의미와 경험이 달라진다. 정책 범위를 몇 세대까지 포함할 것인지에 대한 사회적 합의가 필요하다.
+    </div>
+    <div class="hl-box yellow">
+      <strong>논점 3: 가족 이슈는 체류자격 이슈와 불가분하다</strong>
+      이주배경 청년의 가족 형성(결혼, 출산)·가족 유지(부모 돌봄, 건강보험)·가족 해체(이혼 후 체류자격) 모두 체류자격 제도와 긴밀하게 연결된다. 가족 복지 정책과 이민 정책의 통합적 접근이 필요하다.
+    </div>
+    <div class="hl-box purple">
+      <strong>논점 4: 보편적 권리 vs. 국적 기반 권리</strong>
+      출생등록, 교육, 의료 등 기본적 인권은 국적과 무관하게 보장되어야 한다는 국제규범(UN 아동권리협약 등)이 있으나, 한국 제도는 여전히 국적을 기준으로 서비스를 제한하는 경우가 많다.
+    </div>
+    <div class="hl-box orange">
+      <strong>논점 5: 문화적 다양성 vs. 제도적 단일성</strong>
+      이주배경 청년은 본국의 가족 규범(효도, 상호돌봄, 조혼 등)과 한국의 가족 제도 사이에서 갈등을 경험한다. 제도 설계 시 문화적 다양성을 어떻게 반영할 것인지가 중요한 과제이다.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔗 개념 연결 맵</h3>
+    <div class="flow">
+      <div class="flow-step" style="background:rgba(96,165,250,0.15);border-color:var(--accent)">이주배경</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">비자 유형</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">가족동반 가능 여부</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">가족 형성·유지 이슈</div>
+    </div>
+    <div class="flow" style="margin-top:8px">
+      <div class="flow-step" style="background:rgba(251,191,36,0.15);border-color:var(--yellow)">국제결혼</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">자녀 국적 다양성</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">성인 후 비자 공백</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">부모 체류 문제</div>
+    </div>
+    <div class="flow" style="margin-top:8px">
+      <div class="flow-step" style="background:rgba(248,113,113,0.15);border-color:var(--red)">출생 미등록</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">무국적·무서류</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">교육·의료 접근 제한</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">사회적 배제</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6 QUIZ ===== -->
+<section id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>기말고사 대비 퀴즈</h2>
+  </div>
+
+  <div class="hl-box blue">
+    <strong>활용 방법</strong>
+    문제를 읽고 답을 생각한 후, 클릭하면 정답과 해설이 펼쳐집니다. O/X = 개념 확인, 단답형 = 핵심 용어, 논술 = 예상 논술 주제.
+  </div>
+
+  <div class="quiz-wrap">
+
+    <!-- OX 1 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">여성가족부의 '이주배경청소년'은 9세~24세를 대상으로 하며, 다문화가족청소년과 국내 이주하여 적응에 어려움을 겪는 청소년을 포함한다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">⭕ 정답: O<br><br>청소년복지지원법 근거. 다문화가족지원법상의 다문화가족청소년 + 국내로 이주하여 사회문화 적응 및 학업수행에 어려움을 겪는 청소년(9세~24세)을 포함.</div>
+      </div>
+    </div>
+
+    <!-- OX 2 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">한국의 '혼인이주' 통계는 외국인이 외국인 배우자를 초청하는 '가족결합'을 포함한다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">❌ 정답: X<br><br>한국의 혼인이주 통계(다문화 결혼 통계)는 한국인과 외국인의 결혼을 의미한다. 외국인이 외국인 배우자와 혼인하여 초청하는 것은 '가족결합'으로 별도 분류되며, 다문화 결혼 통계에 포함되지 않는다.</div>
+      </div>
+    </div>
+
+    <!-- OX 3 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">고용허가제(E-9) 비자 소지자는 최장 9년 8개월 체류가 가능하며, 가족동반이 허용된다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">❌ 정답: X<br><br>최장 9년 8개월 체류는 맞지만, <strong>가족동반은 불가</strong>하다. 이것이 노동이주 맥락에서의 핵심적인 가족 이슈이다.</div>
+      </div>
+    </div>
+
+    <!-- OX 4 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">현행 출생통보제(2023년 도입)는 이주배경 아동도 포함하여 자동으로 출생 등록이 이루어진다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">❌ 정답: X<br><br>현행 출생통보제는 가족관계등록법을 기반으로 하므로 <strong>외국인은 포함되지 않는다</strong>. 2023년 감사원 발표에 따르면 2015~2022년 출생등록 되지 않은 이주배경 아동이 4,025명에 달한다. 보편적 출생등록제 도입은 제4차 외국인정책 기본계획 과제로 포함되어 있으나 아직 국회 계류 중.</div>
+      </div>
+    </div>
+
+    <!-- OX 5 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">국제결혼 가정에서 형제·자매 간 국적 유형이 서로 다를 수 있다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">⭕ 정답: O<br><br>국제결혼 가정 자녀는 출생 시기, 국적 취득 절차 진행 여부에 따라 같은 가정 내에서도 출생 한국인, 귀화·인지 한국인, 외국국적으로 국적 유형이 달라질 수 있다.</div>
+      </div>
+    </div>
+
+    <!-- OX 6 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">중국 출신 결혼이민자 중 한자녀 정책 세대는 본국에서 부모를 돌볼 형제자매가 있을 가능성이 높다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">❌ 정답: X<br><br>한자녀 정책 세대는 형제자매가 없거나 극히 적다. 모든 형제자매가 혼인이주 또는 노동이주한 경우도 있어, 본인만이 유일한 자녀로서 노부모 부양 의무를 혼자 져야 하는 상황이 발생한다.</div>
+      </div>
+    </div>
+
+    <!-- OX 7 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">2024년 다문화 혼인 통계에서, 아내 기준으로 다문화 혼인의 19세 이하 비율은 한국인 간 혼인보다 훨씬 높다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">⭕ 정답: O<br><br>다문화 혼인에서 아내 19세 이하 비율은 4.5%로, 한국인 간 혼인 0.2%에 비해 현저히 높다. 이는 이주배경 여성의 조혼(早婚) 문제와 연결되며, 연령 불균형·권력 불균형 이슈를 시사한다.</div>
+      </div>
+    </div>
+
+    <!-- OX 8 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num ox">O/X</div>
+        <div class="q-text">이주배경 청년이 비자의 이주배경(목적)과 실제 이주 목표는 항상 일치한다.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner correct">❌ 정답: X<br><br>비자 유형과 이주의 실제 목표가 항상 일치하지는 않으며, 이주 후 체류자격 유형이 변경되기도 한다. 비자는 '공식적인 출발점' 정도로 볼 수 있다.</div>
+      </div>
+    </div>
+
+    <!-- 단답 1 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">국가데이터처가 사용하는 '이주배경 아동·청소년'의 연령 기준과 정의를 쓰시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">만 24세 이하의 본인 또는 부모 중 적어도 한 명이 이주배경을 가진 사람.<br><br>※ 행정안전부의 '외국인주민자녀'(18세 이하)와 연령 기준이 다름을 유의.</div>
+      </div>
+    </div>
+
+    <!-- 단답 2 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">E-7-Y 비자를 신청하기 위한 핵심 요건 3가지를 서술하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">
+          ① 18세 전 7년 이상 국내 체류 (91일 이상 출국 기간 산정 제외)<br>
+          ② 한국에서 초·중·고 모두 졸업 OR 둘 이상 졸업 + 사회통합프로그램 5단계 이수<br>
+          ③ 신청일 기준 18세~24세<br><br>
+          → 통과 시: 직종 제한 없는 취업(E-7-Y) 부여, 미취업 시 최대 3년 구직(D-10) 가능
+        </div>
+      </div>
+    </div>
+
+    <!-- 단답 3 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">이주배경 청년의 이주 유형 4가지를 쓰시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">① 노동 (취업, 고용허가)<br>② 유학 (유학, 연수)<br>③ 가족 (결혼이주, 가족결합, 국제입양)<br>④ 인도적 (난민, 인도적 체류 등)</div>
+      </div>
+    </div>
+
+    <!-- 단답 4 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">'다문화 결혼'과 '가족결합'의 차이점을 설명하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info"><strong>다문화 결혼</strong>: 한국인과 외국인의 혼인. 한국의 혼인이주 통계에 포함.<br><br><strong>가족결합</strong>: 외국인이 외국인 배우자와 혼인하여 초청하는 것. 다문화 결혼 통계에 포함되지 않음.</div>
+      </div>
+    </div>
+
+    <!-- 단답 5 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">2023년 감사원이 발표한 출생미등록 이주배경 아동 수치와 현행 출생통보제의 한계를 설명하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">2015~2022년 출생등록 되지 않은 이주배경 아동은 <strong>4,025명</strong>.<br><br>현행 출생통보제는 가족관계등록법에 기반하여 <strong>외국인을 포함하지 않기 때문에</strong>, 의료기관에서 출생하더라도 이주배경 아동은 자동 등록이 되지 않는다.</div>
+      </div>
+    </div>
+
+    <!-- 단답 6 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">선천적 국민(출생 한국인)이 외국국적 부모를 초청하는 데 어려운 이유를 설명하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">성인자녀의 '양육' 비자가 종료되면, <strong>선천적 국민은 부모를 초청할 수 있는 장기체류 비자가 없다</strong>. 반면 결혼이민자·귀화자는 자녀 돌봄을 위한 초청이 가능하고, 부모가 동포인 경우에만 동포관련 비자(H-2, F-4)가 가능하다. → 한국인 자녀임에도 부모를 한국에서 함께 살게 할 법적 방법이 사실상 없다.</div>
+      </div>
+    </div>
+
+    <!-- 단답 7 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">국민건강보험에서 이주배경 청년(외국인 지역가입자)이 직면하는 문제점 두 가지 이상을 서술하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">
+          ① 가족관계 증명 가능한 배우자·미성년자 외에는 가족원 세대합가 불가<br>
+          ② 지역가입자 보험료는 전체 평균 이상 부과 (2026년 월 158,630원 이상)<br>
+          ③ 중도입국 자녀는 부모가 지역가입자여도 6개월 전 가입 불가<br>
+          ④ 성인이 되면 세대주로 신규 가입 필요 — 부모 세대와 분리됨<br>
+          ⑤ 조손·형제자매 가족은 각자 세대주로 가입해야 해 보험료 부담 중복
+        </div>
+      </div>
+    </div>
+
+    <!-- 단답 8 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num sa">단답</div>
+        <div class="q-text">유학비자(D-2) 소지 이주배경 청년이 한국에서 자녀를 출산·양육할 경우 발생할 수 있는 체류자격 문제를 설명하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">자녀 출산·양육에 따라 <strong>휴학</strong>을 하게 되면, 유학 비자(D-2)의 체류자격을 유지하기 어렵다. 유학 비자는 재학 상태를 전제로 하므로 휴학 시 체류자격 변경이 필요하다. 법적 배우자·미성년 자녀는 가족동반이 허용되나, 유학생 간 혼인의 경우 각자 독립적 체류자격 유지가 필요해 상황이 복잡해질 수 있다.</div>
+      </div>
+    </div>
+
+    <!-- 논술 1 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num es">논술</div>
+        <div class="q-text">한국 이민정책이 이주배경 청년을 '인력'으로만 바라보는 관점의 한계를 구체적인 사례와 함께 논술하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">
+          <strong>핵심 논점:</strong><br>
+          1. 이민정책이 생산 가능 연령의 '인력' 관점으로 설계 → 생애주기 전체 미고려<br>
+          2. <strong>사례①</strong> 고용허가제(E-9): 가족동반 불가, 최장 9년 8개월 체류 → 결혼·자녀 양육이라는 생애 전환을 제도가 허용하지 않음<br>
+          3. <strong>사례②</strong> 한국에서 자란 이주배경 청년: 고교 졸업 후 취업 비자 취득 사실상 불가 → 진로가 희망이 아닌 체류자격 기준에 종속<br>
+          4. <strong>사례③</strong> 귀화자·결혼이민자의 노부모 돌봄: '한국 가족'의 돌봄만 지원 → 본국 노부모 초청 방법 없음<br>
+          5. <strong>사례④</strong> 출생미등록: 이주배경 아동의 출생 등록권이 제도적으로 보장되지 않음<br><br>
+          <strong>결론:</strong> 이주민의 가족 생활, 노화, 돌봄을 포함한 생애 전체를 고려하는 정책 전환이 필요하다.
+        </div>
+      </div>
+    </div>
+
+    <!-- 논술 2 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num es">논술</div>
+        <div class="q-text">이주배경 청년의 가족 이슈를 이주 유형별로 비교하고, 각 유형에서 나타나는 가족 문제의 특성을 서술하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">
+          <strong>노동이주</strong>: E-9 가족동반 불가 → 장기 분리, 한국에서 성장 후 취업비자 취득 어려움<br><br>
+          <strong>유학이주</strong>: 자녀 출산·양육 시 체류자격 위협, 유학생 간 혼인의 복잡성<br><br>
+          <strong>혼인이주</strong>: 배우자 연령 차이 큼(37.3%가 10세 이상), 아내의 저연령 혼인 비율 높음, 국제결혼 자녀의 국적 다양성으로 인한 성인 후 비자 문제<br><br>
+          <strong>인도적 이주</strong>: 가족관계 증명 어려움, 출생등록 불가, 체류 불안정<br><br>
+          <strong>공통 이슈</strong>: 출생등록 문제, 건강보험 접근, 한국인 부모-외국인 자녀 또는 한국인 자녀-외국인 부모 관계에서의 제도적 공백
+        </div>
+      </div>
+    </div>
+
+    <!-- 논술 3 -->
+    <div class="q-item">
+      <div class="q-front" onclick="toggleQ(this)">
+        <div class="q-num es">논술</div>
+        <div class="q-text">이주배경 청년 정책에서 '보편적 출생등록제'가 왜 중요한지, 현행 제도의 문제점과 함께 논술하시오.</div>
+        <div class="q-toggle">＋</div>
+      </div>
+      <div class="q-answer">
+        <div class="q-answer-inner info">
+          <strong>현행 문제</strong>: 출생통보제는 외국인 불포함 → 2015~2022년 4,025명 미등록<br><br>
+          <strong>보편적 출생등록제의 의의</strong>:<br>
+          1. UN 아동권리협약 제7조: 모든 아동은 출생 직후 등록될 권리를 가짐<br>
+          2. 출생 미등록 → 교육·의료·복지 서비스 접근 불가 → 사회적 배제 심화<br>
+          3. 성인이 되어 가족 형성 시 법적 증명 불가능 → 무국적 상태 지속<br><br>
+          <strong>경기도 조례</strong>가 선도적 사례. 국회 법안 계류 중.<br><br>
+          <strong>쟁점</strong>: 국적 부여와 출생등록은 별개. 출생 사실을 등록한다고 해서 자동으로 국적이 부여되는 것은 아님. 보편적 출생등록제는 국적 논의와 분리하여 접근할 수 있다.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<script>
+  function toggleQ(el) {
+    const ans = el.nextElementSibling;
+    const toggle = el.querySelector('.q-toggle');
+    const isOpen = ans.classList.contains('open');
+    ans.classList.toggle('open');
+    toggle.textContent = isOpen ? '＋' : '×';
+    toggle.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+  }
+
+  // Sticky nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>

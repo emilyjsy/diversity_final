@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고립·은둔 청년 — 기말고사 대비</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f7f8fa;
+    --warm-white: #fefefe;
+    --ink: #1c2333;
+    --ink-light: #354060;
+    --muted: #7a8299;
+    --rule: #e0e4ee;
+
+    --navy:   #1e3a5f;
+    --blue:   #1d4ed8;
+    --indigo: #4338ca;
+    --teal:   #0f766e;
+    --slate:  #334155;
+    --violet: #6d28d9;
+    --red:    #b91c1c;
+    --orange: #c2410c;
+    --amber:  #b45309;
+    --green:  #15803d;
+
+    --tn: #dbeafe; --tnb: #1e3a8a;
+    --ti: #e0e7ff; --tib: #312e81;
+    --tt: #ccfbf1; --ttb: #134e4a;
+    --ts: #f1f5f9; --tsb: #1e293b;
+    --tv: #ede9fe; --tvb: #4c1d95;
+    --tr: #fee2e2; --trb: #7f1d1d;
+    --to: #ffedd5; --tob: #7c2d12;
+    --tg: #dcfce7; --tgb: #14532d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Noto Sans KR', sans-serif; font-size: 15px; line-height: 1.8; }
+
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, #1c2333 0%, #1e3a5f 60%, #253352 100%);
+    color: #e8edf8; padding: 52px 5vw 44px; position: relative; overflow: hidden;
+  }
+  .site-header::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(-55deg, transparent, transparent 24px, rgba(255,255,255,.02) 24px, rgba(255,255,255,.02) 25px);
+  }
+  .header-inner { position: relative; max-width: 960px; margin: 0 auto; }
+  .header-kicker { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #93c5fd; margin-bottom: 14px; }
+  .header-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 5vw, 46px); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; }
+  .header-title span { color: #60a5fa; }
+  .header-sub { margin-top: 14px; font-size: 14px; color: #8898bb; font-weight: 300; }
+  .header-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); color: #bfcfed; font-size: 12px; padding: 4px 12px; border-radius: 100px; font-family: 'DM Mono', monospace; letter-spacing: .04em; }
+
+  /* TOC */
+  .toc-wrap { background: var(--warm-white); border-bottom: 1px solid var(--rule); padding: 22px 5vw; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+  .toc-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .toc-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+  .toc-inner a { font-size: 12px; color: var(--ink-light); text-decoration: none; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--rule); transition: all .15s; white-space: nowrap; }
+  .toc-inner a:hover { background: var(--ink); color: #e8edf8; border-color: var(--ink); }
+
+  /* MAIN */
+  main { max-width: 960px; margin: 0 auto; padding: 56px 5vw 100px; }
+
+  /* SECTION */
+  .section { margin-bottom: 76px; }
+  .section-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid var(--ink); }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .14em; color: var(--muted); padding-top: 6px; min-width: 40px; }
+  .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(19px, 3.5vw, 27px); font-weight: 700; line-height: 1.25; letter-spacing: -.02em; }
+  .section-desc { margin-top: 6px; font-size: 13px; color: var(--muted); }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
+  .card { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 24px; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .card.navy::before   { background: var(--navy); }
+  .card.blue::before   { background: var(--blue); }
+  .card.indigo::before { background: var(--indigo); }
+  .card.teal::before   { background: var(--teal); }
+  .card.slate::before  { background: var(--slate); }
+  .card.violet::before { background: var(--violet); }
+  .card.red::before    { background: var(--red); }
+  .card.orange::before { background: var(--orange); }
+  .card.green::before  { background: var(--green); }
+  .card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .card-term { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+  .card-body { font-size: 13.5px; color: var(--ink-light); line-height: 1.75; }
+  .card-body strong { color: var(--ink); font-weight: 600; }
+
+  /* CALLOUT */
+  .callout { border-left: 4px solid var(--blue); background: #eff6ff; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--ink-light); line-height: 1.75; }
+  .callout strong { color: var(--ink); font-weight: 700; }
+  .callout.navy   { border-color: var(--navy);   background: #eef2ff; }
+  .callout.teal   { border-color: var(--teal);   background: #f0fdfa; }
+  .callout.violet { border-color: var(--violet); background: #f5f3ff; }
+  .callout.red    { border-color: var(--red);    background: #fef2f2; }
+  .callout.orange { border-color: var(--orange); background: #fff7ed; }
+  .callout.amber  { border-color: var(--amber);  background: #fffbeb; }
+  .callout.green  { border-color: var(--green);  background: #f0fdf4; }
+  .callout.slate  { border-color: var(--slate);  background: #f8fafc; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead tr { background: var(--ink); color: #e8edf8; }
+  thead th { font-weight: 500; font-size: 12px; padding: 12px 16px; text-align: left; letter-spacing: .02em; }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:nth-child(even) { background: rgba(0,0,0,.022); }
+  tbody td { padding: 12px 16px; vertical-align: top; color: var(--ink-light); line-height: 1.65; }
+  tbody td:first-child { font-weight: 600; color: var(--ink); font-family: 'Noto Serif KR', serif; }
+
+  /* STAT */
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .stat-box { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; text-align: center; }
+  .stat-num { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 700; color: var(--blue); line-height: 1; }
+  .stat-num.red { color: var(--red); }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  .stat-sub { font-size: 11px; color: var(--muted); margin-top: 4px; font-family: 'DM Mono', monospace; }
+
+  /* COMPARE */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 580px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-block { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 12px; padding: 20px 22px; }
+  .compare-head { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-family: 'DM Mono', monospace; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+  .compare-item { display: flex; gap: 8px; font-size: 13.5px; line-height: 1.65; margin-bottom: 7px; color: var(--ink-light); }
+  .compare-item::before { content: '›'; font-weight: 700; flex-shrink: 0; color: var(--muted); margin-top: 2px; }
+  .compare-item strong { color: var(--ink); font-weight: 600; }
+
+  /* TYPE CARDS */
+  .type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+  .type-card { border-radius: 12px; padding: 20px 22px; border: 1px solid transparent; }
+  .tn { background: var(--tn); border-color: #93c5fd; color: var(--tnb); }
+  .ti { background: var(--ti); border-color: #a5b4fc; color: var(--tib); }
+  .tt { background: var(--tt); border-color: #5eead4; color: var(--ttb); }
+  .ts { background: var(--ts); border-color: #cbd5e1; color: var(--tsb); }
+  .tv { background: var(--tv); border-color: #c4b5fd; color: var(--tvb); }
+  .tr { background: var(--tr); border-color: #fca5a5; color: var(--trb); }
+  .to { background: var(--to); border-color: #fdba74; color: var(--tob); }
+  .tg { background: var(--tg); border-color: #86efac; color: var(--tgb); }
+  .type-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; opacity: .7; margin-bottom: 6px; }
+  .type-name { font-family: 'Noto Serif KR', serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .type-desc { font-size: 13px; line-height: 1.7; }
+  .type-desc strong { font-weight: 700; }
+
+  /* POLICY */
+  .policy-block { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+  .policy-head { background: var(--ink); color: #e8edf8; padding: 14px 22px; font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .policy-tag { font-family: 'DM Mono', monospace; font-size: 10px; background: rgba(255,255,255,.15); padding: 2px 8px; border-radius: 100px; }
+  .policy-body { padding: 20px 22px; }
+  .policy-body p { font-size: 13.5px; color: var(--ink-light); line-height: 1.75; margin-bottom: 10px; }
+  .policy-body p:last-child { margin-bottom: 0; }
+  .policy-list { list-style: none; padding: 0; }
+  .policy-list li { font-size: 13.5px; color: var(--ink-light); line-height: 1.7; padding: 5px 0 5px 18px; position: relative; border-bottom: 1px solid var(--rule); }
+  .policy-list li:last-child { border-bottom: none; }
+  .policy-list li::before { content: '▸'; position: absolute; left: 0; color: var(--blue); font-size: 11px; top: 8px; }
+  .policy-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 28px; margin: 16px 0; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--rule); }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-dot { position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); border: 2px solid var(--cream); }
+  .tl-dot.red { background: var(--red); }
+  .tl-dot.green { background: var(--green); }
+  .tl-year { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; color: var(--blue); font-weight: 500; }
+  .tl-text { font-size: 13.5px; color: var(--ink-light); line-height: 1.65; }
+  .tl-text strong { color: var(--ink); }
+
+  /* LIMIT CARD */
+  .limit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+  .limit-card { background: var(--warm-white); border: 1px solid #fecaca; border-top: 3px solid var(--red); border-radius: 10px; padding: 20px 22px; }
+  .limit-title { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; color: var(--red); margin-bottom: 10px; }
+  .limit-body { font-size: 13.5px; color: var(--ink-light); line-height: 1.7; }
+
+  /* HR */
+  hr.sec-div { border: none; border-top: 1px solid var(--rule); margin: 28px 0; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: #5a6180; padding: 28px 5vw; font-size: 12px; font-family: 'DM Mono', monospace; text-align: center; letter-spacing: .04em; }
+  footer span { color: #8898bb; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-kicker">청년과 가족다양성 · 2026 기말고사 대비</p>
+    <h1 class="header-title">고립·은둔 <span>청년</span><br>완전정복 스터디가이드</h1>
+    <p class="header-sub">2026.05.28 스페셜이슈 1조 발표 기반 · 용어·통계·연구·배경·정책·제언 전범위 수록</p>
+    <div class="header-chips">
+      <span class="chip">용어 정의</span>
+      <span class="chip">NEET와의 구별</span>
+      <span class="chip">현황·통계</span>
+      <span class="chip">LCA 유형화</span>
+      <span class="chip">생애과정관점·ACE</span>
+      <span class="chip">교차성 배경</span>
+      <span class="chip">신설 법률 2026</span>
+      <span class="chip">청년미래센터</span>
+      <span class="chip">정책 한계 4가지</span>
+      <span class="chip">결론·제언</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc-wrap">
+  <div class="toc-inner">
+    <span class="toc-label">목차</span>
+    <a href="#s1">①용어정의</a>
+    <a href="#s2">②통계</a>
+    <a href="#s3">③연구동향</a>
+    <a href="#s4">④배경·교차성</a>
+    <a href="#s5">⑤정책현황</a>
+    <a href="#s6">⑥정책한계</a>
+    <a href="#s7">⑦결론·제언</a>
+    <a href="#s8">⑧논술포인트</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════
+     S1 : 용어 정의
+══════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-head">
+    <span class="section-num">01 —</span>
+    <div>
+      <h2 class="section-title">용어 정의</h2>
+      <p class="section-desc">사회적 고립 · 은둔 · 고립 청년 · 은둔 청년 + NEET와의 구별</p>
+    </div>
+  </div>
+
+  <div class="card-grid" style="margin-bottom:24px;">
+    <div class="card navy">
+      <div class="card-label">개념 01</div>
+      <div class="card-term">사회적 고립</div>
+      <div class="card-body">
+        타인과의 관계가 거의 단절되어 있거나 <strong>스스로 고립되었다고 느끼는 상태</strong>.<br>
+        (유민상·신동훈, 2021; Teo, 2010)
+      </div>
+    </div>
+    <div class="card blue">
+      <div class="card-label">개념 02</div>
+      <div class="card-term">은둔</div>
+      <div class="card-body">
+        사회적 고립의 한 유형으로, <strong>집에 머물며 사회적 상황과 관계를 회피하는 상태</strong>.<br>
+        사회적 고립보다 더 심화된 형태 — 물리적 공간으로의 철수를 포함.
+      </div>
+    </div>
+    <div class="card indigo">
+      <div class="card-label">정책 정의 (관계부처합동, 2023)</div>
+      <div class="card-term">고립 청년</div>
+      <div class="card-body">
+        사회활동이 현저히 줄어 취약한 상태지만, <strong>긴급 시 도움을 요청할 수 있는 인적 지지 체계가 부재한 청년</strong>.<br>
+        경제활동 여부는 기준에 미포함.
+      </div>
+    </div>
+    <div class="card teal">
+      <div class="card-label">정책 정의 (관계부처합동, 2023)</div>
+      <div class="card-term">은둔 청년</div>
+      <div class="card-body">
+        사회활동을 하지 않고, <strong>방 또는 집 등 제한된 거주 공간에 스스로를 가둔 청년</strong>.<br>
+        고립보다 더 심화된 상태 — 외출 자체가 없음.
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">NEET와의 구별 (김성아, 2023)</h3>
+
+  <div class="callout navy">
+    <strong>핵심 구별 원칙:</strong>
+    NEET는 <em>사회관계와 외출을 고려하지 않고</em> 경제활동(취업·교육·훈련) 여부만 봅니다.
+    고립·은둔은 <em>경제활동을 고려하지 않고</em> 사회관계 자본과 외출 여부를 기준으로 합니다.
+    두 개념은 <strong>부분적으로 겹치지만 서로 다른 차원</strong>을 포착합니다.
+  </div>
+
+  <div class="table-wrap" style="margin:16px 0 24px;">
+    <table>
+      <thead>
+        <tr><th>구분</th><th>경제활동 지표</th><th>사회관계 지표</th><th>외출 지표</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>니트 청년</td>
+          <td>○ (경제활동 없음)</td>
+          <td>✕ 미고려</td>
+          <td>✕ 미고려</td>
+        </tr>
+        <tr>
+          <td>고립 청년</td>
+          <td>✕ 미고려</td>
+          <td>○ (사회관계 자본 부족·결핍)</td>
+          <td>○ (외출 낮거나 없음)</td>
+        </tr>
+        <tr>
+          <td>은둔 청년</td>
+          <td>✕ 미고려</td>
+          <td>○ (사회관계 자본 결핍)</td>
+          <td>○ (외출 없음)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout orange">
+    <strong>개념도 관계:</strong>
+    은둔 청년 ⊂ 고립 청년 ⊂ 고립 고위험군 청년(유의미한 관계 자본 부족).
+    NEET는 고립·은둔과 <em>교집합</em>은 있으나 별개의 개념 체계입니다.
+    고립·은둔 청년이 반드시 NEET인 것도 아니고, NEET가 반드시 고립·은둔 상태인 것도 아닙니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S2 : 통계
+══════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-head">
+    <span class="section-num">02 —</span>
+    <div>
+      <h2 class="section-title">현황 및 통계</h2>
+      <p class="section-desc">2024 청년 삶 실태조사 + 2023 고립·은둔 청년 실태조사 비교</p>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">5.2%</div>
+      <div class="stat-label">전체 청년 중<br>고립·은둔 비율</div>
+      <div class="stat-sub">2024 청년 삶 실태조사</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">최대 54만</div>
+      <div class="stat-label">고립·은둔 청년<br>추정 규모</div>
+      <div class="stat-sub">국무조정실, 2024</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num red">75.4%</div>
+      <div class="stat-label">자살을 생각한 적 있다</div>
+      <div class="stat-sub">일반 청년 2.3% 대비</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num red">3.7점</div>
+      <div class="stat-label">삶의 만족도 (10점)</div>
+      <div class="stat-sub">일반 청년 6.7점 대비</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">고립·은둔 청년 vs. 일반 청년 비교</h3>
+
+  <div class="table-wrap" style="margin-bottom:20px;">
+    <table>
+      <thead>
+        <tr><th>구분</th><th>고립·은둔 청년</th><th>일반 청년</th><th>비고</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>지난 2주 가족·친척 교류 없음</td>
+          <td>16.8%</td>
+          <td>1.5%</td>
+          <td>약 11배 차이</td>
+        </tr>
+        <tr>
+          <td>지난 2주 친구·지인 교류 없음</td>
+          <td>28.7%</td>
+          <td>0.9%</td>
+          <td>약 32배 차이</td>
+        </tr>
+        <tr>
+          <td>삶의 만족도 (10점 만점)</td>
+          <td>3.7점</td>
+          <td>6.7점</td>
+          <td>3점 낮음</td>
+        </tr>
+        <tr>
+          <td>자살 생각한 적 있다</td>
+          <td>75.4% <span style="font-size:11px;color:var(--muted)">(자살시도 경험 26.7%)</span></td>
+          <td>2.3%</td>
+          <td>약 33배 차이</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout red">
+    <strong>⚠ 자살 위험 수치:</strong>
+    응답자 8,436명 중 약 6,360명이 자살을 생각한 적 있다고 응답, 이 중 자살시도 경험 비율은 26.7%입니다.
+    고립·은둔 청년이 정신건강 위기 집단임을 보여주는 핵심 통계입니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S3 : 연구 동향
+══════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-head">
+    <span class="section-num">03 —</span>
+    <div>
+      <h2 class="section-title">연구 동향</h2>
+      <p class="section-desc">LCA 유형화 두 연구 + 생애과정관점(ACE 상흔 효과)</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">① 잠재계층분석(LCA)을 통한 유형화</h3>
+
+  <div class="callout navy">
+    <strong>연구 방법론 — 잠재계층분석(LCA, Latent Class Analysis):</strong>
+    측정 변수들의 패턴을 바탕으로 연구 대상을 잠재적 하위집단으로 분류하는 통계 방법.
+    고립·은둔 청년이 <strong>단일하고 동질적인 집단이 아님</strong>을 드러냅니다.
+  </div>
+
+  <div class="compare-grid" style="margin-bottom:20px;">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--blue);">성인기 후 부정적 생애경험에 따른 유형화<br><span style="font-weight:400;font-size:11px;">(안선경·김소연·정익중, 2025)</span></div>
+      <div class="compare-item"><strong>복합좌절형:</strong> 취업 실패 + 대인관계 갈등이 복합적으로 누적된 유형</div>
+      <div class="compare-item"><strong>취업좌절형:</strong> 주로 취업 실패 경험에서 기인한 유형</div>
+      <div class="compare-item"><strong>관계갈등형:</strong> 대인관계·가족 갈등이 주된 촉발 요인인 유형</div>
+      <div class="compare-item"><strong>저위기형:</strong> 상대적으로 부정적 경험의 강도가 낮은 유형</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--teal);">삶의 형태에 따른 유형화<br><span style="font-weight:400;font-size:11px;">(이해님·노혜진·김아래미·신동인, 2026)</span></div>
+      <div class="compare-item"><strong>독립거주-저소득형:</strong> 혼자 살며 경제적 취약성이 두드러지는 유형</div>
+      <div class="compare-item"><strong>건강·정서 취약형:</strong> 신체·정신건강 문제가 고립의 핵심 요인인 유형</div>
+      <div class="compare-item"><strong>가족동거형:</strong> 가족과 함께 살지만 사회적으로는 고립된 유형</div>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <strong>→ 두 연구의 공통 시사점:</strong>
+    청년의 고립은 <strong>다차원적인 사회구조적 불평등이 맞물려 나타난 결과</strong>입니다.
+    단일 원인으로 환원되지 않으며, 유형에 따라 필요한 개입이 달라집니다.
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">② 생애과정 관점 — ACE(아동기 부정적 경험)의 상흔 효과 (최고은·한창근, 2025)</h3>
+
+  <div class="card-grid">
+    <div class="card blue">
+      <div class="card-label">ACE 상흔 효과</div>
+      <div class="card-term">아동기 부정적 경험(ACE)</div>
+      <div class="card-body">
+        아동·청소년기 <strong>가족 내 불화, 방임, 학대 및 학교폭력 경험</strong> → 성인진입기 고립 가능성 높음.<br>
+        현재의 고립·은둔은 <strong>과거 생애사의 연속선상에 존재</strong>합니다.
+      </div>
+    </div>
+    <div class="card indigo">
+      <div class="card-label">개입 방향 시사점</div>
+      <div class="card-term">장기적 생애주기적 접근</div>
+      <div class="card-body">
+        고립·은둔 청년 개입에 있어 <strong>아동·청소년기부터 이어지는 장기적인 생애주기적 접근</strong>이 필요합니다.<br>
+        청년기에 갑자기 등장하는 문제가 아니라는 관점.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout violet" style="margin-top:16px;">
+    <strong>🎯 논술 포인트 — 생애과정 관점:</strong>
+    현재의 고립·은둔을 청년기만의 문제로 보지 않고, 아동기부터 이어지는 <strong>생애과정의 연속선</strong>에서 이해해야 합니다.
+    이는 결론·제언에서 강조하는 "연령 기준이 아닌 회복 단계에 따른 지원 연속성"의 근거가 됩니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S4 : 배경 · 교차성
+══════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-head">
+    <span class="section-num">04 —</span>
+    <div>
+      <h2 class="section-title">고립·은둔 청년의 배경 — 교차성의 관점</h2>
+      <p class="section-desc">경제적 요인 + 심리·문화적 요인 → 복합적 배제 경험</p>
+    </div>
+  </div>
+
+  <div class="callout navy">
+    <strong>교차성(Intersectionality) 관점:</strong>
+    고립·은둔은 하나의 원인으로 환원되지 않습니다.
+    경제적 요인과 심리·문화적 요인이 <strong>겹치는 지점에서 새로운 형태의 복합적 배제</strong>가 발생합니다.
+    단순한 요인의 합이 아닌, 조건들이 교차하는 지점에서 더 심각한 취약성이 만들어집니다.
+  </div>
+
+  <div class="compare-grid" style="margin-top:20px;">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--orange);">경제적 요인</div>
+      <div class="compare-item">경기 침체와 고용 불안정성의 증가 → 사회적 관계망 밖으로 밀어내는 일차적 계기</div>
+      <div class="compare-item"><strong>취업 어려움 및 실직(24.1%)</strong> — 고립·은둔 시작의 가장 큰 계기 (보건복지부 2023 실태조사)</div>
+      <div class="compare-item">불안정한 일자리 · 생활비·주거비 부담 · 관계 유지 비용 부담 · 취업 준비 자원 부족</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--violet);">심리·문화적 요인</div>
+      <div class="compare-item">높은 인구 밀도 + SNS 대중화 → 타인의 지위·소비와의 <strong>끊임없는 상향 비교</strong></div>
+      <div class="compare-item">만연한 엘리트주의 — 다수의 비엘리트자를 <strong>실패자로 규정하는 사회적 낙인</strong></div>
+      <div class="compare-item">정체성 압박 · 우울·불안 · 낮은 자존감 · 성취 압박 · 가족 기대 부담</div>
+    </div>
+  </div>
+
+  <div class="callout violet" style="margin-top:16px;">
+    <strong>교차 지점에서 발생하는 복합적 배제:</strong>
+    자기비난 · 관계 회피 · 도움 요청의 어려움<br>
+    → 사회 참여 감소 · 노동시장 이탈 · 지원체계 접근 어려움으로 이어지는 구조
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S5 : 정책 현황
+══════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-head">
+    <span class="section-num">05 —</span>
+    <div>
+      <h2 class="section-title">정책 현황</h2>
+      <p class="section-desc">신설 법률 · 청년미래센터 · 청년도전 지원사업 · 서울시 · 경기도</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">① 법적 기반 마련</h3>
+
+  <div class="policy-block">
+    <div class="policy-head">
+      가족돌봄 등 위기아동·청년 지원에 관한 법률
+      <span class="policy-tag">2025.3 제정 · 2026.3.26 시행</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>의의:</strong> 고립·은둔을 <em>개인의 의지 문제가 아닌 국가 책임</em>으로 처음 규정한 최초의 법률.</p>
+      <ul class="policy-list">
+        <li><strong>법적 정의 최초 명시:</strong> 고립·은둔 청년의 개념을 법령에 공식 규정</li>
+        <li><strong>지원 체계 의무화:</strong> 발굴·사례관리·맞춤형 지원의 법적 근거 + 국가·지자체 의무 명시</li>
+        <li><strong>시행령 세부 규정:</strong> 선제적 발굴 절차 + 복지 사각지대 데이터·지역사회 연계망 활용 + 사례관리 계획 수립 절차</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">② 청년미래센터 (보건복지부)</h3>
+
+  <div class="policy-block">
+    <div class="policy-head">
+      청년미래센터 <span class="policy-tag">2024.8 시범운영 · 2026 전국 확대 예정</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>대상:</strong> 만 19~39세 / 현재 운영: 인천·울산·충북·전북 4개 광역</p>
+      <ul class="policy-list">
+        <li><strong>① 온·오프라인 초기 상담:</strong> 도움 요청 청년 대상 접수 및 첫 연결. 부담 없이 시작</li>
+        <li><strong>② 고립도 평가 및 지원계획 수립:</strong> 참여 의지·고립도 기반 개별 계획 수립</li>
+        <li><strong>③ 맞춤형 프로그램 제공:</strong> 자조모임·일상회복·공동생활 합숙 등. 단순 상담이 아닌 천천히 연결되는 과정 설계</li>
+        <li><strong>④ 장기 밀착 사례관리:</strong> 자립 시까지 책임지고 동행. 끊기지 않는 지속 지원</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">③ 청년도전 지원사업 (고용노동부·지자체)</h3>
+
+  <div class="policy-block">
+    <div class="policy-head">
+      청년도전 지원사업 <span class="policy-tag">2025 운영 중 / 고용노동부·지자체 공동</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>지원 대상:</strong> 만 18~34세 구직단념청년 (최근 6개월간 취업·교육·직업훈련 이력 없음 + 구직단념 문답표 21점 이상). 자립준비청년, 북한이탈청년 등 포함.</p>
+      <ul class="policy-list">
+        <li><strong>단기 (5주):</strong> 밀착상담·자신감 회복·진로탐색·취업역량 강화 / 참여수당 최대 50만원</li>
+        <li><strong>중기 (15주):</strong> 단기 프로그램 확대 + 외부 연계활동 / 참여수당 최대 150만원</li>
+        <li><strong>장기 (25주):</strong> 중기 프로그램 확대 + 자율활동 / 참여수당 최대 350만원</li>
+      </ul>
+      <p style="margin-top:10px;font-size:13px;color:var(--muted);"><strong>핵심 철학:</strong> 단순 취업 알선이 아닌, <em>사회활동 의욕 자체를 먼저 회복시키는 데 초점</em>.</p>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">④ 지자체 현황</h3>
+
+  <div class="type-grid">
+    <div class="type-card tn">
+      <div class="type-label">서울시</div>
+      <div class="type-name">서울청년기지개센터</div>
+      <div class="type-desc">
+        22년 실태조사 → 23년 종합대책 → 24년 센터 개관 → 26년 고립은둔 (ON) 프로젝트.<br>
+        3단계: <strong>초기연결</strong>(온라인 기지개센터, 찾아가는 안심지원) → <strong>회복지원</strong>(심리정서·일상회복·관계형성) → <strong>사회참여</strong>(기지개 컴퍼니, 청년플랜브릿지).<br>
+        (ON) 프로젝트: 예산 1,090억원 / 지원 계획 91.3만명 / 5대분야 18개 과제.
+      </div>
+    </div>
+    <div class="type-card tt">
+      <div class="type-label">경기도</div>
+      <div class="type-name">나와(with me), 볼만한 세상</div>
+      <div class="type-desc">
+        경기도미래세대재단 총괄. 남부1(안양)·남부2(성남)·북부(의정부) 권역별 수행기관 운영.<br>
+        초기상담 → 맞춤형 지원활동(전문상담·프로그램·쉼터·자조모임) → 일상유지지원(사후관리·타사업 안내) 3단계.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S6 : 정책 한계
+══════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-head">
+    <span class="section-num">06 —</span>
+    <div>
+      <h2 class="section-title">정책의 한계 4가지</h2>
+      <p class="section-desc">도움이 필요한 청년일수록 정책 안으로 들어오기 어렵다</p>
+    </div>
+  </div>
+
+  <div class="limit-grid">
+    <div class="limit-card">
+      <div class="limit-title">한계 ① 자발적 신청 의존 구조</div>
+      <div class="limit-body">
+        현행 제도는 <strong>자발적 신청에 의존</strong>하여, 상태가 심화된 고위험군일수록 참여가 원천 차단되는 복지 사각지대 존재.
+        도움을 가장 필요로 하는 사람이 신청하기 가장 어려운 구조적 역설.
+        <br><br>→ <strong>해결책:</strong> 행정 빅데이터 연계(건강보험료 장기 미납, 공공요금 체납), 핀란드식 선제적 아웃리치 법제화, 접점 기관 링크워커 배치.
+      </div>
+    </div>
+    <div class="limit-card">
+      <div class="limit-title">한계 ② 정책 정보 접근성 부재</div>
+      <div class="limit-body">
+        도움 받은 경험 없음 <strong>56%</strong>, 미이용 사유 1위 <strong>'정보 부재(28.5%)'</strong> (보건복지부, 2023).
+        지원 제도가 있어도 당사자에게 닿지 못하는 전달 경로 문제.
+        <br><br>→ <strong>해결책:</strong> 행정 홈페이지 위주 탈피 → OTT·인기 콘텐츠·배달 앱 등 당사자가 실제로 머무는 채널로 온라인 홍보 확대.
+      </div>
+    </div>
+    <div class="limit-card">
+      <div class="limit-title">한계 ③ 단기·기간제 프로그램</div>
+      <div class="limit-body">
+        현행 사업은 <strong>1년 단위 단기성</strong>에 집중. 예산·신청 공백마다 청년들이 홀로 방치되며 악순환 반복.
+        프로그램 종료 후 재고립 경험 비율 <strong>58.8%</strong> (동아일보·청년재단, 2023).
+        <br><br>→ <strong>해결책:</strong> 상시 접수형 구조 전환 + 단절 없는 연간 사례관리 + 중간적 일자리(보호된 일경험) 확대.
+      </div>
+    </div>
+    <div class="limit-card">
+      <div class="limit-title">한계 ④ 주소지에 따른 지원 격차</div>
+      <div class="limit-body">
+        도움 요청 1,903명 중 <strong>실제 후속조치 연결 13%(244명)</strong>. 전담 정책 부재 지역 <strong>47.1%(17개 광역 중 8개)</strong>.
+        각 사업이 "○○ 거주 청년"으로 명시 → 거주지 변경 시 공식 연계 없음.
+        <br><br>→ <strong>요구:</strong> 2026 전국 확대를 계기로 어느 지역에서든 동일 수준 지원 접근 체계 구축.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout red" style="margin-top:20px;">
+    <strong>추가 한계 ⑤ — 연령 기준의 단절:</strong>
+    만 24세 이후 여가부 지원 종료, 만 34세 이후 고용부 청년도전 종료, 만 39세 이후 복지부·지자체 종료.
+    만 40세 이상에는 고립·은둔 전담 국가 정책이 <strong>전무</strong>합니다.
+    중장년 사업은 취업·재취업 중심으로 고립·은둔 상태에 접근 불가.
+    <strong>일본의 8050 문제</strong>(청년기 미해결 고립·은둔이 중장년으로 이어진 선례)가 한국의 미래가 될 수 있습니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S7 : 결론·제언
+══════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-head">
+    <span class="section-num">07 —</span>
+    <div>
+      <h2 class="section-title">결론 및 제언</h2>
+      <p class="section-desc">"생애과정의 연속성 · 가족 탄력성 · 성인이행기 과정의 동행"</p>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card navy">
+      <div class="card-label">제언 01</div>
+      <div class="card-term">생애과정의 연속성</div>
+      <div class="card-body">
+        고립·은둔은 어느 날 갑자기 끝나는 문제가 아님에도 현 제도는 연령 기준으로 대상을 나눕니다.<br><br>
+        고립·은둔 경험은 10대 후반에 시작되어 20~30대까지 이어질 수 있습니다.
+        제도가 연령별로 끊기면 당사자는 회복 과정 중간에 지원체계에서 빠집니다.<br><br>
+        → <strong>연령 기준이 아닌 회복 단계에 따라 지원이 이어져야</strong> 합니다.
+      </div>
+    </div>
+    <div class="card indigo">
+      <div class="card-label">제언 02</div>
+      <div class="card-term">가족 탄력성 (Walsh, 1996)</div>
+      <div class="card-body">
+        가족은 청년의 변화를 가장 가까이에서 알아차릴 수 있는 존재이며, 회복 과정에서 정서적 지지와 일상 회복을 돕는 중요한 자원입니다.<br><br>
+        가족 탄력성 관점에서는 가족을 문제의 원인으로만 보지 않고, <strong>위기 속에서 함께 적응하고 회복할 수 있는 관계적 자원</strong>으로 봅니다.<br><br>
+        → 가족이 지지적 자원으로 기능할 수 있도록 <strong>가족도 함께 지원하는 방향</strong>으로 설계 필요.
+      </div>
+    </div>
+    <div class="card teal">
+      <div class="card-label">제언 03</div>
+      <div class="card-term">성인이행기 과정의 동행</div>
+      <div class="card-body">
+        고립·은둔 청년 중 다수는 현재 상태를 벗어나고 싶어하며, 일상생활 회복 지원에 대한 욕구도 높게 나타납니다 (보건복지부, 2023).<br><br>
+        성인이행기 자립은 성인 연령에 도달했다고 곧바로 완성되는 것이 아닙니다 (유민상 외, 2022).<br><br>
+        → <strong>청년을 밖으로 끌어내려는 정책보다 자신의 속도에 맞게</strong> 관계를 맺고 일상을 회복할 수 있도록 함께 걷는 방식이 필요합니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     S8 : 논술 포인트
+══════════════════════════════════════ -->
+<section class="section" id="s8">
+  <div class="section-head">
+    <span class="section-num">08 —</span>
+    <div>
+      <h2 class="section-title">논술 포인트 종합</h2>
+      <p class="section-desc">시험에서 바로 쓸 수 있는 핵심 논지 · 개념 연결표</p>
+    </div>
+  </div>
+
+  <div class="callout navy">
+    <strong>🎯 논지 1 — 개념 구분의 중요성:</strong><br>
+    고립·은둔 청년은 NEET와 다릅니다. NEET는 경제활동 부재를 기준으로 하지만,
+    고립·은둔은 <strong>사회관계 자본의 결핍과 외출 여부</strong>를 기준으로 합니다.
+    두 개념의 교집합은 있지만, 고립·은둔 청년이 반드시 NEET인 것은 아닙니다.
+    경제적 문제만으로 고립·은둔을 설명하려는 시도는 개념적 오류입니다.
+  </div>
+
+  <div class="callout violet" style="margin-top:12px;">
+    <strong>🎯 논지 2 — 이질적 집단으로서의 고립·은둔:</strong><br>
+    LCA 연구들(안선경 외 2025; 이해님 외 2026)은 고립·은둔 청년이
+    <strong>단일하고 동질적인 집단이 아님</strong>을 보여줍니다.
+    유형(복합좌절형·취업좌절형·관계갈등형·저위기형 / 독립거주-저소득형·건강취약형·가족동거형)에 따라
+    개입 방식이 달라져야 합니다 — 획일적 취업 지원으로는 근본 해결이 불가합니다.
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">
+    <strong>🎯 논지 3 — 생애과정 관점과 ACE:</strong><br>
+    현재의 고립·은둔은 <strong>과거 생애사의 연속선상</strong>에 있습니다(최고은·한창근, 2025).
+    아동기 방임·학대·학교폭력의 경험이 성인진입기 고립 가능성을 높입니다.
+    이는 청년기에만 개입하는 정책의 한계를 드러내며, <strong>아동기부터의 장기적 생애주기 접근</strong>이 필요함을 보여줍니다.
+  </div>
+
+  <div class="callout orange" style="margin-top:12px;">
+    <strong>🎯 논지 4 — 교차성으로 보는 배경:</strong><br>
+    고립·은둔은 취업 실패(경제적 요인)와 상향 비교·사회적 낙인(심리·문화적 요인)이
+    <strong>교차하는 지점에서 발생하는 복합적 배제</strong>입니다.
+    어느 한 요인만으로 설명되지 않으며, 두 요인이 겹치는 교차 지점에서 자기비난·관계 회피·도움 요청의 어려움이 심화됩니다.
+  </div>
+
+  <div class="callout red" style="margin-top:12px;">
+    <strong>🎯 논지 5 — 정책의 구조적 역설:</strong><br>
+    현행 정책은 <strong>자발적 신청</strong>에 의존하는 구조여서, 도움을 가장 필요로 하는 고위험군일수록 접근하기 어렵습니다.
+    후속조치 연결률 13%, 정책 정보 부재 28.5%, 재고립 경험 58.8%, 전담 정책 부재 지역 47.1% — 이 수치들이 구조적 역설을 보여줍니다.
+    <strong>찾아가는 선제적 발굴 체계</strong>로의 전환이 핵심입니다.
+  </div>
+
+  <div class="callout green" style="margin-top:12px;">
+    <strong>🎯 논지 6 — 가족 탄력성과 성인이행기 동행:</strong><br>
+    가족 탄력성 관점(Walsh, 1996)은 가족을 문제의 원인이 아닌
+    <strong>위기 속 회복의 관계적 자원</strong>으로 봅니다.
+    고립·은둔 청년의 회복을 지원할 때 당사자뿐 아니라 가족도 함께 지원해야 하며,
+    성인이행기의 자립은 <em>끌어내는 것</em>이 아닌 <em>자신의 속도로 함께 걷는 것</em>으로 접근해야 합니다.
+  </div>
+
+  <hr class="sec-div">
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>개념·이론</th><th>핵심 키워드</th><th>논술 연결 논점</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>사회적 고립 vs 은둔</td><td>관계 단절, 공간 철수, 회피</td><td>은둔 ⊂ 고립 — 심화 단계 구분</td></tr>
+        <tr><td>고립·은둔 vs NEET</td><td>경제활동 기준 vs 관계·외출 기준</td><td>개념 혼용 방지, 서로 다른 차원</td></tr>
+        <tr><td>LCA 유형화</td><td>복합좌절·취업좌절·관계갈등·저위기 / 독립거주-저소득·건강취약·가족동거</td><td>이질적 집단 → 유형별 맞춤 개입</td></tr>
+        <tr><td>ACE 상흔 효과</td><td>아동기 방임·학대·학교폭력 → 고립 가능성</td><td>생애과정의 연속선 → 조기 개입 필요</td></tr>
+        <tr><td>교차성</td><td>경제적 요인 × 심리문화적 요인 → 복합 배제</td><td>단일 원인 환원 불가, 통합 접근 필요</td></tr>
+        <tr><td>자발적 신청 역설</td><td>고위험군일수록 접근 불가, 13% 후속조치</td><td>선제적·찾아가는 발굴 체계 필요</td></tr>
+        <tr><td>단기 프로그램 한계</td><td>1년 단위, 재고립 58.8%</td><td>상시·장기 사례관리 + 중간적 일자리</td></tr>
+        <tr><td>연령 기준 단절</td><td>24세·34세·39세 지원 종료, 일본 8050</td><td>회복 단계 기준의 연속적 지원 체계</td></tr>
+        <tr><td>가족 탄력성 (Walsh, 1996)</td><td>관계적 자원, 위기 속 회복</td><td>가족 포함 지원 설계 필요</td></tr>
+        <tr><td>성인이행기 동행</td><td>자신의 속도, 끌어내지 않기</td><td>회복의 주도권은 당사자에게</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>청년과 가족다양성 · 2026 기말고사 대비 자료</span> &nbsp;·&nbsp;
+  2026.05.28 스페셜이슈 1조 발표 기반 &nbsp;·&nbsp;
+  <span>누락 없이 전 개념 수록</span>
+</footer>
+
+</body>
+</html>

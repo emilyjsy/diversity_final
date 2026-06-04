@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>가족돌봄청년 — 기말고사 대비</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f8f6f2;
+    --warm-white: #fffefb;
+    --ink: #1a1916;
+    --ink-light: #3a3630;
+    --muted: #7a7570;
+    --rule: #e5dfd7;
+
+    --green:   #15803d;
+    --teal:    #0f766e;
+    --blue:    #1d4ed8;
+    --indigo:  #4338ca;
+    --orange:  #c2410c;
+    --amber:   #b45309;
+    --rose:    #be185d;
+    --red:     #b91c1c;
+    --slate:   #334155;
+
+    --tg: #dcfce7; --tgb: #14532d;
+    --tt: #ccfbf1; --ttb: #134e4a;
+    --tb: #dbeafe; --tbb: #1e3a8a;
+    --ti: #e0e7ff; --tib: #312e81;
+    --to: #ffedd5; --tob: #7c2d12;
+    --ta: #fef3c7; --tab: #78350f;
+    --tr: #fce7f3; --trb: #831843;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Noto Sans KR', sans-serif; font-size: 15px; line-height: 1.8; }
+
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, #1a1916 0%, #1e3a22 55%, #1a3020 100%);
+    color: #f0f7f1; padding: 52px 5vw 44px; position: relative; overflow: hidden;
+  }
+  .site-header::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 22px,
+      rgba(255,255,255,.025) 22px, rgba(255,255,255,.025) 23px);
+  }
+  .header-inner { position: relative; max-width: 960px; margin: 0 auto; }
+  .header-kicker { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #86efac; margin-bottom: 14px; }
+  .header-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 5vw, 46px); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; }
+  .header-title span { color: #4ade80; }
+  .header-sub { margin-top: 14px; font-size: 14px; color: #8a9e8d; font-weight: 300; }
+  .header-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); color: #d1fae5; font-size: 12px; padding: 4px 12px; border-radius: 100px; font-family: 'DM Mono', monospace; letter-spacing: .04em; }
+
+  /* TOC */
+  .toc-wrap { background: var(--warm-white); border-bottom: 1px solid var(--rule); padding: 22px 5vw; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+  .toc-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .toc-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+  .toc-inner a { font-size: 12px; color: var(--ink-light); text-decoration: none; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--rule); transition: all .15s; white-space: nowrap; }
+  .toc-inner a:hover { background: var(--ink); color: #f0f7f1; border-color: var(--ink); }
+
+  /* MAIN */
+  main { max-width: 960px; margin: 0 auto; padding: 56px 5vw 100px; }
+
+  /* SECTION */
+  .section { margin-bottom: 76px; }
+  .section-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid var(--ink); }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .14em; color: var(--muted); padding-top: 6px; min-width: 40px; }
+  .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(19px, 3.5vw, 27px); font-weight: 700; line-height: 1.25; letter-spacing: -.02em; }
+  .section-desc { margin-top: 6px; font-size: 13px; color: var(--muted); }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
+  .card { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 24px; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .card.green::before  { background: var(--green); }
+  .card.teal::before   { background: var(--teal); }
+  .card.blue::before   { background: var(--blue); }
+  .card.indigo::before { background: var(--indigo); }
+  .card.orange::before { background: var(--orange); }
+  .card.amber::before  { background: var(--amber); }
+  .card.rose::before   { background: var(--rose); }
+  .card.red::before    { background: var(--red); }
+  .card.slate::before  { background: var(--slate); }
+  .card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .card-term { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+  .card-body { font-size: 13.5px; color: var(--ink-light); line-height: 1.75; }
+  .card-body strong { color: var(--ink); font-weight: 600; }
+
+  /* CALLOUT */
+  .callout { border-left: 4px solid var(--green); background: #f0fdf4; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--ink-light); line-height: 1.75; }
+  .callout strong { color: var(--ink); font-weight: 700; }
+  .callout.teal   { border-color: var(--teal);   background: #f0fdfa; }
+  .callout.blue   { border-color: var(--blue);   background: #eff6ff; }
+  .callout.indigo { border-color: var(--indigo); background: #eef2ff; }
+  .callout.orange { border-color: var(--orange); background: #fff7ed; }
+  .callout.amber  { border-color: var(--amber);  background: #fffbeb; }
+  .callout.rose   { border-color: var(--rose);   background: #fdf2f8; }
+  .callout.red    { border-color: var(--red);    background: #fef2f2; }
+  .callout.slate  { border-color: var(--slate);  background: #f8fafc; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin: 0 -4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead tr { background: var(--ink); color: #f0f7f1; }
+  thead th { font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 12px; padding: 12px 16px; text-align: left; letter-spacing: .02em; }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:nth-child(even) { background: rgba(0,0,0,.022); }
+  tbody td { padding: 12px 16px; vertical-align: top; color: var(--ink-light); line-height: 1.65; }
+  tbody td:first-child { font-weight: 600; color: var(--ink); font-family: 'Noto Serif KR', serif; }
+  .badge { display: inline-block; font-size: 10px; font-family: 'DM Mono', monospace; padding: 2px 8px; border-radius: 100px; font-weight: 500; white-space: nowrap; }
+
+  /* STAT */
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .stat-box { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; text-align: center; }
+  .stat-num { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 700; color: var(--green); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  .stat-sub { font-size: 11px; color: var(--muted); margin-top: 4px; font-family: 'DM Mono', monospace; }
+
+  /* COMPARE */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 580px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-block { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 12px; padding: 20px 22px; }
+  .compare-head { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-family: 'DM Mono', monospace; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+  .compare-item { display: flex; gap: 8px; font-size: 13.5px; line-height: 1.65; margin-bottom: 7px; color: var(--ink-light); }
+  .compare-item::before { content: '›'; font-weight: 700; flex-shrink: 0; color: var(--muted); margin-top: 2px; }
+  .compare-item strong { color: var(--ink); font-weight: 600; }
+
+  /* TYPE CARDS */
+  .type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+  .type-card { border-radius: 12px; padding: 20px 22px; border: 1px solid transparent; }
+  .tg { background: var(--tg); border-color: #86efac; color: var(--tgb); }
+  .tt { background: var(--tt); border-color: #5eead4; color: var(--ttb); }
+  .tb { background: var(--tb); border-color: #93c5fd; color: var(--tbb); }
+  .ti { background: var(--ti); border-color: #a5b4fc; color: var(--tib); }
+  .to { background: var(--to); border-color: #fdba74; color: var(--tob); }
+  .ta { background: var(--ta); border-color: #fde68a; color: var(--tab); }
+  .tr { background: var(--tr); border-color: #f9a8d4; color: var(--trb); }
+  .type-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; opacity: .7; margin-bottom: 6px; }
+  .type-name { font-family: 'Noto Serif KR', serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .type-desc { font-size: 13px; line-height: 1.7; }
+  .type-desc strong { font-weight: 700; }
+
+  /* POLICY BLOCK */
+  .policy-block { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+  .policy-head { background: var(--ink); color: #f0f7f1; padding: 14px 22px; font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .policy-tag { font-family: 'DM Mono', monospace; font-size: 10px; background: rgba(255,255,255,.15); padding: 2px 8px; border-radius: 100px; }
+  .policy-body { padding: 20px 22px; }
+  .policy-list { list-style: none; padding: 0; }
+  .policy-list li { font-size: 13.5px; color: var(--ink-light); line-height: 1.7; padding: 5px 0 5px 18px; position: relative; border-bottom: 1px solid var(--rule); }
+  .policy-list li:last-child { border-bottom: none; }
+  .policy-list li::before { content: '▸'; position: absolute; left: 0; color: var(--green); font-size: 11px; top: 8px; }
+  .policy-list li strong { color: var(--ink); font-weight: 600; }
+  .policy-body p { font-size: 13.5px; color: var(--ink-light); line-height: 1.75; margin-bottom: 10px; }
+  .policy-body p:last-child { margin-bottom: 0; }
+
+  /* FLOW */
+  .flow-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin: 16px 0; }
+  .flow-step { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 16px; font-size: 13px; font-weight: 500; text-align: center; min-width: 80px; }
+  .flow-arrow { color: var(--muted); font-size: 18px; padding: 0 6px; flex-shrink: 0; }
+
+  /* LOOP BOX */
+  .loop-box {
+    border: 2px solid var(--rule); border-radius: 12px; padding: 20px 24px;
+    background: var(--warm-white); margin: 16px 0;
+  }
+  .loop-title { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+  .loop-items { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .loop-item { background: #dcfce7; color: #14532d; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; }
+  .loop-arrow-lg { font-size: 22px; color: var(--muted); }
+
+  /* HR */
+  hr.sec-div { border: none; border-top: 1px solid var(--rule); margin: 28px 0; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: #5a5650; padding: 28px 5vw; font-size: 12px; font-family: 'DM Mono', monospace; text-align: center; letter-spacing: .04em; }
+  footer span { color: #9a9490; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-kicker">청년과 가족다양성 · 2026 기말고사 대비</p>
+    <h1 class="header-title">가족돌봄청년<br><span>(Young Carer)</span> 완전정복 스터디가이드</h1>
+    <p class="header-sub">2026.06.02 스페셜이슈 3조 발표 기반 · 정의·현황·이론·어려움·정책 전범위 수록</p>
+    <div class="header-chips">
+      <span class="chip">정의·상세조건</span>
+      <span class="chip">현황·통계</span>
+      <span class="chip">성인진입기·이행기</span>
+      <span class="chip">영케어러 패널티</span>
+      <span class="chip">가족체계이론</span>
+      <span class="chip">6가지 어려움</span>
+      <span class="chip">가족주의 문화</span>
+      <span class="chip">국내외 정책</span>
+      <span class="chip">향후 과제</span>
+    </div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc-wrap">
+  <div class="toc-inner">
+    <span class="toc-label">목차</span>
+    <a href="#s1">①정의</a>
+    <a href="#s2">②현황통계</a>
+    <a href="#s3">③생애주기이론</a>
+    <a href="#s4">④영케어러패널티</a>
+    <a href="#s5">⑤가족체계이론</a>
+    <a href="#s6">⑥6가지어려움</a>
+    <a href="#s7">⑦국내외정책</a>
+    <a href="#s8">⑧향후과제</a>
+    <a href="#s9">⑨논술포인트</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 : 정의
+══════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-head">
+    <span class="section-num">01 —</span>
+    <div>
+      <h2 class="section-title">가족돌봄청년 정의</h2>
+      <p class="section-desc">보건복지부 공식 정의 + 상세 조건 + 핵심 특징</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>공식 정의 (보건복지부, 2024)</strong><br>
+    아픈 가족에 대한 돌봄 책임을 <em>전담</em>하고 있는 <strong>13~34세 청(소)년</strong>.
+    영어로는 <em>Young Carer</em> 또는 <em>Young Adult Carer</em>라고 합니다.
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">상세 조건 3가지 (국가데이터처, 2024)</h3>
+
+  <div class="card-grid" style="margin-bottom:20px;">
+    <div class="card green">
+      <div class="card-label">조건 01</div>
+      <div class="card-term">돌봄 필요 가족원 존재</div>
+      <div class="card-body">
+        가구 내에 <strong>육체적·정신적 활동 제약이 지속기간 6개월 이상인 가족원</strong>이 있을 것.
+      </div>
+    </div>
+    <div class="card teal">
+      <div class="card-label">조건 02</div>
+      <div class="card-term">중장년 돌봄 제공자 부재</div>
+      <div class="card-body">
+        <strong>돌봄이 필요 없는 중장년(35~64세) 가족원이 없을 것</strong> — 즉, 청년이 사실상 유일한 돌봄 가능 인력인 구조.
+      </div>
+    </div>
+    <div class="card blue">
+      <div class="card-label">조건 03</div>
+      <div class="card-term">13~34세 청년이 주 돌봄 담당</div>
+      <div class="card-body">
+        가구 내 돌봄을 주로 담당할 것으로 추정되는 <strong>돌봄이 필요 없는 13~34세 청년</strong>일 것.
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">핵심 특징 — '숨은 간병인'</h3>
+
+  <div class="type-grid">
+    <div class="type-card tg">
+      <div class="type-label">특징 01</div>
+      <div class="type-name">비자발성</div>
+      <div class="type-desc"><strong>본인 의지와 관계없이</strong> 돌봄 및 생계 부담 상황에 직면. 갑작스러운 돌봄의 시작. (서울시복지재단)</div>
+    </div>
+    <div class="type-card tt">
+      <div class="type-label">특징 02</div>
+      <div class="type-name">미래 준비 부족</div>
+      <div class="type-desc">청소년·청년의 <strong>미래 준비 부족</strong> + 사회적 관계를 끊거나 사회로부터 고립. (서울시복지재단)</div>
+    </div>
+    <div class="type-card tb">
+      <div class="type-label">특징 03</div>
+      <div class="type-name">숨은 간병인</div>
+      <div class="type-desc">자신의 학업·취업 준비·사회적 관계를 희생하며 가족의 생계나 간병을 도맡아 하는 <strong>'숨은 간병인'</strong>. (국회입법조사처, 2022)</div>
+    </div>
+  </div>
+
+  <div class="callout orange" style="margin-top:16px;">
+    <strong>🎯 논술 포인트 — '전담'과 '비자발성':</strong>
+    가족돌봄청년의 정의에서 가장 중요한 두 키워드는 <strong>전담</strong>과 <strong>비자발성</strong>입니다.
+    돌봄이 개인의 선택이 아닌 가족 기능의 공백을 메우기 위해 구조적으로 부과된다는 점에서,
+    이는 개인의 문제가 아닌 사회적 책임의 문제임을 논거로 활용하세요.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 2 : 현황 및 통계
+══════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-head">
+    <span class="section-num">02 —</span>
+    <div>
+      <h2 class="section-title">가족돌봄청년 현황 및 통계</h2>
+      <p class="section-desc">2020 인구총조사 기준 · 돌봄 실태 · 정서 현황</p>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">15만 3,044명</div>
+      <div class="stat-label">가족돌봄청년 추정 규모</div>
+      <div class="stat-sub">2020 인구총조사 기준</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">1.3%</div>
+      <div class="stat-label">13~34세 인구 대비 비율</div>
+      <div class="stat-sub">약 100명 중 1명</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">61.5%</div>
+      <div class="stat-label">6개월 이상 장기 돌봄 수행</div>
+      <div class="stat-sub">19~34세는 70.6%</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">주 21.6시간</div>
+      <div class="stat-label">평균 돌봄 시간 (주당)</div>
+      <div class="stat-sub">보건복지부, 2023</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">연령·성별·세대구성 분포</h3>
+
+  <div class="table-wrap" style="margin-bottom:24px;">
+    <table>
+      <thead>
+        <tr><th>구분</th><th>세부 내용</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>연령 분포</td>
+          <td>13~18세 24,453명 (16.0%) · 19~24세 44,244명 (28.9%) · 25~34세 84,347명 (55.1%)</td>
+        </tr>
+        <tr>
+          <td>성별 분포</td>
+          <td>남 80,000명 / 여 73,044명 — 남성이 소폭 많음</td>
+        </tr>
+        <tr>
+          <td>세대 구성</td>
+          <td>어머니+미혼자녀로 이루어진 가족이 가장 많음. 미혼 손자녀+조부모 구성도 남성 11.2%, 여성 8.7%</td>
+        </tr>
+        <tr>
+          <td>돌봄 대상 유형</td>
+          <td>할머니 39.1% &gt; 형제·자매 25.5% &gt; 어머니 24.3% &gt; 아버지 22.0% &gt; 할아버지 22.0% &gt; 기타 친척 21.7%<br><strong>→ 조부모 세대를 돌보는 경우가 가장 많음</strong></td>
+        </tr>
+        <tr>
+          <td>돌봄 대상자 건강상태</td>
+          <td>중증 질환 25.7% · 등록 장애인 24.2% · 정신질환 21.4% · 장기 요양 19.4% · 치매 11.7%<br><strong>→ 청년 개인이 혼자 돌보기 어려운 중증 상태가 다수</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout teal">
+    <strong>KEY POINT — 나이가 들수록 이중 부담 심화:</strong><br>
+    13~18세 중 26.1%가 직접 돌봄 + 경제적 부양을 동시에 짊어지는 데 비해,
+    <strong>19~34세는 그 비율이 51.3%로 절반 이상</strong>으로 증가합니다.
+    연령이 높아질수록 장기 돌봄 비율도 증가(70.6%)합니다.
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">정서 현황 — 일반청년과 비교</h3>
+
+  <div class="card-grid">
+    <div class="card red">
+      <div class="card-label">우울 수준 (CES-D)</div>
+      <div class="card-term">일반청년의 7배</div>
+      <div class="card-body">
+        가족돌봄청년의 <strong>61.5%</strong>가 CES-D 우울 점수 16점 이상.<br>
+        일반청년은 8.5% → <strong>약 7.2배</strong> 차이.<br>
+        연령이 높아질수록 우울 수준이 더 높게 나타남.
+      </div>
+    </div>
+    <div class="card orange">
+      <div class="card-label">삶의 만족도</div>
+      <div class="card-term">불만족 2배 이상</div>
+      <div class="card-body">
+        가족돌봄청년 <strong>22.1% 불만족</strong> vs. 일반청년 10.0% → <strong>2배 이상</strong>.<br>
+        주 15시간 이상 돌봄 청년은 불만족 <strong>33.0%</strong>.
+      </div>
+    </div>
+    <div class="card amber">
+      <div class="card-label">가사 부담</div>
+      <div class="card-term">일반청년의 4배</div>
+      <div class="card-body">
+        일반청년의 69.2%가 가사 부담 "어렵지 않다"고 응답.<br>
+        가족돌봄청년은 34.4%가 "어렵다" 응답 → <strong>약 4배 수준의 가사 부담</strong>.
+      </div>
+    </div>
+    <div class="card rose">
+      <div class="card-label">미래설계</div>
+      <div class="card-term">계획 세우기 어렵다</div>
+      <div class="card-body">
+        36.6%가 돌봄으로 인해 미래 계획 세우기 어려움.<br>
+        주 15시간 이상 돌봄 청년은 <strong>54.5%(절반 이상)</strong>가 미래 계획에 어려움.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 3 : 생애주기 이론
+══════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-head">
+    <span class="section-num">03 —</span>
+    <div>
+      <h2 class="section-title">가족돌봄청년의 생애주기 차이</h2>
+      <p class="section-desc">성인진입기·성인이행기 관점 — 일반 청년 vs. 가족돌봄청년</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">일반적인 청년의 발달 과업</h3>
+
+  <div class="compare-grid" style="margin-bottom:20px;">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--blue);">성인진입기 (Arnett)</div>
+      <div class="compare-item"><strong>탐색·유예·가능성</strong>의 시기</div>
+      <div class="compare-item">정체성 탐색이 핵심 과업</div>
+      <div class="compare-item">또래 관계 형성</div>
+      <div class="compare-item">자율성 발달</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--teal);">성인이행기 (Havighurst, 1956)</div>
+      <div class="compare-item">또래 관계 형성</div>
+      <div class="compare-item">신체적·정서적 <strong>독립</strong></div>
+      <div class="compare-item">성 역할 학습, 직업 탐색</div>
+      <div class="compare-item">가치관 수립</div>
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <strong>청년-부모 관계의 일반적 특성:</strong>
+    일반적으로 <strong>부모 → 청년 방향으로 자원이 흐르는 구조</strong>입니다.
+    헬리콥터 부모(과잉 개입), 캥거루족(과잉 의존) 모두 청년 쪽으로 자원이 집중되는 경향을 반영합니다.
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">가족돌봄청년의 청년 시기 — 4가지 특수성</h3>
+
+  <div class="type-grid">
+    <div class="type-card to">
+      <div class="type-label">특수성 01</div>
+      <div class="type-name">역할 역전 (Role Reversal)</div>
+      <div class="type-desc">장애·질병·정신건강·약물중독 등으로 어려움을 겪는 가족을 돌보는 책임이 부과됨.<br><strong>→ 청년이 가족을 지탱하는 구조로 자원 흐름이 역전</strong></div>
+    </div>
+    <div class="type-card tr">
+      <div class="type-label">특수성 02</div>
+      <div class="type-name">고립 및 발달 저해</div>
+      <div class="type-desc">부모·가족의 지원을 받지 못함 + 또래와 상호작용 감소.<br>성인진입기의 핵심 과업인 정체성 탐색·자율성 발달이 제한됨.</div>
+    </div>
+    <div class="type-card ta">
+      <div class="type-label">특수성 03</div>
+      <div class="type-name">다중적 어려움</div>
+      <div class="type-desc">정보 부족 / 가사·돌봄 경험 부족 / 지속적인 경제적·의료적 부담 등 다양한 삶의 어려움에 동시 직면 (Elango et al., 2015; 조기현, 2019)</div>
+    </div>
+    <div class="type-card tb">
+      <div class="type-label">특수성 04</div>
+      <div class="type-name">장기적 불이익</div>
+      <div class="type-desc">일반 청년 대비 <strong>평생에 걸친 불이익 위험 증가</strong>, 빈곤의 악순환에 빠질 가능성 높음 (조원희·조윤호·최영준, 2025)</div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">'보이지 않는' 가족돌봄청년 (Invisible Young Carers)</h3>
+
+  <div class="card-grid">
+    <div class="card slate">
+      <div class="card-label">Invisible Young Carers</div>
+      <div class="card-term">공적 지원의 사각지대</div>
+      <div class="card-body">
+        공적 지원의 사각지대에 놓여 학업·진로·대인관계 등 <strong>발달과업을 충분히 수행하지 못할 가능성</strong> 높음 (Cooklin, 2010; Stamatopoulos, 2016).
+      </div>
+    </div>
+    <div class="card slate">
+      <div class="card-label">은폐 경향</div>
+      <div class="card-term">스스로 밝히지 않는다</div>
+      <div class="card-body">
+        자신을 돌봄 제공자로 인식하지 못하거나, <strong>낙인에 대한 두려움·무력감</strong>으로 돌봄 역할을 주변에 밝히기를 주저 → 수동적·은폐된 행위자로 묘사되는 경향 (Smyth et al., 2011).
+      </div>
+    </div>
+    <div class="card slate">
+      <div class="card-label">발달과업의 지체</div>
+      <div class="card-term">장기화 시 복합 후유증</div>
+      <div class="card-body">
+        돌봄 부담이 학업 성취·진로 탐색·사회적 관계·정신건강 관리 등 <strong>필수 발달과업을 지연·제한</strong>.<br>돌봄 장기화 시 학업·진로 기회 감소 + 대인관계·정신건강 차원의 부정적 후유증 (신미정 외, 2022; 최영준 외, 2022; 함선유, 2023).
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 4 : 영케어러 패널티
+══════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-head">
+    <span class="section-num">04 —</span>
+    <div>
+      <h2 class="section-title">영케어러 패널티 (Young Carer Penalty)</h2>
+      <p class="section-desc">이른 돌봄이 생애 전체에 미치는 장기적 불이익</p>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <strong>정의 (Nagl-Cupal et al., 2014):</strong><br>
+    이른 시기에 돌봄 역할을 수행하는 것이 <strong>표준적인 생애 발달과업 수행에 부정적 영향을 미쳐,
+    장기적으로 더 큰 사회적 위험에 노출</strong>되는 것.
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin:20px 0 16px;">발달과업에 영향을 미치는 4가지 사회적 위험</h3>
+
+  <div class="type-grid">
+    <div class="type-card tr">
+      <div class="type-label">위험 01</div>
+      <div class="type-name">건강 문제</div>
+      <div class="type-desc">만성적 스트레스 · 수면 부족 · 신체 건강 관리 불가 → 장기 건강 취약성 형성</div>
+    </div>
+    <div class="type-card ta">
+      <div class="type-label">위험 02</div>
+      <div class="type-name">학업 성취도 저하</div>
+      <div class="type-desc">잦은 결석·휴학 · 과제 수행 불가 · 진로 탐색 기회 제한 → 학력 취득 기회 감소</div>
+    </div>
+    <div class="type-card to">
+      <div class="type-label">위험 03</div>
+      <div class="type-name">사회적 고립</div>
+      <div class="type-desc">또래 관계 축소 · 사회적 연결망 약화 · 고립 위험 증가 → 성인기 사회적 자본 빈곤</div>
+    </div>
+    <div class="type-card tb">
+      <div class="type-label">위험 04</div>
+      <div class="type-name">경제적 불안정</div>
+      <div class="type-desc">대학 진학률 저하 · 취업 및 자립 지연 · 복합위기(고용·주거·경제) → 빈곤의 악순환</div>
+    </div>
+  </div>
+
+  <div class="callout orange" style="margin-top:16px;">
+    <strong>🎯 논술 포인트 — 패널티의 누적성:</strong>
+    영케어러 패널티는 단순히 청년기의 어려움에 그치지 않고, <strong>생애 전반에 걸쳐 누적되는 불이익 구조</strong>를 만듭니다.
+    건강·학업·사회적 관계·경제의 4가지 위험이 상호 강화하며 '빈곤의 악순환'을 형성합니다.
+    이를 개인의 문제로 보지 않고 구조적·사회적 문제로 접근해야 한다는 논거로 활용하세요.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 5 : 가족체계이론
+══════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-head">
+    <span class="section-num">05 —</span>
+    <div>
+      <h2 class="section-title">가족체계이론 (Family Systems Theory)</h2>
+      <p class="section-desc">개인을 가족 체계의 일부로 보는 관점 + 가족돌봄청년에의 적용</p>
+    </div>
+  </div>
+
+  <div class="callout indigo">
+    <strong>가족체계이론이란?</strong><br>
+    개인을 독립된 존재가 아닌, <strong>가족이라는 전체 체계에서 상호작용하는 부분</strong>으로 바라보는 관점.
+    Satir(1972)는 가족을 '모빌'과 같은 것으로 비유 — 한 부분이 움직이면 전체가 흔들립니다.
+    (김병석, 1997)
+  </div>
+
+  <div class="compare-grid" style="margin-bottom:20px;">
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--indigo);">핵심 특징 ①: 전체성</div>
+      <div class="compare-item">가족을 <strong>전체 구조</strong>로서 이해</div>
+      <div class="compare-item">개별 구성원의 합 이상의 속성이 가족에 존재</div>
+    </div>
+    <div class="compare-block">
+      <div class="compare-head" style="color:var(--teal);">핵심 특징 ②: 상호의존성</div>
+      <div class="compare-item">한 구성원의 변화·문제가 <strong>가족 전체에 영향</strong></div>
+      <div class="compare-item">가족 분위기는 다시 개인·구성원 간 상호작용에 영향</div>
+      <div class="compare-item">가족 = 유기적 상호작용 체계 (김병석, 1997)</div>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">가족체계이론으로 본 가족돌봄청년 — 3가지 역기능 메커니즘</h3>
+
+  <div class="card-grid">
+    <div class="card indigo">
+      <div class="card-label">메커니즘 01</div>
+      <div class="card-term">하위체계의 경계 붕괴</div>
+      <div class="card-body">
+        분리된 하위체계(부모 하위체계, 자녀 하위체계)의 <strong>경계가 희미해질 때 역기능적 가족</strong>이 만들어질 수 있음 (권영배, 2005).<br>
+        → 부모가 질병·장애·중독 등으로 기능하지 못할 때 자녀가 부모 역할을 대신 수행하는 <strong>역할 역전</strong> 발생.
+      </div>
+    </div>
+    <div class="card slate">
+      <div class="card-label">메커니즘 02</div>
+      <div class="card-term">상위체계와의 단절 — 사회적 고립</div>
+      <div class="card-body">
+        돌봄 부담 → 학교·또래·지역사회 참여 제한 → 가족 내 문제를 외부에 알리지 못하는 소통 단절 발생.<br>
+        <strong>가족체계가 폐쇄적 체계로 작동</strong> → 복지·의료·교육 등 외부 자원 유입 차단.
+      </div>
+    </div>
+    <div class="card orange">
+      <div class="card-label">메커니즘 03</div>
+      <div class="card-term">가족 항상성의 역기능</div>
+      <div class="card-body">
+        균형을 유지하려는 체계의 속성(항상성, homeostasis)이 가족돌봄청년에게 부담으로 작용.<br>
+        → <strong>"돌봄을 중단하면 가족이 붕괴된다"는 두려움</strong>이 청년을 돌봄 역할에 종속시키는 압력으로 기능.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout indigo" style="margin-top:16px;">
+    <strong>🎯 논술 포인트 — 가족체계이론 적용:</strong>
+    가족체계이론은 가족돌봄청년 문제를 <em>개인이나 특정 가족원의 문제</em>가 아닌,
+    <strong>가족 체계 전체의 구조적 불균형</strong>으로 설명합니다.
+    특히 '폐쇄적 체계'로 작동하며 외부 자원이 차단되는 메커니즘은,
+    왜 가족돌봄청년이 스스로 지원을 요청하지 못하는지를 체계론적으로 설명하는 핵심 논거입니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 6 : 6가지 어려움
+══════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-head">
+    <span class="section-num">06 —</span>
+    <div>
+      <h2 class="section-title">가족돌봄청년이 겪는 6가지 어려움</h2>
+      <p class="section-desc">교차성의 관점 — 한 가지 측면이 아닌 여러 차원에서 동시 발생</p>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <strong>교차성(Intersectionality) 관점:</strong>
+    가족돌봄청년이 겪는 어려움은 경제적·심리적·진로학업적·사회관계적·가족적·정책구조적 측면이 <strong>복합적으로 교차</strong>합니다.
+    어느 한 차원만 해결해서는 근본적 개선이 어렵습니다.
+  </div>
+
+  <div class="type-grid" style="margin-bottom:24px;">
+    <div class="type-card to">
+      <div class="type-label">경제적 측면</div>
+      <div class="type-name">빈곤의 악순환</div>
+      <div class="type-desc">
+        대학 진학률 저하 (고등교육 기회 제한·학업 중단 증가)<br>
+        취업 및 자립 지연 (생계+돌봄 동시 수행)<br>
+        복합위기: <strong>고용·주거·경제 위기의 동시다발적 결합</strong> (한국사회보장정보원, 2024)
+      </div>
+    </div>
+    <div class="type-card tr">
+      <div class="type-label">심리적 측면</div>
+      <div class="type-name">만성 스트레스와 우울</div>
+      <div class="type-desc">
+        우울 유병률 일반청년의 <strong>7배</strong> (61.5% vs. 8.5%)<br>
+        개인 시간이 새벽·늦은 밤에 분산 → 만성 스트레스<br>
+        낮은 가족관계 만족도 → 돌봄 부담 증가 → 우울 심화의 악순환<br>
+        '인생에서 뒤쳐진다'는 감각과 불안감 경험 (노혜진, 2024)
+      </div>
+    </div>
+    <div class="type-card tb">
+      <div class="type-label">진로·학업적 측면</div>
+      <div class="type-name">이중적 불평등</div>
+      <div class="type-desc">
+        학업 집중 어려움·성취도 저하·학업 중단<br>
+        잦은 결석과 휴학<br>
+        돌봄 시간 비중이 커 → 대학 졸업 가능성 감소<br>
+        "돌봄과 사회적 역할 사이의 위태로운 균형" (노혜진, 2024)
+      </div>
+    </div>
+    <div class="type-card tg">
+      <div class="type-label">사회·관계적 측면</div>
+      <div class="type-name">사회적 연결망 약화</div>
+      <div class="type-desc">
+        시간·에너지 투입 → 또래와의 관계 형성 불안정<br>
+        또래의 이해 부족 → 고립 위험 증가<br>
+        종단 연구에서 일관되게 보고됨
+      </div>
+    </div>
+    <div class="type-card ta">
+      <div class="type-label">가족주의 문화</div>
+      <div class="type-name">자기 인식 부재</div>
+      <div class="type-desc">
+        스스로 가족돌봄청년임을 인식하지 못하는 경우 多 → 지원 신청 불가<br>
+        돌봄을 '가족의 책임'으로 자연스레 내면화<br>
+        '잉여 인력', '보조 돌봄자'로 여겨짐<br>
+        "돌본다고 생각하지 않음, 보은·책임감으로 인식" (아동복지연구소, 2022)
+      </div>
+    </div>
+    <div class="type-card tt">
+      <div class="type-label">정책·구조적 측면</div>
+      <div class="type-name">사각지대의 구조</div>
+      <div class="type-desc">
+        현행 돌봄 서비스는 <strong>돌봄 대상자(피돌봄자) 중심</strong>으로 설계 → 돌봄 제공자 청년의 어려움 미반영<br>
+        자격·소득 기준의 복합 적용 → 미충족 시 100% 본인 부담<br>
+        공적 돌봄 이용 저조 → 사적 부담 가족 내 전가 (서울시복지재단, 2025)
+      </div>
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <strong>악순환 구조 (심리적 측면):</strong>
+  </div>
+  <div class="loop-box">
+    <div class="loop-title">낮은 가족관계 만족도 → 돌봄 부담 증가 → 우울 심화 → 더 낮은 가족관계 만족도</div>
+    <div class="loop-items">
+      <div class="loop-item">낮은 가족관계 만족도</div>
+      <div class="loop-arrow-lg">→</div>
+      <div class="loop-item">돌봄 부담 증가</div>
+      <div class="loop-arrow-lg">→</div>
+      <div class="loop-item">우울 심화</div>
+      <div class="loop-arrow-lg">→</div>
+      <div class="loop-item">관계 만족도 더 저하</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 7 : 국내외 정책
+══════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-head">
+    <span class="section-num">07 —</span>
+    <div>
+      <h2 class="section-title">국내외 관련 법·제도·정책</h2>
+      <p class="section-desc">국내 신설법 + 청년미래센터 + 영국·아일랜드 해외 사례</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">① 국내 — 신설 법률 및 청년미래센터</h3>
+
+  <div class="policy-block">
+    <div class="policy-head">
+      가족돌봄 등 위기아동·청년 지원에 관한 법률
+      <span class="policy-tag">2026.03.26 시행 시작</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>목적:</strong> 기존 복지 사각지대였던 가족돌봄 아동·청년을 위한 전담 지원체계 마련 및 맞춤형 사례관리 제공.</p>
+      <p><strong>핵심 전담기관:</strong> <em>청년미래센터</em> — 현재 4개 광역시·도(인천·울산·충북·전북) 운영 중 → 점차 전국 확대 예정.</p>
+      <h4 style="font-size:13px;font-weight:700;color:var(--ink);margin:12px 0 8px;">지원 흐름 (3단계)</h4>
+      <ul class="policy-list">
+        <li><strong>① 발굴:</strong> 학교·의료기관·복지기관 등 지역사회 연계를 통한 가족돌봄청년 발굴</li>
+        <li><strong>② 사례관리:</strong> 돌봄·고립·위기 상황별 밀착 맞춤 지원</li>
+        <li><strong>③ 주요 지원:</strong> 일상돌봄 본인부담 5%p 할인 / 자기돌봄비 연 200만원 / 일자리·교육·주거·금융·법률 서비스 연결</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">② 해외 — 영국</h3>
+
+  <div class="policy-block">
+    <div class="policy-head">
+      영국 (United Kingdom)
+      <span class="policy-tag">아동 및 가족법 2014 / Carers Trust</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>수요평가 제도</strong> (「아동 및 가족법」Children and Families Act 2014, Sec 96(12) 근거)</p>
+      <ul class="policy-list">
+        <li><strong>지방정부가 지역 내 영 케어러 현황 파악 의무화</strong></li>
+        <li>개인별 평가 후 가족돌봄청년의 <strong>돌봄 시간 단축</strong>을 위한 맞춤 지원 연계</li>
+      </ul>
+      <p style="margin-top:12px;"><strong>Carers Trust</strong> — 무보수 간병인을 위한 영국 대표 지원기관</p>
+      <ul class="policy-list">
+        <li>1:1 개별 지원·정보 제공 / 정서지원</li>
+        <li>건강·안전·복지·생활기술 교육·훈련 프로그램</li>
+        <li>맞춤형 지원 안내·연계 / 긴급지원</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="sec-div">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">③ 해외 — 아일랜드</h3>
+
+  <div class="policy-block">
+    <div class="policy-head">
+      아일랜드 (Ireland)
+      <span class="policy-tag">케어러 웰빙리뷰 / Family Carers Ireland / 영 케어러 카드</span>
+    </div>
+    <div class="policy-body">
+      <p><strong>케어러 웰빙리뷰 (Carer Well-being Review)</strong></p>
+      <ul class="policy-list">
+        <li>7가지 항목 개별 평가 실시</li>
+        <li><strong>지원 매니저(Young Carer Support Manager)</strong>가 평가 결과에 기반해 영 케어러와 함께 돌봄 계획 수립</li>
+        <li>개별 상황에 맞는 지원 서비스 연계 → 돌봄의 지속가능성 제고 및 청소년의 시간·기회 희생 최소화</li>
+      </ul>
+      <p style="margin-top:12px;"><strong>Family Carers Ireland Center</strong></p>
+      <ul class="policy-list">
+        <li>전국 <strong>15개 센터 + 4개 현장활동 지원센터(Outreach Centers)</strong> 운영</li>
+        <li>케어러 지원 매니저가 개별 면담을 통해 지원 서비스 발굴·안내·연계</li>
+      </ul>
+      <p style="margin-top:12px;"><strong>영 케어러 카드 (Young Carer Card)</strong></p>
+      <ul class="policy-list">
+        <li><strong>발급 대상:</strong> 10~24세 청소년 (가족 또는 친구를 돌보고 있는 청소년)</li>
+        <li><strong>혜택:</strong> 사회활동·건강복지·교육훈련·여가 부문 <strong>20여 가지 할인 혜택</strong> 제공</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout teal" style="margin-top:16px;">
+    <strong>🎯 국내외 비교 논술 포인트:</strong>
+    영국은 <em>지방정부의 파악 의무화</em>라는 공공 책임 구조를, 아일랜드는 <em>개별 평가 + 전담 매니저</em> 제도를 갖추었습니다.
+    한국의 신설 법률(2026)과 청년미래센터는 이러한 방향으로 나아가는 첫걸음이지만,
+    아직 4개 광역만 운영 중이라는 <strong>접근성의 한계</strong>가 있습니다.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 8 : 향후 과제
+══════════════════════════════════════ -->
+<section class="section" id="s8">
+  <div class="section-head">
+    <span class="section-num">08 —</span>
+    <div>
+      <h2 class="section-title">향후 과제 및 시사점</h2>
+      <p class="section-desc">개인·관계적 지원 + 제도·정책적 지원 + 가족과 돌봄의 재정의</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">① 개인·관계적 지원 강화</h3>
+
+  <div class="callout green">
+    <strong>핵심 변수:</strong> 돌봄 부담이 우울로 이어지는 경로를 완화하는 핵심 변수는
+    <strong>외부 사회적 지지</strong>와 <strong>가족관계 만족도</strong>입니다 (김재윤·김주은·진미정, 2024).
+  </div>
+
+  <div class="type-grid" style="margin-bottom:20px;">
+    <div class="type-card tg">
+      <div class="type-label">지원 방향 ①</div>
+      <div class="type-name">심리상담·정서지원</div>
+      <div class="type-desc">심리 상담 및 정서 지원 프로그램 확대. 만성 스트레스·우울 조기 개입.</div>
+    </div>
+    <div class="type-card tt">
+      <div class="type-label">지원 방향 ②</div>
+      <div class="type-name">자조모임·또래 네트워크</div>
+      <div class="type-desc">자조모임, 또래 네트워크 구축 지원. 유사 경험자와의 연결을 통한 고립 예방.</div>
+    </div>
+    <div class="type-card tb">
+      <div class="type-label">지원 방향 ③</div>
+      <div class="type-name">사회적 고립 예방</div>
+      <div class="type-desc">가족돌봄청년의 사회적 고립 예방 — 또래와 상호작용 기회 제공.</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">② 제도·정책적 지원 강화</h3>
+
+  <div class="card-grid" style="margin-bottom:20px;">
+    <div class="card green">
+      <div class="card-label">정책 과제 ①</div>
+      <div class="card-term">조기 발굴 체계 확대</div>
+      <div class="card-body">교육기관, 지역사회를 통한 조기 발굴 체계 확대. 학교·의료기관 등 접점 기관을 통한 선제적 발굴.</div>
+    </div>
+    <div class="card teal">
+      <div class="card-label">정책 과제 ②</div>
+      <div class="card-term">지원 패러다임 전환</div>
+      <div class="card-body"><strong>돌봄 대상자·소득 중심</strong>에서 <strong>돌봄 부담을 고려한 지원체계</strong>로 전환. 돌봄 제공자인 청년의 필요를 반영한 설계.</div>
+    </div>
+    <div class="card blue">
+      <div class="card-label">정책 과제 ③</div>
+      <div class="card-term">휴식권 보장</div>
+      <div class="card-body">대체 돌봄 서비스 확대를 통한 <strong>가족돌봄청년의 휴식권 보장</strong>. 일시 대체 돌봄 서비스 제도화.</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;margin-bottom:16px;">③ 가족을 다시 보기 + 돌봄의 사회적 책임</h3>
+
+  <div class="callout green">
+    <strong>가족을 다시 보기:</strong><br>
+    가족돌봄청년은 개인의 선택이 아닌 <strong>가족 기능 변화 속에서 발생</strong>합니다.
+    가족 전체를 함께 이해하는 태도가 필요하며, 가족 형태뿐 아니라 <strong>돌봄 방식과 가족 역할의 다양성</strong>까지 포함해야 합니다.
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">
+    <strong>돌봄의 사회적 책임 강화:</strong><br>
+    가족 내부의 책임·개인의 희생으로 귀결되어 온 돌봄을
+    <strong>돌봄의 사회적 책임</strong>으로 재정의해야 합니다.
+    가족돌봄청년이 돌봄과 자신의 삶을 <em>함께</em> 이어갈 수 있도록 나아가는 것이 과제입니다.
+    (서울시복지재단, 2025)
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 9 : 논술 포인트 종합
+══════════════════════════════════════ -->
+<section class="section" id="s9">
+  <div class="section-head">
+    <span class="section-num">09 —</span>
+    <div>
+      <h2 class="section-title">논술 포인트 종합</h2>
+      <p class="section-desc">시험에서 바로 쓸 수 있는 핵심 논지 · 개념 연결표</p>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <strong>🎯 논지 1 — 비자발성과 구조적 발생:</strong><br>
+    가족돌봄청년은 <em>개인의 선택</em>이 아닌, 가족 기능의 공백(부모의 질병·장애·중독)을 메우기 위해
+    구조적으로 발생합니다. '숨은 간병인'이라는 표현이 보여주듯, 이들의 희생은 개인 귀책이 아닌
+    <strong>가족 돌봄이 사회화되지 않은 사회 구조의 결과</strong>입니다.
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">
+    <strong>🎯 논지 2 — 역할 역전과 성인진입기 침해:</strong><br>
+    일반적으로 부모→청년 방향으로 흐르는 자원이 가족돌봄청년에게는 역전됩니다.
+    Arnett의 성인진입기에서 강조하는 <strong>탐색·유예·가능성</strong>은 돌봄 부담 속에서 박탈되며,
+    Havighurst의 성인이행기 발달과업(독립, 직업탐색, 가치관 수립)이 지연·제한됩니다.
+  </div>
+
+  <div class="callout orange" style="margin-top:12px;">
+    <strong>🎯 논지 3 — 영케어러 패널티의 누적성:</strong><br>
+    이른 돌봄이 건강·학업·사회관계·경제 4개 영역에 동시에 부정적 영향을 미쳐
+    <strong>생애 전반의 불이익이 누적</strong>됩니다. 이는 단순히 청년기의 어려움이 아니라
+    빈곤의 재생산 메커니즘으로 이어집니다.
+  </div>
+
+  <div class="callout indigo" style="margin-top:12px;">
+    <strong>🎯 논지 4 — 가족체계이론: 폐쇄적 체계의 함정:</strong><br>
+    가족체계이론은 왜 가족돌봄청년이 스스로 지원을 요청하지 않는지를 설명합니다.
+    가족 항상성이 청년을 돌봄 역할에 종속시키고, 폐쇄적 체계로 인해 외부 자원이 차단됩니다.
+    따라서 지원은 <strong>'당사자가 요청해야 받을 수 있는 구조'를 넘어 선제적·발굴형</strong>이어야 합니다.
+  </div>
+
+  <div class="callout amber" style="margin-top:12px;">
+    <strong>🎯 논지 5 — 교차성과 통합적 지원의 필요성:</strong><br>
+    가족돌봄청년의 어려움은 경제·심리·교육·관계·가족문화·정책 구조가 교차하여 발생합니다.
+    따라서 취업 지원 하나로는 해결되지 않으며, <strong>다차원적·통합적 지원 체계</strong>가 필요합니다.
+    특히 현행 정책이 돌봄 대상자 중심으로 설계되어 <strong>돌봄 제공자인 청년이 사각지대</strong>에 놓인다는 구조적 한계를 비판하세요.
+  </div>
+
+  <div class="callout rose" style="margin-top:12px;">
+    <strong>🎯 논지 6 — '보이지 않는' 청년을 가시화하는 것이 출발점:</strong><br>
+    가족돌봄청년은 스스로 자신의 정체성을 인식하지 못하거나, 가족주의 문화 속에서 돌봄을
+    '당연한 책임'으로 내면화합니다. 따라서 <strong>발굴 체계와 정의·인식의 확산</strong>이 모든 정책의 전제 조건입니다.
+    신설 법률(2026)이 학교·의료기관 등을 통한 발굴을 명시한 것은 이 방향의 첫걸음입니다.
+  </div>
+
+  <hr class="sec-div">
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>개념·이론</th><th>핵심 키워드</th><th>논술 연결 논점</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>공식 정의</td>
+          <td>13~34세, 전담, 비자발성, 중장년 부재</td>
+          <td>돌봄이 선택이 아닌 구조적으로 부과됨</td>
+        </tr>
+        <tr>
+          <td>성인진입기 (Arnett)</td>
+          <td>탐색·유예·가능성, 역할 역전, 자원 흐름 역전</td>
+          <td>핵심 발달과업 침해 → 장기 불이익</td>
+        </tr>
+        <tr>
+          <td>성인이행기 (Havighurst)</td>
+          <td>독립, 직업탐색, 또래 관계</td>
+          <td>이행기 과업의 지연·제한</td>
+        </tr>
+        <tr>
+          <td>영케어러 패널티</td>
+          <td>건강·학업·사회관계·경제, 빈곤 악순환</td>
+          <td>청년기 문제가 생애 전반 불이익으로 누적</td>
+        </tr>
+        <tr>
+          <td>가족체계이론</td>
+          <td>역할 역전, 폐쇄적 체계, 항상성의 역기능</td>
+          <td>왜 지원 요청 안 하는지 구조적 설명</td>
+        </tr>
+        <tr>
+          <td>교차성</td>
+          <td>경제·심리·교육·관계·정책 복합</td>
+          <td>단일 차원 해결 불가 → 통합적 접근 필요</td>
+        </tr>
+        <tr>
+          <td>가족주의 문화</td>
+          <td>자기 인식 부재, 돌봄 내면화, 숨은 간병인</td>
+          <td>발굴 체계와 인식 전환이 선제 조건</td>
+        </tr>
+        <tr>
+          <td>정책 사각지대</td>
+          <td>돌봄 대상자 중심 설계, 소득·자격 기준</td>
+          <td>돌봄 제공자를 포함한 지원 패러다임으로 전환</td>
+        </tr>
+        <tr>
+          <td>신설 법률 (2026)</td>
+          <td>청년미래센터, 자기돌봄비 200만원, 발굴</td>
+          <td>첫걸음이나 접근성(4개 광역) 한계</td>
+        </tr>
+        <tr>
+          <td>해외 정책 비교</td>
+          <td>영국(지방정부 의무화), 아일랜드(웰빙리뷰, 카드)</td>
+          <td>한국 정책 발전 방향의 참조 모델</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>청년과 가족다양성 · 2026 기말고사 대비 자료</span> &nbsp;·&nbsp;
+  2026.06.02 스페셜이슈 3조 발표 기반 &nbsp;·&nbsp;
+  <span>누락 없이 전 개념 수록</span>
+</footer>
+
+</body>
+</html>

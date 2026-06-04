@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비혈연 가족 | 청년과 가족다양성 기말고사</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --bg:       #f5f2ed;
+    --bg2:      #ffffff;
+    --bg3:      #f0ede7;
+    --bg4:      #e8e4dc;
+    --border:   #ddd9d0;
+    --text:     #1a1714;
+    --text2:    #5a5550;
+    --text3:    #9a9590;
+    --accent:   #2a5caa;
+    --accent2:  #1a4a8a;
+    --green:    #2d7a4f;
+    --green-bg: #e8f5ee;
+    --yellow:   #a0690a;
+    --yellow-bg:#fff3dc;
+    --red:      #b83232;
+    --red-bg:   #fdeaea;
+    --purple:   #6b3fa0;
+    --purple-bg:#f2eafa;
+    --cyan:     #1a7a8a;
+    --cyan-bg:  #e5f5f7;
+    --orange:   #b85a0a;
+    --orange-bg:#fff0e0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a4a8a 0%, #2a5caa 40%, #1a7a8a 100%);
+    padding: 52px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .hero h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: #93d4e0; }
+  .hero p {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    color: var(--text2);
+    text-decoration: none;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: -2px;
+  }
+  nav a:hover, nav a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: rgba(42,92,170,0.04);
+  }
+
+  /* MAIN */
+  main { max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* SECTION */
+  section { margin-bottom: 60px; scroll-margin-top: 64px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  /* CARD */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .card h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--accent2);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .tag-green  { background: var(--green-bg);  color: var(--green);  }
+  .tag-yellow { background: var(--yellow-bg); color: var(--yellow); }
+  .tag-red    { background: var(--red-bg);    color: var(--red);    }
+  .tag-purple { background: var(--purple-bg); color: var(--purple); }
+  .tag-cyan   { background: var(--cyan-bg);   color: var(--cyan);   }
+  .tag-orange { background: var(--orange-bg); color: var(--orange); }
+
+  /* KV */
+  .kv { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .kv-key {
+    min-width: 180px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text2);
+    font-family: 'Courier New', monospace;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .kv-val { color: var(--text); font-size: 14px; }
+
+  /* GRID */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  /* HIGHLIGHT BOX */
+  .hl-box {
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-left: 4px solid;
+  }
+  .hl-box.blue   { background: #eaf1fb; border-color: var(--accent); }
+  .hl-box.green  { background: var(--green-bg);  border-color: var(--green);  }
+  .hl-box.yellow { background: var(--yellow-bg); border-color: var(--yellow); }
+  .hl-box.red    { background: var(--red-bg);    border-color: var(--red);    }
+  .hl-box.purple { background: var(--purple-bg); border-color: var(--purple); }
+  .hl-box.orange { background: var(--orange-bg); border-color: var(--orange); }
+  .hl-box strong { display: block; font-size: 11px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hl-box.blue   strong { color: var(--accent2); }
+  .hl-box.green  strong { color: var(--green);  }
+  .hl-box.yellow strong { color: var(--yellow); }
+  .hl-box.red    strong { color: var(--red);    }
+  .hl-box.purple strong { color: var(--purple); }
+  .hl-box.orange strong { color: var(--orange); }
+
+  /* TABLE */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th {
+    background: var(--bg3);
+    color: var(--text2);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(42,92,170,0.03); }
+
+  /* CONCEPT CARD */
+  .concept-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .concept-card .c-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .concept-card .c-en {
+    font-size: 11px;
+    color: var(--text3);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .concept-card .c-body {
+    font-size: 13.5px;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+
+  /* LIST */
+  ul.dot { list-style: none; padding: 0; }
+  ul.dot li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    color: var(--text);
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  ul.dot li:last-child { border-bottom: none; }
+  ul.dot li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 11px;
+    top: 8px;
+  }
+  ul.dot li.sub { padding-left: 36px; }
+  ul.dot li.sub::before { content: '◦'; color: var(--text3); }
+
+  /* STAT BLOCK */
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 600px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: var(--bg2);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .stat-card .s-num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .s-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text2);
+    margin-bottom: 8px;
+  }
+  .stat-card .s-quote {
+    font-size: 12px;
+    color: var(--text3);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* POLICY CARD */
+  .policy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 680px) { .policy-grid { grid-template-columns: 1fr; } }
+  .policy-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    border-top: 3px solid var(--red);
+  }
+  .policy-item .p-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .policy-item .p-body {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* CASE CARD */
+  .case-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .case-head {
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .case-head .case-type {
+    background: rgba(255,255,255,0.2);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .case-body { padding: 16px 18px; }
+  .case-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 8px 12px;
+    font-size: 13.5px;
+    margin-bottom: 6px;
+  }
+  .case-row .cr-key {
+    font-weight: 700;
+    color: var(--text2);
+    font-size: 12px;
+  }
+  .case-row .cr-val { color: var(--text); }
+
+  /* QUIZ */
+  .q-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .q-front {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    transition: background 0.15s;
+  }
+  .q-front:hover { background: var(--bg3); }
+  .q-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .q-num.ox     { background: var(--yellow-bg); color: var(--yellow); }
+  .q-num.sa     { background: var(--green-bg);  color: var(--green);  }
+  .q-num.es     { background: var(--purple-bg); color: var(--purple); }
+  .q-text { font-size: 14px; color: var(--text); flex: 1; line-height: 1.6; }
+  .q-toggle {
+    font-size: 18px;
+    color: var(--text3);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .q-answer { display: none; padding: 0 18px 16px; border-top: 1px solid var(--border); }
+  .q-answer.open { display: block; }
+  .q-answer-inner {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .q-answer-inner.correct { background: var(--green-bg); color: var(--text); }
+  .q-answer-inner.info    { background: #eaf1fb; color: var(--text); }
+
+  /* DIVIDER */
+  hr.div { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+
+  /* WARN */
+  .warn {
+    background: var(--yellow-bg);
+    border: 1px solid #f0d080;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: var(--yellow);
+    margin: 10px 0;
+  }
+  .warn::before { content: '⚠ '; font-weight: 700; }
+
+  /* FLOW */
+  .flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .flow-step {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 13px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .flow-arrow { color: var(--text3); font-size: 16px; }
+
+  /* DOING FAMILY BOX */
+  .key-concept {
+    background: linear-gradient(135deg, #eaf1fb 0%, #f2eafa 100%);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .key-concept .kc-en {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .key-concept .kc-ko {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .key-concept .kc-body { font-size: 14px; color: var(--text2); line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">청년과 가족다양성 · 기말고사 대비 · 6조 발표</div>
+  <h1>스페셜 이슈: <span>비혈연 가족</span></h1>
+  <p>Nelson (2013) 용어 체계 · 통계 현황 · 제도적 배제 · 사례 분석 완전 정리</p>
+</div>
+
+<nav>
+  <a href="#s1">1. 용어 개념</a>
+  <a href="#s2">2. 통계·현황</a>
+  <a href="#s3">3. 가족 정의</a>
+  <a href="#s4">4. 제도적 배제</a>
+  <a href="#s5">5. 정책</a>
+  <a href="#s6">6. 사례 분석</a>
+  <a href="#s7">7. 결론·제언</a>
+  <a href="#s8">8. 퀴즈</a>
+</nav>
+
+<main>
+
+<!-- ===== S1 용어 ===== -->
+<section id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>비혈연 가족 — 용어 개념 체계</h2>
+  </div>
+
+  <div class="key-concept">
+    <div class="kc-en">Non-bio-legal family / Non-kin household</div>
+    <div class="kc-ko">비혈연 가족</div>
+    <div class="kc-body">
+      혈연, 결혼, 혹은 입양이라는 전통적인 방식이 아닌 <strong>개인 간의 헌신과 사회적 네트워크를 통해 형성된 '가족 같은' 관계</strong>를 통칭하는 가장 포괄적인 개념.<br><br>
+      구성원들이 스스로를 가족으로 간주하고, 장기간에 걸쳐 삶을 공유하며 <strong>경제적·정서적 지지를 제공</strong>한다는 점이 핵심.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📚 Nelson (2013) 3대 핵심 용어 비교 <span class="tag tag-yellow">출처: Journal of Family Theory & Review</span></h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr>
+          <th>용어 (영문)</th>
+          <th>한국어</th>
+          <th>핵심 특징</th>
+          <th>주요 맥락</th>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent)">Fictive kin</strong></td>
+          <td>가상의 친족</td>
+          <td>혈연이나 법적 유대 없이 <strong>친족 명칭</strong>(이모, 삼촌 등)을 사용하는 관계</td>
+          <td>주로 인종, 연령, 특정 가족 구조 등에서 소외된 집단 내의 유대 관계를 설명할 때 사용</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--green)">Chosen family<br>/ Families we choose</strong></td>
+          <td>선택된 가족</td>
+          <td>우정과 강한 헌신을 바탕으로 개인이 <strong>능동적으로 소속감을 창출하는 네트워크</strong></td>
+          <td>1991년 캐슬린 웨스턴이 <strong>성소수자(LGBTQ) 커뮤니티</strong> 내의 친족 관계를 설명하며 대중화</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--purple)">Voluntary kin</strong></td>
+          <td>자발적 친족</td>
+          <td>혈연·법적 유대와 관계없이 서로를 <strong>확장 가족으로 인식하고 대우</strong>하는 사람들. <strong>쌍방향적 합의</strong>와 상호 선택 강조 (상호 선택의 호혜성)</td>
+          <td>한 사람이 일방적으로 선택하는 것이 아닌, 구성원 간 쌍방향적 합의와 상호 선택 강조</td>
+        </tr>
+      </table>
+    </div>
+    <div class="hl-box yellow">
+      <strong>용어 간 포함 관계</strong>
+      Fictive kin → Chosen family → Voluntary kin 순으로 개념이 점점 더 포괄적·쌍방향적으로 발전해왔다. Voluntary kin이 가장 넓고 상호적인 개념.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔍 형성 방식에 따른 3가지 유형 (Nelson, 2013)</h3>
+    <div class="grid3">
+      <div class="concept-card">
+        <div class="c-title">의도적 친족</div>
+        <div class="c-en">Intentional kin</div>
+        <div class="c-body">특수한 상황적 배경이나 공식적인 의례 없이, <strong>개인의 능동적인 의도와 지속적인 실천</strong>을 통해 형성되고 유지되는 관계</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">의례적 친족</div>
+        <div class="c-en">Ritual kin</div>
+        <div class="c-body"><strong>종교적 믿음이나 문화적 전통</strong> 등 관습적인 관행의 일부로서 형성되는 관계<br><br>예: 대부/대모(godparent) 관계</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">상황적 친족</div>
+        <div class="c-en">Situational kin</div>
+        <div class="c-body">혈연이나 법적 가족이 공간적·시간적으로 <strong>부재하거나 특정 상황에서 무의미할 때</strong> 특수한 환경적 맥락 속에서 형성되는 관계</div>
+      </div>
+    </div>
+    <div class="hl-box blue" style="margin-top:12px">
+      <strong>논술 활용 포인트</strong>
+      형성 방식 구분은 비혈연 가족이 단일한 현상이 아님을 보여준다. 의도적 친족(능동적 선택), 의례적 친족(문화·전통), 상황적 친족(환경 조건)은 각기 다른 정책적 접근을 요구한다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== S2 통계 ===== -->
+<section id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>통계로 이해하는 비혈연 가족</h2>
+  </div>
+
+  <div class="card">
+    <h3>📈 비친족 가구의 증가 추세 (국가데이터처 인구총조사) <span class="tag tag-red">핵심 통계</span></h3>
+    <div class="hl-box red">
+      <strong>9년간 2.4배 증가</strong>
+      2015년 21.4만 가구 → 2023년 54.5만 가구로 <strong>2.4배 증가</strong>. 같은 기간 총 가구는 1.16배 증가에 불과. 총 가구 대비 비친족 가구 비중은 1.09% → 2.4%로 두 배 이상 증가.
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>연도</th><th>비친족 가구 (만)</th><th>비중 (%)</th><th>전년 대비</th></tr>
+        <tr><td>2015</td><td>21.4</td><td>1.09</td><td>기준</td></tr>
+        <tr><td>2016</td><td>—</td><td>1.36</td><td>↑</td></tr>
+        <tr><td>2017</td><td>—</td><td>1.53</td><td>↑</td></tr>
+        <tr><td>2018</td><td>—</td><td>1.66</td><td>↑</td></tr>
+        <tr><td>2019</td><td>—</td><td>1.85</td><td>↑</td></tr>
+        <tr><td>2020</td><td>—</td><td>1.97</td><td>↑</td></tr>
+        <tr><td>2021</td><td>—</td><td>2.14</td><td>↑</td></tr>
+        <tr><td>2022</td><td>—</td><td>2.30</td><td>↑</td></tr>
+        <tr style="background:#eaf1fb"><td><strong>2023</strong></td><td><strong>54.5</strong></td><td><strong>2.40</strong></td><td>↑ 매년 상승</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>👥 비친족 가구의 연령 보편화 (가구원 연령 분포)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>연도</th><th>10대</th><th>20대</th><th>30대</th><th>40대</th><th>50대</th><th>60대</th><th>70대 이상</th></tr>
+        <tr><td>2010</td><td>7.1</td><td style="color:var(--accent);font-weight:700">43.9</td><td style="color:var(--green);font-weight:700">21.9</td><td>11.5</td><td>8.4</td><td style="color:var(--text3)">4.2</td><td>3.1</td></tr>
+        <tr><td>2015</td><td>5</td><td style="color:var(--accent);font-weight:700">39.2</td><td style="color:var(--green);font-weight:700">21.8</td><td>13.9</td><td>12.4</td><td>5</td><td>2.8</td></tr>
+        <tr><td>2020</td><td>3</td><td style="color:var(--accent);font-weight:700">36.5</td><td style="color:var(--green);font-weight:700">23.5</td><td>13.1</td><td>12.5</td><td style="color:var(--red);font-weight:700">7.9</td><td>3.5</td></tr>
+      </table>
+    </div>
+    <div class="hl-box purple">
+      <strong>연령 보편화 트렌드</strong>
+      20대 비중은 점차 줄어드는 반면(43.9% → 36.5%), 60대 이상은 증가(4.2% → 7.9%). 비친족 가구는 청년 전유물이 아닌 전 연령대 현상으로 확장 중. 2023년 기준 가구주 연령: 30대(28.1%), 60대 이상(22.6%), 20대 이하(16.3%) 순.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>💬 비혈연 가족이 주는 것 — 당사자 목소리</h3>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="s-num">89.7%</div>
+        <div class="s-label">심리적 소속감·유대감</div>
+        <div class="s-quote">"제일 큰 게 외로움인 게... 옆에 누가 있냐 없냐에 따라 차이가 많으니까."</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-num">90.3%</div>
+        <div class="s-label">아플 때 도움</div>
+        <div class="s-quote">"만성 췌장염이 와서 죽기 직전까지 갔어요. (함께 사는 사람이) 병원에 가 보라고 해서 발견하고 치료했죠."</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-num">87.4%</div>
+        <div class="s-label">범죄·재난으로부터의 안전</div>
+        <div class="s-quote">"혼자 살 때보다 지금이 더 좋아요. 혼자는 편하지만 치안 문제도 걱정이 되고..."</div>
+      </div>
+    </div>
+    <div class="hl-box green">
+      <strong>핵심 결론</strong>
+      경제적 이유에 국한된 가족 결성이 아닌 <strong>자율적 지원 체제를 갖춘 가족 형성</strong>. 비혈연 가족은 실질적인 돌봄·안전·정서적 기능을 수행하고 있다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== S3 가족 정의 ===== -->
+<section id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>가족의 정의 — 구조적 vs. 기능적</h2>
+  </div>
+
+  <div class="card">
+    <h3>⚖️ 두 가지 정의 방식 비교 <span class="tag tag-red">논술 핵심</span></h3>
+    <div class="grid2">
+      <div class="hl-box red">
+        <strong>구조적 정의 (현행 한국 법률)</strong>
+        특정한 특성(혈연, 법적 관계, 거주 관계)에 따라 구분.<br><br>
+        <strong>민법 779조</strong>: 생계를 같이 하는 배우자, 형제자매, 직계혈족 등<br><br>
+        <strong>건강가정기본법 3조</strong>: 혼인, 혈연, 혹은 입양으로 이루어진 관계<br><br>
+        → <strong>법률혼·혈연·입양 관계만이 가족의 범위, 가족정책의 대상으로 규정됨</strong>
+      </div>
+      <div class="hl-box green">
+        <strong>기능적 정의 (대안적 접근)</strong>
+        수행하는 기능에 따라 구분: 경제적 자원 공유, 돌봄 등의 기능 수행.<br><br>
+        <strong>독일 가족노인여성청소년부</strong>: 서로에게 장기적인 책임을 지고, 그로써 종교적, 정치적, 이념적 혹은 성적 정체성에 관계없이 서로를 지원하고 돌보는 곳
+      </div>
+    </div>
+    <div class="warn">한국은 현재 구조적 정의만을 법적으로 인정 → 비혈연 가족은 기능적으로 가족이지만 제도적으로 배제된다. 이것이 모든 제도적 공백의 근원.</div>
+  </div>
+
+  <div class="key-concept">
+    <div class="kc-en">Doing Family / Family Practice</div>
+    <div class="kc-ko">가족실천 / 가족실행</div>
+    <div class="kc-body">
+      가족을 고정된 '구조'가 아닌, 매일의 실천과 행위를 통해 만들어지는 것으로 보는 관점. 가족은 존재하는 것이 아니라 <strong>행하는 것(doing)</strong>이다.<br><br>
+      → 혈연이나 법률혼 없이도, 함께 밥을 먹고, 아플 때 돌보고, 경제를 공유하는 실천을 통해 가족이 형성된다. 비혈연 가족 정책 논의에 핵심적으로 적용되어야 할 개념.
+    </div>
+  </div>
+</section>
+
+<!-- ===== S4 제도적 배제 ===== -->
+<section id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>제도적 배제 및 소외</h2>
+  </div>
+
+  <div class="hl-box red">
+    <strong>"비혈연 가족으로 살면서 가장 힘든 점" 1순위 (49%)</strong>
+    정부의 지원과 서비스로부터의 제외 — 49%. 제도로 보장되지 않아 관계의 지속성에 대한 불안 — 26.8%. 경제적으로 어려운 형편 — 6.4%. 주변으로부터 결혼하라는 압력 — 5.7%.
+  </div>
+
+  <div class="card">
+    <h3>🚫 제도적 배제 6가지 영역 <span class="tag tag-red">논술 사례로 활용</span></h3>
+    <div class="policy-grid">
+      <div class="policy-item">
+        <div class="p-title">관계 등록 및 증명 불가</div>
+        <div class="p-body">법률혼·혈연·입양 관계의 등록과 증명만 가능. 비혈연 가족 관계 자체를 공식 등록할 방법 없음.</div>
+      </div>
+      <div class="policy-item">
+        <div class="p-title">임신·출산·돌봄 지원 배제</div>
+        <div class="p-body">난임 치료, 보조생식술 지원 대상에서 배제. 가족돌봄휴가 및 배우자출산휴가 등 제도 이용에 제한.</div>
+      </div>
+      <div class="policy-item">
+        <div class="p-title">사회보장 급여 배제</div>
+        <div class="p-body">국민건강보험 피부양자 자격 미인정. 유족연금 등 급여 대상에서 배제.</div>
+      </div>
+      <div class="policy-item">
+        <div class="p-title">의료 현장에서의 배제</div>
+        <div class="p-body">진단서 발급 및 처방전 대리수령 불가. 보호자 지위 및 수술 동의 인정 여부가 현장마다 다름.</div>
+      </div>
+      <div class="policy-item">
+        <div class="p-title">주거 지원 제한</div>
+        <div class="p-body">공공임대주택, 주택담보대출, 주거급여, 주택청약 등 주거지원 정책 이용에 제한. (사례: 선녀방 대출 불가)</div>
+      </div>
+      <div class="policy-item">
+        <div class="p-title">사별 후 애도 권리 침해</div>
+        <div class="p-body">장례 주관권에서 배제. 연고자 지위 미인정. 사별 후 법적 보호 없음.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S5 정책 ===== -->
+<section id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>관련 법·제도 및 정책</h2>
+  </div>
+
+  <div class="card">
+    <h3>📋 제4차 건강가정기본계획 (2021~2025)</h3>
+    <div class="kv"><div class="kv-key">비전</div><div class="kv-val">"2025 세상 모든 가족 함께" — 모든 가족, 모든 가족구성원을 존중하는 사회</div></div>
+    <div class="kv"><div class="kv-key">목표</div><div class="kv-val">가족 다양성 인정 + 평등하게 돌보는 사회</div></div>
+    <hr class="div">
+    <p style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:10px">추진과제 주요 내용</p>
+    <ul class="dot">
+      <li><strong>가족 규정 삭제</strong>: 건강가정기본법 개정</li>
+      <li><strong>혼외자·혼중자 구별 폐지</strong>: 가족관계등록법 및 민법 개정</li>
+      <li><strong>자녀의 성(姓) 결정방식</strong>: 부모 협의 원칙으로 전환</li>
+      <li><strong>가정폭력처벌법상 배우자 범위에 '비혼동거' 등의 친밀한 관계도 포함</strong></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🏙️ 서울특별시 사회적 가족도시 구현을 위한 1인가구 지원 기본 조례 (2021)</h3>
+    <div class="grid2">
+      <div>
+        <div class="kv"><div class="kv-key">목적</div><div class="kv-val">1인 가구의 생활 편의 및 심리적 안정 + 사회적 연결망 구축을 통한 공동체 회귀 및 사회적 가족도시 구현</div></div>
+        <div class="kv"><div class="kv-key">기본 이념</div><div class="kv-val">1인 가구를 우리 사회의 또 하나의 가족 구성으로 인정 + 1인 가구의 능동적인 삶을 영위할 권리 보장</div></div>
+        <div class="kv"><div class="kv-key">의의 ①</div><div class="kv-val">가족의 인정 범위 확대: 기존 법에서 벗어나 생활공동체로서 가족을 <strong>사회적으로 정의</strong></div></div>
+        <div class="kv"><div class="kv-key">의의 ②</div><div class="kv-val">1인 가구 → 다양한 형태의 비혈연 가족으로 논의 확장 가능</div></div>
+      </div>
+      <div class="hl-box blue">
+        <strong>'사회적 가족' 개념의 제도적 도입</strong>
+        "혈연이나 혼인관계로 이루어지지 않은 사람들이 모여 취사, 취침 등 생계를 함께 유지하는 형태의 공동체"<br><br>→ 최초로 비혈연 공동체를 '가족'으로 공식 명명한 지자체 조례
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🏘️ 공동체주택 정책</h3>
+    <div class="kv"><div class="kv-key">정의</div><div class="kv-val">입주자들이 커뮤니티 공간과 공동체 규약을 갖추고 공동체 생활을 유지하는 주택</div></div>
+    <div class="kv"><div class="kv-key">목적</div><div class="kv-val">1인 가구 증가와 함께 주거비 상승, 고립 등의 문제를 해결</div></div>
+    <div class="kv"><div class="kv-key">실제 사례</div><div class="kv-val">5층 건물 6가구 입주, 10~60대까지 다양한 연령대, 1인~4인 가구까지. 독립 주거공간 유지하면서도 커뮤니티 공간(거실, 주방, 세탁실)이 존재하는 코리빙 형태</div></div>
+    <div class="kv"><div class="kv-key">키워드</div><div class="kv-val"><strong>"따로 또 같이"</strong> — 독립성과 연결성의 동시 충족</div></div>
+  </div>
+</section>
+
+<!-- ===== S6 사례 ===== -->
+<section id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>비혈연 가족 사례 분석</h2>
+  </div>
+
+  <div class="hl-box blue">
+    <strong>사례 분석 프레임 (토론활동 기준)</strong>
+    형성 배경 → 가족 구성원 → 가족으로서의 기능·교류 → 법적 가족으로 인정해야 하는가?
+  </div>
+
+  <!-- 낭만적 동거 -->
+  <div class="case-card">
+    <div class="case-head">
+      <span>동거하는 낭만적 관계 (LGBTQ 커플)</span>
+      <span class="case-type">사례 ①</span>
+    </div>
+    <div class="case-body">
+      <div class="case-row"><div class="cr-key">형성 배경</div><div class="cr-val">동성 파트너십 — 법적 혼인이 불가능한 성소수자 커플이 사실혼 상태로 함께 거주</div></div>
+      <div class="case-row"><div class="cr-key">구성원</div><div class="cr-val">같은 성별의 낭만적 파트너 2인</div></div>
+      <div class="case-row"><div class="cr-key">가족 기능</div><div class="cr-val">정서적 지지, 경제 공유, 일상 돌봄, 장기적 삶의 공유</div></div>
+      <div class="case-row"><div class="cr-key">비친족 가구 비중</div><div class="cr-val">2022년 기준 2.4% — 낭만적 관계를 기반으로 한 비친족 가구 포함</div></div>
+      <div class="case-row"><div class="cr-key">제도적 문제</div><div class="cr-val">법적 배우자 지위 없음 → 의료 보호자, 유족연금, 재산 상속 등 모두 배제</div></div>
+    </div>
+  </div>
+
+  <!-- 비낭만적 동거 -->
+  <div class="case-card">
+    <div class="case-head" style="background:var(--green)">
+      <span>동거하는 비낭만적 관계 — 『여자끼리 사는 이로움』</span>
+      <span class="case-type">사례 ②</span>
+    </div>
+    <div class="case-body">
+      <div class="case-row"><div class="cr-key">형성 경로</div><div class="cr-val">경제력을 모아 서울에 자가를 마련 (부동산 공동 소유)</div></div>
+      <div class="case-row"><div class="cr-key">형성 동기</div><div class="cr-val">저자 35살에 남자친구와의 결혼 대신 여자친구들과 '무계획'의 동거를 선택</div></div>
+      <div class="case-row"><div class="cr-key">공동체로부터 얻는 것</div><div class="cr-val">반려견과 함께 사는 일상, 삶에 대한 영감과 용기</div></div>
+      <div class="case-row"><div class="cr-key">겪는 어려움</div><div class="cr-val">돈 문제, 관계, 결혼 여부 등에 대한 질문을 계속 받는 <strong>사회적 시선</strong></div></div>
+    </div>
+  </div>
+
+  <!-- 선녀방 -->
+  <div class="case-card">
+    <div class="case-head" style="background:var(--purple)">
+      <span>강한 연결망을 형성한 생활공동체 — 선녀방</span>
+      <span class="case-type">사례 ③</span>
+    </div>
+    <div class="case-body">
+      <div class="case-row"><div class="cr-key">형성 경로</div><div class="cr-val">전세집을 구한 여성이 남는 방에서 지낼 월세자 4명을 SNS로 모집 → 총 5인 거주</div></div>
+      <div class="case-row"><div class="cr-key">형성 동기</div><div class="cr-val">① 개인 공간 보장 + 타인 교류 ② 안정성 ③ 적은 비용으로 넓은 공간 ④ 높은 서울 집값 분담</div></div>
+      <div class="case-row"><div class="cr-key">공동체로부터 얻는 것</div><div class="cr-val">정서적 교류, 외로움 완화, 가사 부담 완화, 주거비 완화, 독립성+연결성 동시 충족 <strong>("따로 또 같이")</strong></div></div>
+      <div class="case-row"><div class="cr-key">겪는 어려움</div><div class="cr-val">전세집 주인이 나가달라 요구 시 5명 모두 동시에 집을 잃음. <strong>5인이 함께 살 공간을 위한 대출 불가 (부부·혈연 관계 아님)</strong></div></div>
+    </div>
+  </div>
+
+  <!-- 하숙집 -->
+  <div class="case-card">
+    <div class="case-head" style="background:var(--orange)">
+      <span>약한 연결망을 형성한 생활공동체 — 하숙집</span>
+      <span class="case-type">사례 ④</span>
+    </div>
+    <div class="case-body">
+      <div class="case-row"><div class="cr-key">형성 경로</div><div class="cr-val">하숙집 주인의 모집 공고를 통해 하숙생들이 입주 — 계약 기반</div></div>
+      <div class="case-row"><div class="cr-key">형성 동기</div><div class="cr-val">저렴한 주거비용(월세와 보증금)</div></div>
+      <div class="case-row"><div class="cr-key">공동체로부터 얻는 것</div><div class="cr-val">주거비·불안정 부담 완화, 집주인이 과일·음식 제공, 빨래·청소 제공(가사부담 완화), 개인생활 보장과 존중, 하숙생들 간의 <strong>뜨뜻미지근한 교류</strong></div></div>
+      <div class="case-row"><div class="cr-key">연결망 강도</div><div class="cr-val">선녀방(강한 연결)과 대비되는 <strong>약한 연결망</strong>의 생활공동체 — 그러나 정서적 지지 기능은 존재</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🌈 매우 다양한 형태의 비혈연 가족(+)</h3>
+    <div class="hl-box blue">
+      <strong>LGBTQ+의 '+' 개념 적용 (APA)</strong>
+      "The '+' in the acronym symbolizes the people who have various other identities that were not previously included or have yet to be recognized."<br><br>
+      → 비혈연 가족 또한 '이름' 몇 개만으로 설명될 수 없는 다양성을 내포하고 있으며, 앞으로도 더 다양한 형태의 비혈연 가족들이 등장할 것이다. (아이돌 숙소 공동체, 장애인 자립생활주택, 고령자 셰어하우스, 30대 부부+친구 공동거주 등)
+    </div>
+  </div>
+</section>
+
+<!-- ===== S7 결론 ===== -->
+<section id="s7">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>결론 및 제언</h2>
+  </div>
+
+  <div class="card">
+    <h3>🔑 서울특별시 사회적 가족 지원을 위한 기본 조례안 (2021 발의, 2022 임기만료로 폐기)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>유형</th><th>정의</th></tr>
+        <tr><td><strong style="color:var(--accent)">사회적 가족</strong></td><td>혈연이나 혼인관계로 이루어지지 않은 사람들이 모여 생계를 같이 하거나 일상생활, 가사, 소비, 생활돌봄, 경제적 협력 등을 공유하는 형태의 생활공동체</td></tr>
+        <tr><td><strong style="color:var(--green)">2인 동거 사회적 가족</strong></td><td>두 사람이 서로 돌보는 동반자 관계로 사회적 가족을 구성한 유형</td></tr>
+        <tr><td><strong style="color:var(--purple)">주거공동체 사회적 가족</strong></td><td>협동조합주택이나 셰어하우스 등 자발적으로 주거를 함께 하면서 사회적 가족을 구성한 유형</td></tr>
+        <tr><td><strong style="color:var(--orange)">네트워크 지향 사회적 가족</strong></td><td>생활을 공유할 수 있는 지역사회 영역에서 가족의 소속감으로 연결된 방식으로 서로 돌봄을 수행하는 사회적 가족</td></tr>
+      </table>
+    </div>
+    <div class="warn">이 조례안은 2022년 임기만료로 폐기됨. 비혈연 가족에 대한 법적 보호의 공백이 지속되고 있다.</div>
+  </div>
+
+  <div class="card">
+    <h3>📌 3가지 결론 방향</h3>
+    <div class="grid3">
+      <div class="hl-box blue">
+        <strong>① 가구와 가족 형태의 다양화</strong>
+        낭만적 관계 기반 비혼동거 외에도 다양한 비혈연 가족 확인됨. 경제적 목적을 넘어 <strong>상호 돌봄과 부양, 정서적 의존 관계 형성</strong>.
+      </div>
+      <div class="hl-box green">
+        <strong>② 가족의 정의 확대</strong>
+        구조적 정의 → <strong>기능적 정의</strong>로 전환. 가족실천/가족실행(doing family)의 적용 필요. 비혈연 가족 내에서도 주거 형태, 구성원, 기능, 친밀성의 정도 등에 차이 존재.
+      </div>
+      <div class="hl-box purple">
+        <strong>③ 포용적 법·제도 마련</strong>
+        비혈연 가족을 포용할 수 있는 <strong>가족 범위 확대</strong> + 다양한 관계 특성에 대한 이해를 바탕으로 한 지원. 서울시 사회적 가족 조례안과 같은 입법 시도 재추진 필요.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔗 논술용 핵심 논점 정리</h3>
+    <div class="hl-box blue">
+      <strong>논점 1: 비혈연 가족은 '가족'인가?</strong>
+      기능적 정의(돌봄, 경제 공유, 정서 지지 수행)를 적용하면 이미 가족이다. 구조적 정의만을 고수할 근거가 점점 약해지고 있다 (비친족 가구 2.4배 증가).
+    </div>
+    <div class="hl-box green">
+      <strong>논점 2: 왜 제도적 인정이 필요한가?</strong>
+      49%가 '정부 서비스 배제'를 가장 힘들다고 답한다. 의료·주거·사회보장·애도 권리까지 박탈된 상황은 기본권 침해다.
+    </div>
+    <div class="hl-box yellow">
+      <strong>논점 3: 어떻게 인정할 것인가?</strong>
+      획일적 법적 가족 인정(예: 동거 커플만)이 아니라, doing family 개념을 바탕으로 기능 수행 여부를 기준으로 한 유연한 정책 설계 필요. 서울시 조례안이 좋은 선례.
+    </div>
+    <div class="hl-box purple">
+      <strong>논점 4: 다양성 안의 다양성</strong>
+      비혈연 가족(+)은 LGBTQ+ 커플, 여성 동거, 생활공동체, 하숙 등 매우 다양하다. 이 다양성을 하나의 법으로 포괄하기 어렵다는 반론과, 그럼에도 최소한의 공통 보호가 필요하다는 찬성 논거가 맞붙는다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== S8 퀴즈 ===== -->
+<section id="s8">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2>기말고사 대비 퀴즈</h2>
+  </div>
+
+  <div class="hl-box blue">
+    <strong>사용 방법</strong>
+    문제를 읽고 답을 생각한 후 클릭하면 정답·해설이 펼쳐집니다.
+  </div>
+
+  <!-- OX 1 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">Nelson(2013)의 Voluntary kin(자발적 친족)은 한 사람이 다른 사람을 일방적으로 선택하는 관계를 강조한다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>Voluntary kin은 <strong>구성원 간의 쌍방향적인 합의와 상호 선택</strong>을 강조한다(상호 선택의 호혜성). 일방적 선택이 아니라, 서로가 서로를 확장 가족으로 인식하고 대우하는 쌍방향 관계다.</div>
+    </div>
+  </div>
+
+  <!-- OX 2 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">Chosen family(선택된 가족) 개념은 1991년 캐슬린 웨스턴이 성소수자 커뮤니티 내의 친족 관계를 설명하며 대중화되었다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">⭕ 정답: O<br><br>Chosen family / Families we choose는 1991년 캐슬린 웨스턴이 LGBTQ 커뮤니티 내의 친족 관계를 설명하며 대중화되었다. 우정과 강한 헌신을 바탕으로 개인이 능동적으로 소속감을 창출하는 네트워크를 의미한다.</div>
+    </div>
+  </div>
+
+  <!-- OX 3 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">한국의 건강가정기본법 3조는 가족을 기능적으로 정의하고 있어 비혈연 가족도 포함된다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>건강가정기본법 3조는 "혼인, 혈연, 혹은 입양으로 이루어진 관계"로 가족을 <strong>구조적</strong>으로 정의한다. 따라서 비혈연 가족은 포함되지 않는다. 기능적 정의를 적용하는 것은 독일 등 일부 국가의 접근 방식이다.</div>
+    </div>
+  </div>
+
+  <!-- OX 4 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">2015~2023년 9년간 비친족 가구는 약 2.4배 증가했으며, 같은 기간 총 가구 수도 비슷한 비율로 증가했다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>비친족 가구는 2.4배 증가했으나, 같은 기간 총 가구는 <strong>1.16배</strong> 증가에 불과하다. 비친족 가구의 증가 속도가 총 가구 증가를 훨씬 앞질렀다. 총 가구 대비 비친족 가구 비중은 1.09% → 2.4%로 두 배 이상 증가.</div>
+    </div>
+  </div>
+
+  <!-- OX 5 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">서울특별시 사회적 가족 지원을 위한 기본 조례안은 2021년 발의되어 현재 시행 중이다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>2021년 발의되었으나 <strong>2022년 임기만료로 폐기</strong>되었다. 시행 중인 조례는 1인가구 지원 기본 조례(2021)이며, 이 조례에서 '사회적 가족' 개념이 제도적으로 도입되었다.</div>
+    </div>
+  </div>
+
+  <!-- OX 6 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">비혈연 가족으로 사는 데 가장 힘든 점(1순위)은 주변으로부터 결혼하라는 압력이다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>1순위는 <strong>정부의 지원과 서비스로부터의 제외(49%)</strong>이다. 2순위: 제도로 보장되지 않아 관계의 지속성에 대한 불안(26.8%), 3순위: 경제적으로 어려운 형편(6.4%), 4순위: 주변으로부터 결혼하라는 압력(5.7%).</div>
+    </div>
+  </div>
+
+  <!-- OX 7 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">Fictive kin(가상의 친족)은 주로 성소수자 커뮤니티에서 사용되기 시작한 개념이다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>성소수자 커뮤니티에서 대중화된 것은 <strong>Chosen family</strong>이다. Fictive kin은 주로 <strong>인종, 연령, 특정 가족 구조 등에서 소외된 집단</strong> 내의 유대 관계를 설명할 때 사용되어 왔다. 혈연이나 법적 유대 없이 친족 명칭(이모, 삼촌 등)을 사용하는 관계가 핵심이다.</div>
+    </div>
+  </div>
+
+  <!-- 단답 1 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">Nelson(2013)이 제시한 비혈연 관계의 형성 방식에 따른 3가지 유형을 영어 용어와 함께 설명하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        ① <strong>의도적 친족 (Intentional kin)</strong>: 특수한 상황적 배경이나 공식 의례 없이, 개인의 능동적 의도와 지속적 실천을 통해 형성·유지되는 관계<br><br>
+        ② <strong>의례적 친족 (Ritual kin)</strong>: 종교적 믿음이나 문화적 전통 등 관습적 관행의 일부로 형성되는 관계 (예: 대부/대모)<br><br>
+        ③ <strong>상황적 친족 (Situational kin)</strong>: 혈연이나 법적 가족이 공간적·시간적으로 부재하거나, 특정 상황에서 가족 관계가 무의미할 때 특수한 환경적 맥락 속에서 형성되는 관계
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 2 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">가족의 '구조적 정의'와 '기능적 정의'를 각각 설명하고, 한국 법률은 어느 방식을 따르는지 근거와 함께 서술하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>구조적 정의</strong>: 특정한 특성(혈연 관계, 법적 관계, 거주 관계)에 따라 가족을 구분하는 방식.<br><br>
+        <strong>기능적 정의</strong>: 수행하는 기능(경제적 자원 공유, 돌봄 등)에 따라 가족을 구분하는 방식.<br><br>
+        <strong>한국 법률 = 구조적 정의</strong>: 민법 779조(생계를 같이 하는 배우자, 형제자매, 직계혈족 등), 건강가정기본법 3조(혼인, 혈연, 혹은 입양으로 이루어진 관계) — 법률혼·혈연·입양 관계만이 가족 정책의 대상으로 규정됨 → 비혈연 가족 배제.
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 3 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">'선녀방' 사례에서 비혈연 가족이 직면한 주거 관련 제도적 한계를 설명하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        ① 전세집 주인이 나가달라 요구 시, 한 번에 5명 모두 집을 잃게 됨<br>
+        ② 5명이 함께 살 공간을 구하기 위해 대출제도를 활용하고 싶지만, <strong>부부관계·혈연관계가 아니기 때문에 대출이 어려움</strong><br><br>
+        → 주거지원 정책(공공임대주택, 주택담보대출, 주거급여, 주택청약)이 법적 가족 단위를 기준으로 설계되어 비혈연 생활공동체는 사실상 배제된다는 구조적 문제를 보여주는 사례.
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 4 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">서울특별시 1인가구 지원 기본 조례(2021)에서 도입된 '사회적 가족' 개념을 정의하고, 그 의의를 설명하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>정의</strong>: "혈연이나 혼인관계로 이루어지지 않은 사람들이 모여 취사, 취침 등 생계를 함께 유지하는 형태의 공동체"<br><br>
+        <strong>의의 ①</strong> 가족의 인정 범위 확대: 기존 법에서 벗어나 생활공동체로서 가족을 사회적으로 정의 → 최초로 비혈연 공동체를 '가족'으로 명명한 지자체 조례<br><br>
+        <strong>의의 ②</strong> 확대 가능성: 1인 가구 → 다양한 형태의 비혈연 가족으로 논의 확장 가능. 선도적 입법 사례로서 국가 정책 논의의 기반이 됨.
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 5 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">'Doing family(가족실천/가족실행)'의 개념을 설명하고, 비혈연 가족 논의에서 이 개념이 왜 중요한지 서술하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>개념</strong>: 가족을 고정된 '구조'가 아닌, 매일의 실천과 행위를 통해 만들어지는 것으로 보는 관점. 가족은 존재하는 것이 아니라 <strong>행하는 것(doing)</strong>이다.<br><br>
+        <strong>비혈연 가족 논의에서의 중요성</strong>: 혈연·법률혼 없이도 함께 밥을 먹고, 아플 때 돌보고, 경제를 공유하는 '실천'을 통해 가족 관계가 형성된다는 것을 개념화함으로써, 구조적 정의를 넘어 기능적 정의로의 전환을 이론적으로 뒷받침한다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 논술 1 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num es">논술</div>
+      <div class="q-text">비혈연 가족을 한국 사회의 법적 가족으로 인정해야 하는지에 대해, 찬성·반대 논거를 포함하여 논술하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>찬성 논거:</strong><br>
+        ① 비친족 가구 2.4배 증가 — 이미 사회 현실<br>
+        ② 90.3% 아플 때 도움, 89.7% 심리적 소속감 — 기능적으로 가족임<br>
+        ③ 49%가 정부 지원 배제를 가장 힘들다 — 기본권 침해<br>
+        ④ 구조적 정의 → 기능적 정의 전환 필요 (독일 사례)<br>
+        ⑤ Doing family 관점: 실천을 통해 이미 가족<br><br>
+        <strong>반대 논거:</strong><br>
+        ① 법적 가족의 범위 확대 시 기준 모호 → 남용 가능성<br>
+        ② 일시적 동거와 진정한 가족 공동체의 구별 어려움<br>
+        ③ 기존 가족 제도와의 충돌 가능성<br><br>
+        <strong>결론:</strong> 획일적 법적 인정보다는 기능 수행(돌봄·경제 공유 등)을 기준으로 한 유연한 정책 지원 필요. 서울시 사회적 가족 조례안(2021)이 좋은 모델.
+      </div>
+    </div>
+  </div>
+
+  <!-- 논술 2 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num es">논술</div>
+      <div class="q-text">비혈연 가족이 현행 한국 제도에서 경험하는 제도적 배제의 구체적 사례를 제시하고, 이를 해결하기 위한 정책 방향을 논술하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>제도적 배제 사례 (6개 영역):</strong><br>
+        ① 관계 등록 불가 — 법률혼·혈연·입양만 등록 가능<br>
+        ② 의료 현장 — 보호자 지위, 처방전 대리수령 불가<br>
+        ③ 사회보장 — 건강보험 피부양자, 유족연금 배제<br>
+        ④ 주거 — 공공임대주택, 대출, 주택청약 제한 (선녀방 사례)<br>
+        ⑤ 임신·출산 — 난임 치료, 가족돌봄휴가 배제<br>
+        ⑥ 사별 후 — 장례 주관권, 연고자 지위 미인정<br><br>
+        <strong>정책 방향:</strong><br>
+        ① 기능적 정의 도입 (doing family 개념 법제화)<br>
+        ② 서울시 사회적 가족 조례안 부활 및 전국 확대<br>
+        ③ 2인 동거 사회적 가족·주거공동체·네트워크 지향 가족 등 유형별 맞춤 지원<br>
+        ④ 제4차 건강가정기본계획의 가족 다양성 인정 방향 지속 추진
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<script>
+  function toggleQ(el) {
+    const ans = el.nextElementSibling;
+    const toggle = el.querySelector('.q-toggle');
+    const isOpen = ans.classList.contains('open');
+    ans.classList.toggle('open');
+    toggle.textContent = isOpen ? '＋' : '×';
+    toggle.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+  }
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>

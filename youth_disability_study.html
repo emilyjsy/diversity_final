@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청년과 장애 | 청년과 가족다양성 기말고사</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+  :root {
+    --bg: #f4f7f0;
+    --bg2: #ffffff;
+    --bg3: #eef3e8;
+    --bg4: #e4edd9;
+    --border: #d4dfc8;
+    --text: #1a2412;
+    --text2: #4a5e3a;
+    --text3: #8a9e7a;
+    --accent: #3a7a2a;
+    --accent2: #2d6020;
+    --green: #2a7a3a;
+    --green-bg: #e8f5eb;
+    --yellow: #7a6010;
+    --yellow-bg: #fdf5e0;
+    --red: #a03030;
+    --red-bg: #faeaea;
+    --purple: #5a3a90;
+    --purple-bg: #f0eafa;
+    --cyan: #1a6a7a;
+    --cyan-bg: #e0f5f8;
+    --orange: #9a4a10;
+    --orange-bg: #fef0e0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .hero {
+    background: linear-gradient(135deg, #2d6020 0%, #3a7a2a 45%, #1a6a4a 100%);
+    padding: 52px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; left: -30px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .hero h1 { font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.5px; margin-bottom: 10px; }
+  .hero h1 span { color: #a8e090; }
+  .hero p { color: rgba(255,255,255,0.75); font-size: 0.9rem; max-width: 600px; margin: 0 auto; }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--border);
+    display: flex; gap: 0; overflow-x: auto;
+    scrollbar-width: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    color: var(--text2); text-decoration: none;
+    padding: 14px 16px; font-size: 12.5px; font-weight: 600;
+    white-space: nowrap; border-bottom: 3px solid transparent;
+    transition: all 0.2s; margin-bottom: -2px;
+  }
+  nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); background: rgba(58,122,42,0.05); }
+  main { max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; }
+  section { margin-bottom: 60px; scroll-margin-top: 64px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px; padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-size: 14px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.3rem; font-weight: 800; color: var(--text); }
+  .card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px 24px; margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .card h3 {
+    font-size: 0.98rem; font-weight: 700; color: var(--accent2);
+    margin-bottom: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 700; }
+  .tag-green  { background: var(--green-bg);  color: var(--green);  }
+  .tag-yellow { background: var(--yellow-bg); color: var(--yellow); }
+  .tag-red    { background: var(--red-bg);    color: var(--red);    }
+  .tag-purple { background: var(--purple-bg); color: var(--purple); }
+  .tag-cyan   { background: var(--cyan-bg);   color: var(--cyan);   }
+  .tag-orange { background: var(--orange-bg); color: var(--orange); }
+  .kv { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .kv-key { min-width: 180px; font-size: 12px; font-weight: 700; color: var(--text2); font-family: 'Courier New', monospace; padding-top: 2px; flex-shrink: 0; }
+  .kv-val { color: var(--text); font-size: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+  .hl-box { border-radius: 10px; padding: 14px 18px; margin-bottom: 14px; border-left: 4px solid; }
+  .hl-box.blue   { background: #eaf3e8; border-color: var(--accent); }
+  .hl-box.green  { background: var(--green-bg);  border-color: var(--green);  }
+  .hl-box.yellow { background: var(--yellow-bg); border-color: var(--yellow); }
+  .hl-box.red    { background: var(--red-bg);    border-color: var(--red);    }
+  .hl-box.purple { background: var(--purple-bg); border-color: var(--purple); }
+  .hl-box.orange { background: var(--orange-bg); border-color: var(--orange); }
+  .hl-box.cyan   { background: var(--cyan-bg);   border-color: var(--cyan);   }
+  .hl-box strong { display: block; font-size: 11px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hl-box.blue   strong { color: var(--accent2); }
+  .hl-box.green  strong { color: var(--green);  }
+  .hl-box.yellow strong { color: var(--yellow); }
+  .hl-box.red    strong { color: var(--red);    }
+  .hl-box.purple strong { color: var(--purple); }
+  .hl-box.orange strong { color: var(--orange); }
+  .hl-box.cyan   strong { color: var(--cyan);   }
+  .tbl-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { background: var(--bg3); color: var(--text2); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--border); }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(58,122,42,0.03); }
+  .concept-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .concept-card .c-title { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .concept-card .c-en { font-size: 11px; color: var(--text3); font-family: 'Courier New', monospace; margin-bottom: 10px; font-style: italic; }
+  .concept-card .c-body { font-size: 13.5px; color: var(--text2); line-height: 1.65; }
+  ul.dot { list-style: none; padding: 0; }
+  ul.dot li { padding: 6px 0 6px 20px; position: relative; color: var(--text); font-size: 14px; border-bottom: 1px solid var(--border); }
+  ul.dot li:last-child { border-bottom: none; }
+  ul.dot li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 8px; }
+  ul.dot li.sub { padding-left: 36px; }
+  ul.dot li.sub::before { content: '◦'; color: var(--text3); }
+  .compare-table { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 2px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 14px; }
+  .compare-col { }
+  .compare-head { padding: 12px 16px; font-size: 13px; font-weight: 800; text-align: center; }
+  .compare-head.left { background: var(--bg3); color: var(--text2); }
+  .compare-head.right { background: var(--accent2); color: #fff; }
+  .compare-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+  .compare-cell { padding: 10px 14px; font-size: 13.5px; color: var(--text2); }
+  .compare-cell.right { background: rgba(58,122,42,0.04); color: var(--text); font-weight: 500; }
+  .compare-label { padding: 6px 14px; font-size: 11px; font-weight: 700; color: var(--text3); background: var(--bg3); border-top: 1px solid var(--border); letter-spacing: 0.5px; text-transform: uppercase; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  @media (max-width: 600px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat-card { background: var(--bg2); border: 2px solid var(--border); border-radius: 12px; padding: 18px 16px; text-align: center; }
+  .stat-card .s-num { font-size: 2rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .stat-card .s-label { font-size: 12.5px; font-weight: 700; color: var(--text2); margin-bottom: 4px; }
+  .stat-card .s-sub { font-size: 12px; color: var(--text3); }
+  .pipeline { display: flex; flex-direction: column; gap: 0; margin-bottom: 16px; }
+  .pipe-stage { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 4px; overflow: hidden; }
+  .pipe-head { background: var(--accent); color: #fff; padding: 10px 18px; font-size: 12.5px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .pipe-body { padding: 12px 18px; }
+  .pipe-item { font-size: 13.5px; color: var(--text2); padding: 4px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; }
+  .pipe-item:last-child { border-bottom: none; }
+  .pipe-item .pi-key { min-width: 110px; font-weight: 700; color: var(--text); font-size: 12.5px; flex-shrink: 0; }
+  .warn { background: var(--yellow-bg); border: 1px solid #d4b060; border-radius: 8px; padding: 10px 14px; font-size: 13.5px; color: var(--yellow); margin: 10px 0; }
+  .warn::before { content: '⚠ '; font-weight: 700; }
+  hr.div { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+  .key-concept { background: linear-gradient(135deg, #eaf3e8 0%, #f0f7ea 100%); border: 2px solid var(--accent); border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; }
+  .key-concept .kc-en { font-size: 11px; font-weight: 700; color: var(--accent2); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .key-concept .kc-ko { font-size: 1.15rem; font-weight: 900; color: var(--text); margin-bottom: 10px; }
+  .key-concept .kc-body { font-size: 14px; color: var(--text2); line-height: 1.7; }
+  .limit-block { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .limit-head { background: var(--red-bg); border-bottom: 2px solid #d08080; padding: 10px 18px; font-size: 13px; font-weight: 800; color: var(--red); display: flex; align-items: center; gap: 8px; }
+  .limit-body { padding: 14px 18px; font-size: 13.5px; color: var(--text2); line-height: 1.7; }
+  .q-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .q-front { padding: 14px 18px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; transition: background 0.15s; }
+  .q-front:hover { background: var(--bg3); }
+  .q-num { min-width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .q-num.ox     { background: var(--yellow-bg); color: var(--yellow); }
+  .q-num.sa     { background: var(--green-bg);  color: var(--green);  }
+  .q-num.es     { background: var(--purple-bg); color: var(--purple); }
+  .q-text { font-size: 14px; color: var(--text); flex: 1; line-height: 1.6; }
+  .q-toggle { font-size: 18px; color: var(--text3); flex-shrink: 0; transition: transform 0.3s; }
+  .q-answer { display: none; padding: 0 18px 16px; border-top: 1px solid var(--border); }
+  .q-answer.open { display: block; }
+  .q-answer-inner { margin-top: 12px; padding: 12px 16px; border-radius: 8px; font-size: 13.5px; line-height: 1.7; }
+  .q-answer-inner.correct { background: var(--green-bg); color: var(--text); }
+  .q-answer-inner.info    { background: #eaf3e8; color: var(--text); }
+  .case-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  @media (max-width: 640px) { .case-compare { grid-template-columns: 1fr; } }
+  .case-col { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .case-col .cc-head { padding: 10px 16px; font-size: 12.5px; font-weight: 800; }
+  .case-col .cc-head.bad  { background: var(--red-bg);   color: var(--red);   }
+  .case-col .cc-head.good { background: var(--green-bg); color: var(--green); }
+  .case-col .cc-body { padding: 12px 16px; font-size: 13.5px; color: var(--text2); line-height: 1.65; }
+  .flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .flow-step { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 7px 13px; font-size: 12.5px; font-weight: 600; color: var(--text); }
+  .flow-arrow { color: var(--text3); font-size: 16px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">청년과 가족다양성 · 기말고사 대비 · 스페셜 이슈</div>
+  <h1>"청년"과 <span>"장애"</span></h1>
+  <p>이론적 배경 · 성인됨 · 일자리 현황 · 법제도 · 한계 · 결론 완전 정리</p>
+</div>
+
+<nav>
+  <a href="#s1">1. 이론적 배경</a>
+  <a href="#s2">2. 연구동향</a>
+  <a href="#s3">3. 성인됨</a>
+  <a href="#s4">4. 일자리 현황</a>
+  <a href="#s5">5. 법과 제도</a>
+  <a href="#s6">6. 제도 한계</a>
+  <a href="#s7">7. 결론·가족</a>
+  <a href="#s8">8. 퀴즈</a>
+</nav>
+
+<main>
+
+<!-- ===== S1 이론적 배경 ===== -->
+<section id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>이론적 배경 — 청년 × 장애의 교차</h2>
+  </div>
+
+  <div class="card">
+    <h3>📋 기본 개념 정의</h3>
+    <div class="grid2">
+      <div class="hl-box blue">
+        <strong>청년 (청년기본법)</strong>
+        만 19세 이상 34세 이하인 사람
+      </div>
+      <div class="hl-box blue">
+        <strong>장애인 (장애인복지법)</strong>
+        신체적·정신적 장애로 오랫동안 일상생활이나 사회생활에서 상당한 제약을 받는 자<br><br>
+        ① <strong>정신적 장애</strong>: 발달장애 또는 정신질환으로 발생하는 장애<br>
+        ② <strong>신체적 장애</strong>: 주요 외부 신체 기능의 장애, 내부기관의 장애
+      </div>
+    </div>
+  </div>
+
+  <div class="key-concept">
+    <div class="kc-en">Intersection of Youth × Disability</div>
+    <div class="kc-ko">청년 × 장애 — 두 요소의 교차</div>
+    <div class="kc-body">
+      ① 청년으로서 사회에 첫 발을 내딛고 자립해야 하는 과업을 안고 있지만, 동시에 장애인으로서 사회의 장벽을 마주해야 하는 <strong>이중의 어려움</strong>을 겪을 가능성이 높음.<br><br>
+      ② 일반 청년이 겪는 문제에 장애로 인한 <strong>사회적 배제가 결합</strong>되어 부정적으로 작용할 가능성.
+    </div>
+  </div>
+
+  <div class="hl-box yellow">
+    <strong>교차성(Intersectionality) 관점</strong>
+    청년 장애인은 '청년'으로서의 취약성과 '장애인'으로서의 취약성이 중첩되는 집단이다. 이 두 정체성의 교차는 단순 합산이 아닌, 질적으로 다른 새로운 차별 구조를 만들어낸다.
+  </div>
+</section>
+
+<!-- ===== S2 연구동향 ===== -->
+<section id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>연구동향</h2>
+  </div>
+
+  <div class="card">
+    <h3>🔬 최근 연구동향 3가지</h3>
+    <div class="grid3">
+      <div class="concept-card">
+        <div class="c-title">다양성과 교차성</div>
+        <div class="c-body">연구 대상이 점점 다양해지고 있음 (다양한 장애 유형·정도, 다양한 분야).<br><br><strong>교차성</strong>: 장애×젠더×빈곤 등이 결합하는 다층적 격리·배제 구조에 대한 연구가 등장하는 추세</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">시각의 변화</div>
+        <div class="c-body">복지·시혜적 관점 → <strong>구조적·비판적 관점</strong>으로 전환<br><br>'장애'는 생물학적 고정물이 아니라 <strong>사회적 배제와 차별의 기제 속에서 구성</strong><br><br>수동적 대상 → 능동적·주체적 대상</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">장애인의 성인됨</div>
+        <div class="c-body">장애인도 성인 진입기를 겪는가?<br>장애인은 어떻게 성인이 되는가?<br><br>→ 선행연구들을 고찰하며 궁금증을 해소하고자 함<br><br>→ 이 조의 핵심 질문</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S3 성인됨 ===== -->
+<section id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>청년 장애인의 성인됨</h2>
+  </div>
+
+  <div class="card">
+    <h3>🌱 Arnett(2000) Emerging Adulthood 5가지 특성 — 비교 <span class="tag tag-red">논술 핵심</span></h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr>
+          <th>특성</th>
+          <th>비장애 청년</th>
+          <th style="background:#3a7a2a;color:#fff">청년 장애인</th>
+        </tr>
+        <tr>
+          <td><strong>01. 정체성 탐색</strong></td>
+          <td>진로, 관계, 가치관 등을 비교적 자유롭게 탐색·실험</td>
+          <td style="background:rgba(58,122,42,0.04)"><strong>탐색 기회 자체가 제한</strong> → 지원 속에서 선호를 표현하고 선택 경험을 점차 넓혀가는 과정</td>
+        </tr>
+        <tr>
+          <td><strong>02. 불안정성</strong></td>
+          <td>주거, 일, 관계의 잦은 변화</td>
+          <td style="background:rgba(58,122,42,0.04)"><strong>졸업 후 서비스 단절, 전환기 공백</strong> → 제도 및 지원체계의 불안정성 경험</td>
+        </tr>
+        <tr>
+          <td><strong>03. 자기중심성</strong></td>
+          <td>자신의 삶에 집중</td>
+          <td style="background:rgba(58,122,42,0.04)">'혼자 결정, 혼자 책임'은 어려움 → <strong>관계 속 자기결정으로 재해석</strong></td>
+        </tr>
+        <tr>
+          <td><strong>04. 낀 시기</strong></td>
+          <td>청소년과 성인 '사이'의 느낌</td>
+          <td style="background:rgba(58,122,42,0.04)">자신보다는 <strong>'부모'의 양가감정</strong> → 법적 성인 vs. 실제 지원 필요</td>
+        </tr>
+        <tr>
+          <td><strong>05. 낙관성/가능성</strong></td>
+          <td>다양한 가능성이 열려 있다는 감각</td>
+          <td style="background:rgba(58,122,42,0.04)">가능성은 개인 의지보다는 <strong>'지원 환경'에 따라 좌우</strong> → 지원체계가 있는 환경에서의 낙관성/가능성</td>
+        </tr>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--text3)">출처: Floyd, F. J., Costigan, C. L., & Piazza, V. E. (2009). International Review of Research in Mental Retardation, 37, 31-59.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔄 성인이행기(Transition to Adulthood) 관점 — 생애사건과 탈표준화</h3>
+    <div class="grid2">
+      <div class="hl-box yellow">
+        <strong>생애사건(Life Event)의 지연·정체</strong>
+        청년 장애인은 대학 진학, 취업, 결혼, 부모됨과 같은 생애사건 경험이 지연 또는 정체되는 경우가 많음.<br><br>이러한 생애사건의 지연·정체는 <strong>전이(역할 변화, 과업 변화)의 지연·정체</strong>로 이어짐.
+      </div>
+      <div class="hl-box orange">
+        <strong>탈표준화(Destandardization)</strong>
+        비장애 청년, 청년 장애인 모두 성인 이행 경로 탈표준화.<br><br>
+        BUT,<br>
+        비장애 청년: <strong>선택에 의한 다양화</strong><br>
+        청년 장애인: <strong>제약에 의한 비표준화</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔗 성인이행기 관점 — 연결된 생애 & 다차원적 시간</h3>
+    <div class="hl-box green">
+      <strong>연결된 생애(Linked Lives)</strong>
+      청년 장애인의 성인 이행은 개인을 넘어선 <strong>가족 전체의 일</strong>이다.<br><br>
+      비장애 청년: 자녀의 성인됨 → 부모가 돌봄을 마무리하고 노후를 대비하는 계기<br>
+      청년 장애인: 자녀의 성인됨이 지연·정체 → 부모가 돌봄을 마무리하기 어려움<br><br>
+      청년 장애인이 낮 시간을 안정적으로 보낼 곳이 확보되는지(직장, 복지관 등)가 짧게는 가족 구성원의 일과, 길게는 부모의 노후 준비·형제자매의 독립 등 <strong>가족 전체의 삶의 궤적에 영향</strong>을 미침.
+    </div>
+    <div class="hl-box cyan">
+      <strong>다차원적 시간(Multiple Times)</strong>
+      역연령 상으로는(개인시간에서는) 성인이더라도, <strong>가족시간에서는 피부양 자녀에 머무는 경우</strong>가 많음.<br><br>
+      → 같은 연령이더라도 생애 단계가 다르게 경험됨
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>⚠️ 전통적 성인기 이행 기준의 한계 3가지 <span class="tag tag-red">논술 핵심</span></h3>
+    <div class="grid3">
+      <div class="hl-box red">
+        <strong>01 사건 중심</strong>
+        독립적 거주, 취업, 연애·결혼·부모됨을 성인됨의 지표로 사용 → 청년 장애인의 현실을 반영하지 못함
+      </div>
+      <div class="hl-box red">
+        <strong>02 개인 중심</strong>
+        Emerging adulthood 논의는 청년이 스스로 진로를 탐색하고 독립을 준비하는 과정에 초점 → 가족의 보호, 서비스 체계, 안전 문제와 깊이 연관된 청년 장애인의 실제 전환 과정을 설명 X
+      </div>
+      <div class="hl-box red">
+        <strong>03 독립 중심</strong>
+        '지원을 덜 받을수록 더 성인답다'는 기준은 청년 장애인의 성인기 이행을 왜곡함 → independence가 아닌 <strong>"interdependence"</strong>로 이해해야 함
+      </div>
+    </div>
+    <div class="hl-box green" style="margin-top:4px">
+      <strong>결론</strong>
+      청년 장애인의 성인기 이행은 '독립'만으로 평가하기보다, 부모 혹은 서비스 지원 속에서 <strong>자기결정과 사회적 역할을 확장해 나가는 과정</strong>으로 이해할 필요가 있다.
+    </div>
+  </div>
+
+  <div class="key-concept">
+    <div class="kc-en">Interdependent Adulthood</div>
+    <div class="kc-ko">상호의존적 성인기 — 재개념화</div>
+    <div class="kc-body">
+      청년 장애인의 성인진입기를 <strong>상호의존적 성인기(Interdependent Adulthood)</strong>로 재개념화할 필요성이 있다.<br><br>
+      <strong>특징 ①</strong> 청년 장애인의 성인됨은 '독립'보다는 '상호의존'의 관점에서 이해되어야 함.<br>
+      <strong>특징 ②</strong> 청년 장애인의 성인됨은 완성된 상태가 아닌, <strong>관계망·사회참여를 점차 확장해 가는 과정</strong>임.<br>
+      <strong>특징 ③</strong> 청년 장애인은 가족, 친구, 서비스 제공자와 연결된 관계망 속에서 성인기 삶을 구성함.<br>
+      <strong>특징 ④</strong> 혼자 판단하기 어렵더라도, 적절한 비계 속에서 자신의 선택과 선호를 표현하고 결정 과정에 참여함.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>💡 Person-Family Interdependent Planning (사람-가족 상호의존적 계획)</h3>
+    <div class="hl-box blue">
+      <strong>Kim & Turnbull (2004)의 제안</strong>
+      청년 장애인의 성공적인 성인 이행을 위해서는 장애 당사자만을 중심에 둔 계획도, 가족의 희생에만 기대는 계획도 적절하지 않다.<br><br>
+      ① <strong>당사자의 선택권과 자기결정</strong><br>
+      ② <strong>가족이 감당할 수 있는 돌봄 역량</strong><br>
+      ③ <strong>지역사회가 제공하는 자원</strong> 간 균형이 중요<br><br>
+      향후 방향성: 개인별 지원계획(ISP, Individualized Support Plan) 수립, 활동지원서비스 정교화 등
+    </div>
+  </div>
+</section>
+
+<!-- ===== S4 일자리 현황 ===== -->
+<section id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>청년 장애인 일자리 현황 (2025년 기준)</h2>
+  </div>
+
+  <div class="card">
+    <h3>📌 주제 초점화 — 왜 일자리인가?</h3>
+    <div class="grid2" style="margin-bottom:12px">
+      <div class="hl-box green">
+        <strong>청년기의 핵심 과업</strong>
+        성인으로의 발돋움에 가장 기본이 되는 요소
+      </div>
+      <div class="hl-box blue">
+        <strong>자립을 위한 필수 요건</strong>
+        상호의존적 성인기 관점에서 자립은 홀로서기가 아닌 타인과 협력적으로 의존하는 능력. 일자리가 이 역할을 함.
+      </div>
+      <div class="hl-box yellow">
+        <strong>청년 장애인의 자기정체성</strong>
+        타인과의 상호작용 속에서 자신의 존재를 확인하고, 자존감을 유지하는 데에 경제활동이 큰 역할을 함.
+      </div>
+      <div class="hl-box purple">
+        <strong>사회적 안전망 구성</strong>
+        일자리는 동료 등 가족 외의 사회적 관계를 형성하며 지역사회 안에서 지속 가능한 삶을 살아가게 함.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📊 청년 장애인 vs. 청년(전체) 비교 통계 <span class="tag tag-red">수치 암기</span></h3>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="s-num">38%</div>
+        <div class="s-label">청년 장애인 고용률</div>
+        <div class="s-sub">청년 전체 45%, 장애인 전체 48%</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-num">41%</div>
+        <div class="s-label">청년 장애인 경제활동률</div>
+        <div class="s-sub">청년 전체 48%, 장애인 전체 51%</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-num">73%</div>
+        <div class="s-label">청년 장애인 비정규직 비율</div>
+        <div class="s-sub">청년 전체 46%, 장애인 전체 53%</div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="s-num">93.6%</div>
+        <div class="s-label">경제활동인구 중 고용자 비율</div>
+        <div class="s-sub">청년 전체 93.9% — 거의 동일!</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-num">214.6만원</div>
+        <div class="s-label">청년 장애인 월평균 소득</div>
+        <div class="s-sub">청년 전체 300.7만원</div>
+      </div>
+      <div class="stat-card" style="border-color:var(--red)">
+        <div class="s-num" style="color:var(--red)">핵심</div>
+        <div class="s-label">경제활동률 차이</div>
+        <div class="s-sub">경제활동 의사 자체가 낮음 → 구직 경로 부족, 접근성 제약, 자신감 저하</div>
+      </div>
+    </div>
+    <div class="hl-box yellow">
+      <strong>핵심 해석</strong>
+      경제활동인구 중 고용자 비율은 청년 전체(93.9%)와 청년 장애인(93.6%)이 거의 동일 → 일자리에 접근한 이후의 문제가 아니라, <strong>경제활동 참여 자체가 낮은 것</strong>이 문제. 구직 경로의 부족, 이동·근무 환경의 접근성 제약, 자신감 저하로 인한 낮은 취업 의사가 원인.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📊 청년 장애인 vs. 15~64세 장애인 비교</h3>
+    <div class="hl-box orange">
+      <strong>청년 장애인이 전체 장애인보다도 더 취약한 이유</strong>
+      청년 장애인은 15~64세 장애인보다 상대적으로 <strong>낮은 고용률, 높은 실업률, 낮은 경제활동률, 높은 비정규직 비율</strong>을 보임.<br><br>
+      → 청년 장애인 또한 성인 진입기의 특성(취업 준비기간 장기화, 직업 탐색, 잦은 이직, 청년 비정규직 비율 증가 추세)을 보이기 때문이라고 해석.
+    </div>
+    <div class="hl-box red">
+      <strong>일자리의 질(質) 문제</strong>
+      월평균 소득 차이(214.6만원 vs 300.7만원)와 비정규직 비율 차이(73% vs 46%) → 장애인의 고용 여부를 지원하는 것에 그치지 않고, <strong>임금 수준 등 일자리의 질까지 함께 고려한 지원이 필요</strong>. 고용 형태의 안정성과 지속성을 높이는 질적 지원이 병행될 필요.
+    </div>
+  </div>
+</section>
+
+<!-- ===== S5 법과 제도 ===== -->
+<section id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>법과 제도</h2>
+  </div>
+
+  <div class="card">
+    <h3>⚖️ 두 개의 법적 축 비교 <span class="tag tag-yellow">반드시 구분</span></h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr>
+          <th>구분</th>
+          <th>장애인 고용촉진 및 직업재활법</th>
+          <th>장애인 차별금지 및 권리구제 법</th>
+        </tr>
+        <tr>
+          <td><strong>목적</strong></td>
+          <td>장애인의 고용을 늘리기 위한 법</td>
+          <td>고용 과정에서 차별하지 않기 위한 법</td>
+        </tr>
+        <tr>
+          <td><strong>접근 방식</strong></td>
+          <td>의무·인센티브·지원 중심</td>
+          <td>금지·구제·처벌 중심</td>
+        </tr>
+        <tr>
+          <td><strong>핵심 수단</strong></td>
+          <td>의무고용률, 부담금, 장려금</td>
+          <td>차별 금지, 정당한 편의제공 의무</td>
+        </tr>
+        <tr>
+          <td><strong>처벌 수위</strong></td>
+          <td>행정제재(부담금 미납 시)</td>
+          <td>악의적 차별 시 3년 이하 징역</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🏫→🏢 제도 파이프라인 — 학교 to 직장</h3>
+    <div class="pipeline">
+      <div class="pipe-stage">
+        <div class="pipe-head">📚 학교 단계</div>
+        <div class="pipe-body">
+          <div class="pipe-item"><div class="pi-key">장애학생 취업지원사업</div><div>고등학교·전공과 재학 장애학생 대상. 진로설계 → 사회성 훈련 → 취업지원 서비스. 주관: 고용노동부</div></div>
+          <div class="pipe-item"><div class="pi-key">장애대학생 진로·취업 지원사업</div><div>대학교 재학 장애학생 대상. 권역별 거점대학 중심 맞춤형 진로탐색 및 취업지원. 주관: 교육부</div></div>
+        </div>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-head">🔄 전환 단계</div>
+        <div class="pipe-body">
+          <div class="pipe-item"><div class="pi-key">장애인취업성공패키지</div><div>만 18~69세 취업 희망 장애인 대상. 1단계(상담·계획) → 2단계(역량강화·훈련) → 3단계(고용유지). 참여수당 15만원 / 훈련수당 일 18,000원 / 취업성공수당 최대 150만원. 주관: 고용노동부</div></div>
+        </div>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-head">💼 취업 단계</div>
+        <div class="pipe-body">
+          <div class="pipe-item"><div class="pi-key">의무고용제도</div><div>상시 50인 이상 사업장 → 민간기업 의무고용률 <strong>3.1%</strong>. 초과 고용 시 고용장려금(중증 남성 70만원, 여성 90만원). 미달 시 고용부담금 납부(최대 월 2,156,880원/인)</div></div>
+          <div class="pipe-item"><div class="pi-key">장애인 일자리사업</div><div>2025년 33,546명 규모. 수행기관 678개소. 주관: 보건복지부</div></div>
+          <div class="pipe-item"><div class="pi-key">장애인표준사업장</div><div>중증장애인 중심 안정적 일자리. 신규 고용 1인당 최대 4천만원 지원. 주관: 고용노동부</div></div>
+        </div>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-head">🔒 고용 유지 단계</div>
+        <div class="pipe-body">
+          <div class="pipe-item"><div class="pi-key">근로지원인 서비스</div><div>장애로 인해 업무 수행에 어려움이 있는 근로 장애인에게 지원 인력 파견</div></div>
+          <div class="pipe-item"><div class="pi-key">보조공학기기 지원</div><div>장애 유형에 맞는 업무 보조기기 지원</div></div>
+          <div class="pipe-item"><div class="pi-key">취업 후 적응지도</div><div>취업 후 직장 적응을 위한 사후 관리 서비스</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📋 주요 제도 요약표</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>제도명</th><th>주관</th><th>대상</th><th>특징/성격</th></tr>
+        <tr><td>장애대학생 진로·취업 지원</td><td>교육부</td><td>대학 재학 장애학생</td><td>거점대학 중심, <strong>범위 미흡</strong></td></tr>
+        <tr><td>장애학생 취업지원사업</td><td>고용노동부</td><td>고등학교·전공과 장애학생</td><td>학령기 중심, 3단계(진로설계→사회성훈련→취업지원)</td></tr>
+        <tr><td>장애인취업성공패키지</td><td>고용노동부</td><td>만 18~69세 장애인</td><td>취업 의지가 있는 구직자 전체, <strong>청년 특화 부재</strong></td></tr>
+        <tr><td>장애인표준사업장</td><td>고용노동부</td><td>중증장애인</td><td>안정적 일자리, 신규 고용 1인당 최대 4천만원 지원</td></tr>
+        <tr><td>의무고용제도</td><td>고용노동부</td><td>50인 이상 사업주</td><td>3.1% 의무, 미달 시 부담금</td></tr>
+        <tr><td>장애인직업재활시설</td><td>보건복지부</td><td>중증장애인</td><td>전국 792개소, 약 2만명</td></tr>
+        <tr><td>장애인일자리사업</td><td>보건복지부</td><td>전체 장애인</td><td>중증·고령 중심 설계, 2025년 33,546명 규모</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S6 제도 한계 ===== -->
+<section id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>법과 제도의 한계</h2>
+  </div>
+
+  <div class="card">
+    <h3>🏭 공급측(기업) 한계 ① — 고용부담금의 역설 <span class="tag tag-red">핵심 한계</span></h3>
+    <div class="hl-box red">
+      <strong>고용부담금의 역설</strong>
+      기업은 장애인 고용 대신 부담금 납부를 선호. 10년 연속 의무 불이행 기업 존재 → 법적 처벌 없음.<br><br>
+      <strong>부담금 &lt; 고용비용이면 고용 유인 無</strong><br><br>
+      2013년: 3,316억원 납부(6,848곳) → 2022년: 7,437억원 납부(8,016곳) → 납부 기업 수와 금액 모두 증가
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🏭 공급측(기업) 한계 ② — 지원제도 인지율 붕괴</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>제도명</th><th>사업주 인지율</th><th>평가</th></tr>
+        <tr><td>장애인고용장려금제도</td><td style="color:var(--green);font-weight:700">73.10%</td><td>그나마 높음</td></tr>
+        <tr><td>장애인고용시설자금융제도</td><td style="color:var(--yellow);font-weight:700">19.20%</td><td>낮음</td></tr>
+        <tr><td>시설장비무상지원제도</td><td style="color:var(--red);font-weight:700">9.60%</td><td>매우 낮음</td></tr>
+        <tr><td>보조공학기기지원제도</td><td style="color:var(--red);font-weight:700">9.60%</td><td>매우 낮음</td></tr>
+        <tr><td>고용관리비용제도</td><td style="color:var(--red);font-weight:700">1.90%</td><td>사실상 미인지</td></tr>
+      </table>
+    </div>
+    <div class="warn">다양한 지원제도가 존재하고 있음에도 홍보 부족 등의 이유로 사업주가 제대로 인지하고 있지 않다면, 제도가 적절히 활용될 기회조차 얻을 수 없다.</div>
+  </div>
+
+  <div class="card">
+    <h3>🧑‍🦽 수요측(청년 장애인) 한계 ① — 취업성공패키지의 대상 한계</h3>
+    <div class="hl-box orange">
+      <strong>취업 의지 형성 이전 단계 지원 부재</strong>
+      비경제활동 청년 장애인의 취업 못 하는 이유 1위: <strong>'심리적 요인(79.1%)'</strong><br><br>
+      취업성공패키지는 '취업 의지가 있는 구직자'를 대상으로 함 → 취업 의지 형성 이전 단계 지원 없이는 패키지가 닿지 않음.<br><br>
+      → 진로상담 프로그램으로 취업의지를 높여 궁극적으로 취업에 참여할 수 있도록 지원해야 함.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🧑‍🦽 수요측(청년 장애인) 한계 ② — 학교→직장 전환 구간의 분절</h3>
+    <div class="hl-box red">
+      <strong>제도 간 공백 구간 존재</strong>
+      <ul class="dot" style="margin-top:8px">
+        <li>장애학생 취업지원사업 한계: 대학생 및 졸업 후 미취업자 제외</li>
+        <li>장애인취업성공패키지(18~69세) 한계: 청년 특화 커리큘럼 부재</li>
+        <li>장애인 일자리 사업 수행기관 678개소 중 특수교육기관은 28개소(4.1%)에 불과</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S7 결론 ===== -->
+<section id="s7">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>결론 — 아동가족학적 관점</h2>
+  </div>
+
+  <div class="card">
+    <h3>👨‍👩‍👦 가족의 역할 — 3가지 차원</h3>
+    <div class="hl-box green">
+      <strong>가족의 개입</strong>
+      청년 장애인의 취업을 위해 가족구성원이 개인 연결망 활용, 작업장 노동조건 개선, 지역 연대 네트워크 형성.<br><br>
+      <strong>제도가 해야 할 역할을 가족구성원의 사적 관계망으로 수행하기도 함.</strong>
+    </div>
+    <div class="hl-box yellow">
+      <strong>가족의 소진</strong>
+      청년 장애인 부모 및 돌봄제공자는 하루 일과, 주거, 성인기 이후 삶을 동시 설계해야만 하는 어려움을 겪음.<br><br>
+      <em>"내가 없어진 이후, 이 아이의 삶은 누가 감당하는가"</em>
+    </div>
+    <div class="hl-box orange">
+      <strong>청년기의 역설</strong>
+      청년기 핵심 발달 과업 = 부모로부터의 심리적 독립.<br><br>
+      가족구성원의 개입이 깊어질수록 청년 당사자의 직접 탐색, 실패, 성장 경험은 좁아짐 → <strong>적절한 균형을 찾는 것이 중요!</strong>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📖 사례: 지원이 연결될 때 vs. 부족할 때</h3>
+    <div class="hl-box blue" style="margin-bottom:14px">
+      <strong>핵심 메시지</strong>
+      지원이 연결될 때, 청년 장애인의 가능성이 펼쳐질 수 있다.
+    </div>
+    <div class="case-compare">
+      <div class="case-col">
+        <div class="cc-head bad">⚠ 개입이 부족했을 때</div>
+        <div class="cc-body">
+          <strong>23세 지적장애 지훈씨</strong><br>
+          · 바리스타 꿈을 '무리'로 판단<br>
+          · 보호작업장에 머무름<br>
+          → 진로 탐색 기회 박탈<br><br>
+          <strong>21세 지적장애 현우씨</strong><br>
+          · 근로지원인 부재<br>
+          · 환경 배려 부족<br>
+          → 패닉, 해고, 사회적 위축
+        </div>
+      </div>
+      <div class="case-col">
+        <div class="cc-head good">✅ 개입이 연결되었을 때</div>
+        <div class="cc-body">
+          <strong>23세 지적장애 지훈씨</strong><br>
+          · 맞춤 훈련 + 전문가 중재<br>
+          · 바리스타 훈련과 취업<br>
+          → 정체성 탐색 기회 제공<br><br>
+          <strong>21세 지적장애 현우씨</strong><br>
+          · 근로지원인<br>
+          · 시각화 스티커<br>
+          → 우수 사원으로 성장, 자립 주택이라는 미래 계획
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔑 논술에 활용할 수 있는 핵심 논점</h3>
+    <div class="hl-box blue">
+      <strong>논점 1: Independence vs. Interdependence</strong>
+      전통적 성인기 이행의 '독립' 기준은 청년 장애인의 현실을 왜곡한다. 상호의존(Interdependence) 개념으로 재정의해야 하며, 이는 지원을 통한 자기결정·사회참여 확장으로 이해되어야 한다.
+    </div>
+    <div class="hl-box green">
+      <strong>논점 2: 제도의 파편화 vs. 연속적 지원체계</strong>
+      현재 제도는 학교 단계, 전환 단계, 취업 단계, 고용 유지 단계 간 공백이 존재한다. 청년 장애인의 생애 이행 경로에 맞는 연속적 지원체계 설계가 필요하다.
+    </div>
+    <div class="hl-box yellow">
+      <strong>논점 3: 양적 지원(고용률)에서 질적 지원(일자리의 질)으로</strong>
+      청년 장애인의 비정규직 비율(73%)과 낮은 소득(214.6만원)은 고용률 제고만으로는 해결되지 않음을 보여준다. 일자리의 안정성·지속성·임금 수준까지 포괄하는 질적 지원이 필요하다.
+    </div>
+    <div class="hl-box purple">
+      <strong>논점 4: 가족에의 의존 vs. 사회적 지원체계</strong>
+      제도가 할 일을 가족이 대신 수행하는 현실은 가족 소진을 초래하고, 청년 장애인의 자기결정 기회를 줄인다. 장애인 지원의 사회화·공공화가 가족을 위한 복지이기도 하다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== S8 퀴즈 ===== -->
+<section id="s8">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2>기말고사 대비 퀴즈</h2>
+  </div>
+
+  <!-- OX 1 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">Arnett(2000)의 Emerging Adulthood에서 청년 장애인의 '낀 시기'는 자신이 청소년과 성인 사이에 끼어있다는 느낌이 주된 특징이다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>비장애 청년의 '낀 시기'는 자신이 청소년과 성인 사이에 끼어있는 느낌이지만, 청년 장애인의 경우 자신보다는 <strong>'부모'의 양가감정</strong>이 핵심이다. 법적으로는 성인이 되었지만 실제로는 지원이 여전히 필요한 상황에서 부모가 성인됨과 돌봄 필요 사이에서 양가감정을 겪는다.</div>
+    </div>
+  </div>
+
+  <!-- OX 2 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">청년 장애인의 성인기 이행은 'independence(독립)'보다 'interdependence(상호의존)'으로 이해해야 한다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">⭕ 정답: O<br><br>'지원을 덜 받을수록 더 성인답다'는 독립 중심 기준은 청년 장애인의 성인기 이행을 왜곡한다. 청년 장애인의 성인됨은 부모 혹은 서비스 지원 속에서 <strong>자기결정과 사회적 역할을 확장해 나가는 과정</strong>으로 이해해야 하며, 이것이 상호의존적 성인기(Interdependent Adulthood)의 핵심 개념이다.</div>
+    </div>
+  </div>
+
+  <!-- OX 3 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">탈표준화(Destandardization) 측면에서 비장애 청년과 청년 장애인의 차이는, 비장애 청년은 선택에 의한 다양화이고 청년 장애인은 제약에 의한 비표준화라는 점이다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">⭕ 정답: O<br><br>비장애 청년도 성인 이행 경로가 탈표준화되고 있지만, 그것은 자신이 원해서 다양한 경로를 선택하는 것이다. 반면 청년 장애인은 원해서 다른 경로를 택하는 것이 아니라, <strong>제약으로 인해 비표준화된 경로를 걷게 되는</strong> 것이다.</div>
+    </div>
+  </div>
+
+  <!-- OX 4 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">2025년 기준 청년 장애인의 경제활동인구 중 고용자 비율(93.6%)은 청년 전체(93.9%)보다 현저히 낮아, 일자리에 진입한 이후 유지가 어렵다는 것이 핵심 문제다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>경제활동인구 중 고용자 비율은 청년 전체(93.9%)와 청년 장애인(93.6%)이 <strong>거의 동일</strong>하다. 따라서 일자리에 진입한 이후의 유지 문제가 아니라, <strong>경제활동 참여 자체(취업 의지, 구직 경로)가 낮은 것</strong>이 핵심 문제이다.</div>
+    </div>
+  </div>
+
+  <!-- OX 5 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">장애인 고용촉진 및 직업재활법의 의무고용률은 민간기업 기준 상시 50인 이상 사업장에 3.1%이며, 미달 시 고용부담금을 납부해야 한다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">⭕ 정답: O<br><br>상시 50인 이상 사업장의 민간기업 의무고용률은 3.1%. 초과 고용 시 고용장려금(중증 남성 70만원, 여성 90만원)을 받고, 미달 시 고용부담금을 납부한다(최대 월 2,156,880원/인).</div>
+    </div>
+  </div>
+
+  <!-- OX 6 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">비경제활동 청년 장애인이 취업하지 못하는 이유 1위는 '이동·근무 환경의 접근성 제약'이다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>비경제활동 청년 장애인의 취업 못 하는 이유 1위는 <strong>'심리적 요인(79.1%)'</strong>이다. 이 때문에 취업성공패키지는 이미 취업 의지가 있는 사람을 대상으로 하므로, 취업 의지 형성 이전 단계 지원이 없이는 패키지가 닿지 않는다는 한계가 있다.</div>
+    </div>
+  </div>
+
+  <!-- OX 7 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num ox">O/X</div>
+      <div class="q-text">Person-Family Interdependent Planning은 청년 장애인 당사자의 자기결정만을 최우선으로 두는 계획 접근법이다.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner correct">❌ 정답: X<br><br>Person-Family Interdependent Planning(사람-가족 상호의존적 계획)은 장애 당사자만을 중심에 둔 계획도, 가족의 희생에만 기대는 계획도 적절하지 않다고 본다. ① 당사자의 선택권과 자기결정, ② 가족이 감당할 수 있는 돌봄 역량, ③ 지역사회가 제공하는 자원 간 <strong>균형</strong>이 중요하다.</div>
+    </div>
+  </div>
+
+  <!-- 단답 1 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">청년 장애인의 성인기 이행을 전통적 관점으로 평가할 때의 한계 3가지(사건 중심, 개인 중심, 독립 중심)를 각각 설명하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        ① <strong>사건 중심</strong>: 독립적 거주, 취업, 결혼·부모됨과 같은 생애사건을 성인됨의 지표로 사용 → 이러한 생애사건이 지연·정체된 청년 장애인의 현실을 반영하지 못함<br><br>
+        ② <strong>개인 중심</strong>: 청년이 스스로 진로를 탐색하고 독립을 준비하는 과정에 초점 → 가족의 보호, 서비스 체계, 안전 문제와 깊이 연관된 청년 장애인의 실제 전환 과정을 설명하지 못함<br><br>
+        ③ <strong>독립 중심</strong>: '지원을 덜 받을수록 더 성인답다'는 기준은 청년 장애인의 성인기 이행을 왜곡함 → independence만으로 보지 말고 "interdependence"로 이해해야 함
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 2 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">장애인 고용촉진 및 직업재활법과 장애인 차별금지 및 권리구제법의 목적, 접근 방식, 처벌 수위를 비교 설명하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>장애인 고용촉진 및 직업재활법</strong>: 목적 = 장애인의 고용을 늘리기 위한 법. 접근 방식 = 의무·인센티브·지원 중심. 핵심 수단 = 의무고용률, 부담금, 장려금. 처벌 = 행정제재(부담금 미납 시).<br><br>
+        <strong>장애인 차별금지 및 권리구제법</strong>: 목적 = 고용 과정에서 차별하지 않기 위한 법. 접근 방식 = 금지·구제·처벌 중심. 핵심 수단 = 차별 금지, 정당한 편의제공 의무. 처벌 = 악의적 차별 시 3년 이하 징역.
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 3 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">성인이행기 관점에서 '연결된 생애(Linked Lives)'가 청년 장애인 가족에게 어떻게 적용되는지 설명하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        비장애 청년의 경우 자녀의 성인됨은 부모가 돌봄을 마무리하고 노후를 대비하는 계기가 된다. 그러나 청년 장애인의 경우 성인됨이 지연·정체되면서 <strong>부모가 돌봄을 마무리하기 어렵다</strong>.<br><br>
+        청년 장애인이 낮 시간을 안정적으로 보낼 곳이 확보되는지(직장, 복지관 등)가 짧게는 가족 구성원의 일과, 길게는 부모의 노후 준비·형제자매의 독립 등 <strong>가족 전체의 삶의 궤적에 영향</strong>을 미친다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 4 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">장애인취업성공패키지의 지원 내용(3단계)과 수당을 설명하고, 청년 장애인에 대한 한계점을 서술하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>지원 내용</strong>: 1단계(상담·계획) → 2단계(역량강화·훈련) → 3단계(고용유지)<br>
+        <strong>수당</strong>: 참여수당 15만원 / 훈련수당 일 18,000원 / 취업성공수당 최대 150만원<br><br>
+        <strong>청년 장애인에 대한 한계</strong>:<br>
+        ① 대상이 '취업 의지가 있는 구직자 전체' → 비경제활동 청년 장애인의 취업 못 하는 이유 1위가 '심리적 요인(79.1%)'인데, 취업 의지 형성 이전 단계 지원이 없으면 패키지가 닿지 않음<br>
+        ② <strong>청년 특화 커리큘럼 부재</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 5 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num sa">단답</div>
+      <div class="q-text">청년 장애인 일자리에서 '양적 지원'과 '질적 지원'의 필요성을 통계 수치를 활용하여 설명하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>양적 지원의 한계</strong>: 청년 장애인 고용률(38%)은 청년 전체(45%)보다 낮고, 경제활동률(41%)도 낮음 → 일자리 진입을 늘리는 양적 지원 필요<br><br>
+        <strong>질적 지원의 필요성</strong>: 그러나 청년 장애인 비정규직 비율(73%)은 청년 전체(46%)보다 훨씬 높고, 월평균 소득(214.6만원)은 청년 전체(300.7만원)보다 낮음 → 고용 여부를 넘어, <strong>임금 수준·고용 형태의 안정성·지속성을 높이는 질적 지원이 병행</strong>되어야 함
+      </div>
+    </div>
+  </div>
+
+  <!-- 논술 1 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num es">논술</div>
+      <div class="q-text">청년 장애인의 성인됨을 전통적 관점(독립 중심)이 아닌 '상호의존적 성인기(Interdependent Adulthood)'로 이해해야 하는 이유를 논술하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>전통적 관점의 문제</strong>: 독립적 거주·취업·결혼을 성인됨의 지표로 사용하면, 생애사건이 지연·정체된 청년 장애인은 영원히 '성인이 아닌 존재'로 평가됨. '지원을 덜 받을수록 더 성인답다'는 기준은 더욱 왜곡적임.<br><br>
+        <strong>상호의존적 성인기의 필요성</strong>:<br>
+        ① Arnett의 5가지 특성이 청년 장애인에게는 다르게 발현됨 (탐색 기회 제한, 제도적 불안정, 관계 속 자기결정, 부모 양가감정, 지원 환경 의존적 낙관성)<br>
+        ② 청년 장애인은 가족·친구·서비스 제공자와 연결된 관계망 속에서 성인기 삶을 구성함<br>
+        ③ 혼자 판단하기 어렵더라도 적절한 비계 속에서 선택·선호를 표현하고 결정 과정에 참여하는 것이 성인됨임<br>
+        ④ 성인됨은 완성된 상태가 아닌, 관계망·사회참여를 점차 확장해가는 과정임<br><br>
+        <strong>결론</strong>: Person-Family Interdependent Planning처럼, 당사자의 자기결정과 가족 역량, 지역사회 자원 간 균형을 맞추는 접근이 필요하다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 논술 2 -->
+  <div class="q-item">
+    <div class="q-front" onclick="toggleQ(this)">
+      <div class="q-num es">논술</div>
+      <div class="q-text">청년 장애인 일자리 제도의 공급측(기업)과 수요측(청년 장애인) 각각의 한계를 구체적 근거와 함께 서술하고, 개선 방향을 논술하시오.</div>
+      <div class="q-toggle">＋</div>
+    </div>
+    <div class="q-answer">
+      <div class="q-answer-inner info">
+        <strong>공급측(기업) 한계:</strong><br>
+        ① 고용부담금의 역설: 부담금 납부가 고용보다 비용이 저렴하면 고용 유인이 없음. 10년 연속 불이행 기업도 법적 처벌 없음<br>
+        ② 지원제도 인지율 붕괴: 장려금제도 73.1%, 나머지는 9.6%~19.2%로 매우 낮음 → 제도가 있어도 활용 불가<br><br>
+        <strong>수요측(청년 장애인) 한계:</strong><br>
+        ① 취업 의지 형성 이전 단계 지원 부재: 비경제활동 이유 1위 심리적 요인(79.1%) → 취업성공패키지 접근 불가<br>
+        ② 학교→직장 전환 구간의 분절: 장애학생 취업지원사업은 대학생·졸업 후 미취업자 제외, 패키지는 청년 특화 부재, 수행기관 중 특수교육기관 4.1%<br><br>
+        <strong>개선 방향:</strong><br>
+        ① 공급측: 부담금 강화 + 반복 불이행 기업 처벌 규정 도입, 지원제도 홍보 체계화<br>
+        ② 수요측: 취업 의지 형성 이전 단계 진로상담 프로그램 도입, 청년 장애인 특화 커리큘럼 개발, 학교→직장 전환 전담 지원체계 구축
+      </div>
+    </div>
+  </div>
+
+</section>
+</main>
+
+<script>
+  function toggleQ(el) {
+    const ans = el.nextElementSibling;
+    const toggle = el.querySelector('.q-toggle');
+    const isOpen = ans.classList.contains('open');
+    ans.classList.toggle('open');
+    toggle.textContent = isOpen ? '＋' : '×';
+    toggle.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+  }
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  });
+</script>
+</body>
+</html>
