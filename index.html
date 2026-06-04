@@ -29,7 +29,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         header h1 {
@@ -40,6 +40,28 @@
 
         header h1 span { color: var(--accent); }
         .subtitle { color: var(--text-muted); letter-spacing: 0.15em; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+
+        /* 섹션 타이틀 스타일 */
+        .section-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin: 50px 0 25px;
+            width: 100%;
+            max-width: 1000px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title span {
+            color: var(--accent);
+            margin-right: 12px;
+            font-size: 1.2rem;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+        }
 
         /* 카드 그리드 레이아웃 */
         .card-grid {
@@ -126,6 +148,7 @@
     <p style="margin-top: 10px; color: var(--text-muted);">기말고사 완벽 대비를 위한 학습 아카이브</p>
 </header>
 
+<h2 class="section-title"><span>01</span> 교수님 강의 수업</h2>
 <div class="card-grid">
     <a href="diversity01.html" class="portal-card">
         <span class="week-tag">WEEK 08-2</span>
@@ -133,18 +156,72 @@
         <p class="desc">Sex/Gender/Sexuality 개념 구분, Doing Gender 이론 및 한국 청년의 실증 데이터 분석</p>
         <span class="go-btn">Review Archive →</span>
     </a>
-
     <a href="diversity02.html" class="portal-card">
         <span class="week-tag">WEEK 09-1</span>
         <div class="title">청년의 사랑 1: 친밀성</div>
         <p class="desc">낭만적 사랑과 합류적 사랑, 친밀성의 구조적 변동, 데이트 비용 및 연애율 데이터 정리</p>
         <span class="go-btn">Review Archive →</span>
     </a>
-
     <a href="diversity03.html" class="portal-card">
         <span class="week-tag">WEEK 09-2</span>
         <div class="title">청년의 사랑 2: 결혼/비혼</div>
         <p class="desc">미혼·비혼 용어 쟁점, 결혼 의향 데이터 분석, 미디어의 결혼/비혼 프레이밍 비판적 이해</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+    <a href="ai_youth_family_study.html" class="portal-card">
+        <span class="week-tag">THEME LECTURE</span>
+        <div class="title">AI 시대 청년과 가족다양성</div>
+        <p class="desc">생성형 AI와의 친밀성, 탈전통화, 기술 보조 재생산 및 인간-AI 가족의 사회정책적 논점</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+</div>
+
+<h2 class="section-title"><span>02</span> 강사님 특강 수업</h2>
+<div class="card-grid">
+    <a href="immigrant_youth_family_study.html" class="portal-card">
+        <span class="week-tag">SPECIAL LECTURE</span>
+        <div class="title">이주배경 청년의 가족 이슈</div>
+        <p class="desc">출생통보제 사각지대, 미등록 이주아동의 사회적 배제 및 보편적 출생등록제의 의의</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+</div>
+
+<h2 class="section-title"><span>03</span> 조별수업운영 강의</h2>
+<div class="card-grid">
+    <a href="isolated_youth_study.html" class="portal-card">
+        <span class="week-tag">GROUP STUDY</span>
+        <div class="title">고립·은둔 청년</div>
+        <p class="desc">고립과 은둔의 개념적 차이, LCA 집단 유형화, 아동기 부정적 경험(ACE) 상흔 효과 분석</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+    <a href="young_carer_study.html" class="portal-card">
+        <span class="week-tag">GROUP STUDY</span>
+        <div class="title">가족돌봄청년 (영케어러)</div>
+        <p class="desc">성인이행기 발달과업 지연, 가족체계이론 관점의 역할 역전, 영케어러 패널티와 정책 제언</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+    <a href="lgbtq_youth_study.html" class="portal-card">
+        <span class="week-tag">GROUP STUDY</span>
+        <div class="title">성소수자(LGBTQ) 청년</div>
+        <p class="desc">성소수자(SGM) 자원 배제, 커밍아웃 유형별 특성, 내면화된 혐오 및 제도적 차별 구조</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+    <a href="neet_youth_study.html" class="portal-card">
+        <span class="week-tag">GROUP STUDY</span>
+        <div class="title">NEET / 비경제활동 청년</div>
+        <p class="desc">NEET 상태의 지속성과 반복성 문제, 청년 내부 다양성을 반영한 장기 사례관리 정책 제언</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+    <a href="youth_disability_study.html" class="portal-card">
+        <span class="week-tag">GROUP STUDY</span>
+        <div class="title">청년과 장애</div>
+        <p class="desc">고용부담금 제도의 역설, 학교-직장 전환 구간의 분절 문제, 취업성공패키지의 접근성 한계</p>
+        <span class="go-btn">Review Archive →</span>
+    </a>
+    <a href="nonkin_family_study.html" class="portal-card">
+        <span class="week-tag">GROUP STUDY</span>
+        <div class="title">비혈연 가족</div>
+        <p class="desc">의료·주거·사회보장 등 제도적 배제 사례, Doing Family 관점의 기능적 가족 인정 논의</p>
         <span class="go-btn">Review Archive →</span>
     </a>
 </div>
